@@ -1,0 +1,62 @@
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set mouse=a
+set number
+set relativenumber
+set expandtab
+
+" Plugin
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+" Add plugins here
+
+Plugin 'preservim/nerdtree'
+Plugin 'tibabit/vim-templates' " Templates
+Plugin 'romkatv/powerlevel10k'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Autocomplete parenthesis
+Plugin 'jiangmiao/auto-pairs'
+
+call vundle#end()
+filetype plugin indent on
+
+map <C-t> :NERDTree<CR>
+" End Plugings
+
+" autocmd BufNewFile *.cpp -r ~/templates/template.cpp
+
+map <F5> :<C-U>!g++ -std=c++17 -Wall -DLOCAL=1 -o %:r.o  %:r.cpp && ./%:r.o<CR>
+
+" Setting - Vim Template
+
+let g:tmpl_search_paths = ['~/templates']
+
+let g:tmpl_author_email = 'es.luismiguelbaez@gmail.com'
+
+let g:tmpl_author_name = 'Luis Miguel Baez'
+
+
+let g:root_path_vim_algorithms_template = '~/algorithms-template-cp/'
+
+" Debugging
+execute 'cnoreabbre main_to_string r ' . root_path_vim_algorithms_template . 'debugging/main_to_string.cpp'
+execute 'cnoreabbre other_to_string r ' . root_path_vim_algorithms_template . 'debugging/other_to_string.cpp'
+
+" Macros
+execute 'cnoreabbrev main_macros r ' . root_path_vim_algorithms_template . 'macros/main_macros.cpp'
+execute 'cnoreabbrev other_macros r ' . root_path_vim_algorithms_template . 'macros/other_macros.cpp'
+
+" Geometry
+" 2D
+execute 'cnoreabbrev main_2d_geometry r ' . root_path_vim_algorithms_template . 'geometry/main_2d_geometry.cpp'
+
+nmap <C-k> :TTA<cr>
