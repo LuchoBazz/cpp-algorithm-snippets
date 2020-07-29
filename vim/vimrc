@@ -48,15 +48,17 @@ let g:tmpl_author_name = 'Luis Miguel Baez'
 let g:root_path_vim_algorithms_template = '~/algorithms-template-cp/'
 
 " Debugging
-execute 'cnoreabbre main_to_string r ' . root_path_vim_algorithms_template . 'debugging/main_to_string.cpp'
-execute 'cnoreabbre other_to_string r ' . root_path_vim_algorithms_template . 'debugging/other_to_string.cpp'
+execute 'cnoreabbre to_string_main r ' . root_path_vim_algorithms_template . 'debugging/to_string_main.cpp'
+execute 'cnoreabbre to_string_other r ' . root_path_vim_algorithms_template . 'debugging/to_string_other.cpp'
 
 " Macros
-execute 'cnoreabbrev main_macros r ' . root_path_vim_algorithms_template . 'macros/main_macros.cpp'
-execute 'cnoreabbrev other_macros r ' . root_path_vim_algorithms_template . 'macros/other_macros.cpp'
+execute 'cnoreabbrev macros_main r ' . root_path_vim_algorithms_template . 'macros/macros_main.cpp'
+execute 'cnoreabbrev macros_pairs r ' . root_path_vim_algorithms_template . 'macros/macros_pairs.cpp'
+execute 'cnoreabbrev macros_numerical r ' . root_path_vim_algorithms_template . 'macros/macros_numerical.cpp'
+execute 'cnoreabbrev macros_precise r ' . root_path_vim_algorithms_template . 'macros/macros_precise.cpp'
 
 " Geometry
 " 2D
-execute 'cnoreabbrev main_2d_geometry r ' . root_path_vim_algorithms_template . 'geometry/main_2d_geometry.cpp'
+execute 'cnoreabbrev 2d_geometry_main r ' . root_path_vim_algorithms_template . 'geometry/2d_geometry_main.cpp'
 
 nmap <C-k> :TTA<cr>
