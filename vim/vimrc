@@ -36,6 +36,8 @@ map <C-t> :NERDTree<CR>
 
 map <F5> :<C-U>!g++ -std=c++17 -Wall -DLOCAL=1 -o %:r.o  %:r.cpp && ./%:r.o<CR>
 
+map <F6> :<C-U>!g++ -std=c++17 -DLOCAL=1 -o ~/running.cpp && ~/running.o '%:p' 'A1' 'A2'<CR>
+
 " Setting - Vim Template
 
 let g:tmpl_search_paths = ['~/templates']
