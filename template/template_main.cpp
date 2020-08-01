@@ -13,7 +13,7 @@ using namespace std;
 #define ll    long long
 
 const int MOD = int(1e9+7);
-const ll oo  = (ll)(1e9+20);
+const int oo  = (int)(1e9+20);
 const ll lloo  = (ll)(1e18)+40;
 
 class Task {

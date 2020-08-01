@@ -1,0 +1,67 @@
+snippet for "for autocomplete"
+for(int ${1:i} = 0; $1 < ${2:n}; ++$1){
+	$3
+}
+endsnippet
+
+snippet while "while autocomplete"
+while($1) {
+	$2
+}
+endsnippet
+
+snippet cout "cout autocomplete"
+cout << $1 << endl;
+endsnippet
+
+snippet sort "sort autocomplete"
+sort($1.begin(), $1.end());
+endsnippet
+
+snippet sortr "sort reverse autocomplete"
+sort($1.rbegin(), $1.rend());
+endsnippet
+
+snippet allv "references autocomplete" i
+$1.begin(), $1.end()
+endsnippet
+
+snippet allr "references autocomplete" i
+$1.rbegin(), $1.rend()
+endsnippet
+
+snippet uint "unsigned int autocomplete" i
+unsigned int $1
+endsnippet
+
+snippet ll "long long autocomplete" i
+long long $1
+endsnippet
+
+snippet ull "unsigned long long autocomplete" i
+unsigned long long $1
+endsnippet
+
+snippet ld "long double autocomplete" i
+long double $1
+endsnippet
+
+
+snippet pair "pair autocomplete"
+pair<${1:int}, $1> 
+endsnippet
+
+snippet tuple "tuple autocomplete"
+tuple<${1:int}, $1, $1> 
+endsnippet
+
+snippet PB "push_back autocomplete" i
+push_back($1);
+endsnippet
+
+snippet main "main autocomplete"
+auto main() -> int {
+	$1
+	return 0;
+}
+endsnippet
