@@ -31,21 +31,20 @@ $1.rbegin(), $1.rend()
 endsnippet
 
 snippet uint "unsigned int autocomplete" i
-unsigned int $1
+uint32_t $1
 endsnippet
 
 snippet ll "long long autocomplete" i
-long long $1
+int64_t $1
 endsnippet
 
 snippet ull "unsigned long long autocomplete" i
-unsigned long long $1
+uint64_t $1
 endsnippet
 
 snippet ld "long double autocomplete" i
 long double $1
 endsnippet
-
 
 snippet pair "pair autocomplete"
 pair<${1:int}, $1> 
@@ -57,6 +56,14 @@ endsnippet
 
 snippet PB "push_back autocomplete" i
 push_back($1);
+endsnippet
+
+snippet LB "lower_bound autocomplete" i
+lower_bound($1);
+endsnippet
+
+snippet UB "upper_bound autocomplete" i
+upper_bound($1);
 endsnippet
 
 snippet main "main autocomplete"
