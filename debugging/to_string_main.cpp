@@ -1,4 +1,3 @@
-
 #define debug(...) "[" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
 
 string to_string(string s) {

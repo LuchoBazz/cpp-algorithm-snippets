@@ -8,32 +8,27 @@
 using namespace std;
 
 #define endl '\n'
-#define precise(n,k) fixed << setprecision(k) << n
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
-
-#define uint  unsigned int
-#define ll    long long
-#define ull   unsigned long long
-#define ld    long double
+#define ll    int64_t
 
 const int MOD = int(1e9+7);
-const ll oo  = (ll)(1e9+20);
+const int oo  = (int)(1e9+20);
 const ll lloo  = (ll)(1e18)+40;
 
 class Task {
 public:
     
-    ll solve(istream &in, ostream &out) {
+    ll solveOne(istream &in, ostream &out) {
          {{CURSOR}}
         return -1;  
     }
     
-    void run(istream &in, ostream &out) {
+    void solve(istream &in, ostream &out) {
         int t;
         in >> t;
         while(t--) {
-            out << solve(in, out) << endl;
+            out << solveOne(in, out) << endl;
         }
     }
 };
@@ -46,7 +41,6 @@ auto main() -> int {
     Task solver;
     istream &in(cin);
     ostream &out(cout);
-    cout << solver.solve(in, out) << endl;
-    //solver.run(in, out);
+    solver.solve(in, out);
     return 0;
 }
