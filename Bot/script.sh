@@ -51,9 +51,9 @@ for i in *.in; do
     
     # Check TLE and Show execution time
     if [ "$END_TIME" -lt 2000 ]; then
-        echo "✔️  ${green_fill}Finished in : ${reset}${yellow_fill}$END_TIME${reset}${green_fill} ms$reset"
+        echo "🌀 ${green_fill}Finished in : ${reset}${yellow_fill}$END_TIME${reset}${green_fill} ms$reset"
     else
-        echo "❌ ${red_fill}Time Limit Exceeded : ${reset}${yellow_fill}$END_TIME${reset}${red_fill} ms$reset"
+        echo "⛔ ${red_fill}Time Limit Exceeded : ${reset}${yellow_fill}$END_TIME${reset}${red_fill} ms$reset"
     fi
     echo ""
     echo "${green_bold}≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡${reset}"
