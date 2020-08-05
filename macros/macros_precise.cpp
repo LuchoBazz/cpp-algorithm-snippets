@@ -1,0 +1,1 @@
+#define precise(n,k) fixed << setprecision(k) << n
