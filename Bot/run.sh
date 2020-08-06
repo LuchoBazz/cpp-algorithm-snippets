@@ -2,6 +2,8 @@
 
 # @author  : Luis Miguel Baez <es.luismiguelbaez@gmail.com>
 
-./script.sh "$1" "$2"
+# Flags
+
+./script.sh "$1" "$2" "$3"
 
 ./script_diff.sh "$1"

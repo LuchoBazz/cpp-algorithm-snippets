@@ -16,6 +16,16 @@ yellow_bold="\033[49;33m";
 white_fill="\033[7;49;20m";
 white_bold="\033[49;20m";
 
+# Flags
+isLocal="local"
+
+for arg in "$@"
+do
+    if [ "$arg" = "--judge"  ]; then
+        isLocal="judge"
+    fi
+done
+
 # check if it is current directory
 if [ "$1" = "--current-dir" ]; then
     path=""
@@ -24,11 +34,18 @@ else
     path=$1
 fi
 
+# Delete binaries
+rm -f "$2.o"
+
 # Username
 echo "\n📌 ${red_bold}@SorKierkegaard${reset}\n"
 
 # C++ Compiler
-g++ -std=c++17 -o "$2.o" "$2.cpp"
+if [ "$isLocal" = "local" ]; then
+    g++ -std=c++17 -Wextra -O2 -DLOCAL=1 -o "$2.o" "$2.cpp"
+elif [ "$isLocal" = "judge" ]; then
+    g++ -std=c++17 -DONLINE_JUDGE=1 -o "$2.o" "$2.cpp"
+fi
 
 # Execute all testcases
 for i in *.in; do
@@ -42,6 +59,7 @@ for i in *.in; do
     echo "-$white_fill"
     # Execute Testcase
     timeout 3s ./$2.o < $i > my${i%%.in}.out
+
     END_TIME=$((($(date +%s%N) - $START_TIME)/1000000));
     
     # Show testcase output
