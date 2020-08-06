@@ -9,3 +9,27 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 * **Debugging**
     * `to_string_main` - metodo to_string de los principales tipos de datos y estructuras de datos estandard
     * `to_string_other` - metodo to_string de pairs, tuple y bitset
+
+* **Geometry**
+    * `2d_geometry_main` - todos los templates de geometria en 2D
+
+* **Macros**
+    * `macros_main` - Macros principales del template
+    * `macros_numerical` - Macros para acortar los tipos de datos numericos
+    * `macros_pairs` - Macros para acortar las tuples y pairs
+    * `macros_precise` - Macros para acortar la precision de decimales
+
+* **Math**
+    * `math_check_prime` - Test de Primalidad de un numero
+    * `math_divisors` - Obtener todos los divisores de un numero
+    * `math_gcd` - Maximo comun divisor
+    * `math_lcm` - Minimo comun multiplo
+    * `math_prime_factors` - Obtener los factores primos de un numero
+    * `math_sieve` - Todos los numeros primos en un rango dado
+
+* **Query Range**
+    * `query_range_segment_tree` - Estructura de datos Segment Tree
+
+* **Template**
+    * `template_main` - C++ Template
+ 
