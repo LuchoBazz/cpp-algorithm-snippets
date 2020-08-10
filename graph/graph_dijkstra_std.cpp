@@ -7,11 +7,11 @@ vector <T> dijkstra(const graph<T> &g, int start) {
     Q.push({(T)0, start});
     while (!Q.empty()) {
         int to = Q.top().second; Q.pop();
-        for (pair<T, int> neighbour: g.adj[to]) {
-            T newCost = dist[to] + neighbour.first;
-            if (newCost < dist[neighbour.second]) {
-                Q.push({newCost, neighbour.second});
-                dist[neighbour.second] = newCost;
+        for (pair<T, int> neighbor: g.adj[to]) {
+            T newCost = dist[to] + neighbor.first;
+            if (newCost < dist[neighbor.second]) {
+                Q.push({newCost, neighbor.second});
+                dist[neighbor.second] = newCost;
             }
         }
     }

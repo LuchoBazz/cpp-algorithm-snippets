@@ -30,6 +30,13 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 * **Query Range**
     * `query_range_segment_tree` - Estructura de datos Segment Tree
 
+* **Graph**
+    * `graph_graph` - Clase padre de la representacion de un grafo
+    * `graph_digraph` - Clase hijo que representa a un grafo dirigido
+    * `graph_undigraph` - Clase hijo que representa a un grafo no dirigido
+    * `graph_dijkstra_std` - Algoritmo de Dijkstra
+    * `graph_dsu` - Estructura de datos Disjoint Set Union
+ 
 * **Template**
     * `template_main` - C++ Template
  
