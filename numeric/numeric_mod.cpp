@@ -34,7 +34,7 @@ T inverse(T a) {
     if (a < 0) a += MOD;
     T b = MOD, u = 0, v = 1;
     while (a) {
-        int t = b / a;
+        t t = b / a;
         b -= t * a; swap(a, b);
         u -= t * v; swap(u, v);
     }
@@ -43,6 +43,7 @@ T inverse(T a) {
     return u;
 }
 
+template<typename T>
 T divi(T a, T b) {
     return mul(a ,  inverse(b));
 }

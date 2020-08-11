@@ -37,7 +37,11 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `graph_undigraph` - Clase hijo que representa a un grafo no dirigido
     * `graph_dijkstra_std` - Algoritmo de Dijkstra
     * `graph_dsu` - Estructura de datos Disjoint Set Union
- 
+
+* **Numeric**
+    * `numeric_mint` - Template Completo de Aritmetica Modular
+    * `numeric_mod` - Template de Aritmetica Modular Basica
+
 * **Template**
     * `template_main` - C++ Template
  
