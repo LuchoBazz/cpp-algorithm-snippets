@@ -15,9 +15,10 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **Macros**
     * `macros_main` - Macros principales del template
-    * `macros_numerical` - Macros para acortar los tipos de datos numericos
+    * `macros_numeric` - Macros para acortar los tipos de datos numericos
     * `macros_pairs` - Macros para acortar las tuples y pairs
     * `macros_precise` - Macros para acortar la precision de decimales
+    * `macros_infinity` - Macros que define las constantes de infinito
 
 * **Math**
     * `math_check_prime` - Test de Primalidad de un numero
