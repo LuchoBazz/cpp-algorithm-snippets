@@ -1,50 +1,48 @@
 const int MOD = int(1e9+7);
 
 template<typename T>
-T sub(T a, T b, T mod) {
-    return ((a-b)%mod + mod) % mod;
+T sub(T a, T b) {
+    return ((a-b)%MOD + MOD) % MOD;
 }
 
 template<typename T>
-T add(T a, T b, T mod) {
-    return ((a%mod) + (b%mod)) % mod;
+T add(T a, T b) {
+    return ((a%MOD) + (b%MOD)) % MOD;
 }
 
 template<typename T>
-T mul(T a, T b, T mod) {
-    return ((a%mod) * (b%mod)) % mod;
+T mul(T a, T b) {
+    return ((a%MOD) * (b%MOD)) % MOD;
 }
 
 template<typename T>
-T power(T a, T b, T mod) {
+T power(T a, T b) {
     T answer = (T)1;
     while (b > 0) {
         if (b & 1) {
-            answer = mul(answer, a, mod);
+            answer = mul(answer, a);
         }
-        a = mul(a, a, mod);
+        a = mul(a, a);
         b >>= 1;
     }
     return answer;
 }
 
 template<typename T>
-T inverse(T a, T mod) {
-    a %= mod;
-    if (a < 0) a += mod;
-    T b = mod, u = 0, v = 1;
+T inverse(T a) {
+    a %= MOD;
+    if (a < 0) a += MOD;
+    T b = MOD, u = 0, v = 1;
     while (a) {
         int t = b / a;
         b -= t * a; swap(a, b);
         u -= t * v; swap(u, v);
     }
     assert(b == 1);
-    if (u < 0) u += mod;
+    if (u < 0) u += MOD;
     return u;
 }
 
-
-template<typename T>
-T div(T a, T b, T mod) {
-    return mul(a ,  inverse(b, mod), mod);
+T divi(T a, T b) {
+    return mul(a ,  inverse(b));
 }
