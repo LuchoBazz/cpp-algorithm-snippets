@@ -2,9 +2,7 @@
 
 Este repositorio contiene templates de algorimtos y estructuras de datos populares codificados en C++ para usar en competencias de programación.
 
-## Content
-
-`P` - Principiante, `I` - Intermedio, `A` - Avanzado
+## Contenido
 
 * **Debugging**
     * `to_string_main` - metodo to_string de los principales tipos de datos y estructuras de datos estandard
@@ -44,4 +42,20 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **Template**
     * `template_main` - C++ Template
+
+## Creditos
  
+* **Debugging**
+    * Algunos componentes del codigo fuente de este folder fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `misc > debug.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+* **Graph**
+    * Algunos componentes del codigo fuente de `graph/graph_digraph.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `graph > digraph.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+    * Algunos componentes del codigo fuente de `graph/graph_graph.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `graph > graph.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+    * Algunos componentes del codigo fuente de `graph/undigraph.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `graph > undigraph.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+* **Numeric**
+    * Algunos componentes del codigo fuente de `numeric/numeric_mint.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `numeric > mint.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+    * Algunos componentes del codigo fuente de `numeric/bitint.cpp` fué extraido de [indy256/codelibrary](https://github.com/indy256/codelibrary) `numeric > bitint.cpp` ➡️ Por **Andrei Navumenka**
