@@ -17,6 +17,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `macros_pairs` - Macros para acortar las tuples y pairs
     * `macros_precise` - Macros para acortar la precision de decimales
     * `macros_infinity` - Macros que define las constantes de infinito
+    * `macros_loops` - Macros para acortar los loops
 
 * **Math**
     * `math_check_prime` - Test de Primalidad de un numero
