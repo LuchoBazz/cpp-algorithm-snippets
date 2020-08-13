@@ -10,11 +10,11 @@ using namespace std;
 #define endl '\n'
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
+#define ms(arr, value) memset(arr, value, sizeof arr)
 #define ll    int64_t
 
-const int MOD = int(1e9+7);
-const int oo  = (int)(1e9+20);
-const ll lloo  = (ll)(1e18)+40;
+const int oo = int(1e9);
+const ll lloo  = (ll)(1e18);
 
 class Task {
 public:

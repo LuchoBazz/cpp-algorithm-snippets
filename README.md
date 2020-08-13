@@ -2,9 +2,7 @@
 
 Este repositorio contiene templates de algorimtos y estructuras de datos populares codificados en C++ para usar en competencias de programación.
 
-## Content
-
-`P` - Principiante, `I` - Intermedio, `A` - Avanzado
+## Contenido
 
 * **Debugging**
     * `to_string_main` - metodo to_string de los principales tipos de datos y estructuras de datos estandard
@@ -15,9 +13,10 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **Macros**
     * `macros_main` - Macros principales del template
-    * `macros_numerical` - Macros para acortar los tipos de datos numericos
+    * `macros_numeric` - Macros para acortar los tipos de datos numericos
     * `macros_pairs` - Macros para acortar las tuples y pairs
     * `macros_precise` - Macros para acortar la precision de decimales
+    * `macros_infinity` - Macros que define las constantes de infinito
 
 * **Math**
     * `math_check_prime` - Test de Primalidad de un numero
@@ -36,7 +35,24 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `graph_undigraph` - Clase hijo que representa a un grafo no dirigido
     * `graph_dijkstra_std` - Algoritmo de Dijkstra
     * `graph_dsu` - Estructura de datos Disjoint Set Union
- 
+
+* **Numeric**
+    * `numeric_mint` - Template Completo de Aritmetica Modular
+    * `numeric_mod` - Template de Aritmetica Modular Basica
+    * `numeric_bigint` - Template Completo para hacer operaciones numericas con numeros muy grandes
+
 * **Template**
     * `template_main` - C++ Template
+
+## Creditos
  
+* **Debugging**
+    * Algunos componentes del codigo fuente de este folder fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `misc > debug.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+* **Graph**
+    * Algunos componentes del codigo fuente de `graph/graph_digraph.cpp`, `graph/graph_graph.cpp` y `graph/undigraph.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `graph > ...` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+* **Numeric**
+    * Algunos componentes del codigo fuente de `numeric/numeric_mint.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `numeric > mint.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+    * Algunos componentes del codigo fuente de `numeric/bitint.cpp` fué extraido de [indy256/codelibrary](https://github.com/indy256/codelibrary) `numeric > bitint.cpp` ➡️ Por **Andrei Navumenka**
