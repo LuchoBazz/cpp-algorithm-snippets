@@ -39,6 +39,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 * **Numeric**
     * `numeric_mint` - Template Completo de Aritmetica Modular
     * `numeric_mod` - Template de Aritmetica Modular Basica
+    * `numeric_bigint` - Template Completo para hacer operaciones numericas con numeros muy grandes
 
 * **Template**
     * `template_main` - C++ Template
@@ -49,11 +50,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * Algunos componentes del codigo fuente de este folder fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `misc > debug.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
 
 * **Graph**
-    * Algunos componentes del codigo fuente de `graph/graph_digraph.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `graph > digraph.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
-
-    * Algunos componentes del codigo fuente de `graph/graph_graph.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `graph > graph.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
-
-    * Algunos componentes del codigo fuente de `graph/undigraph.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `graph > undigraph.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+    * Algunos componentes del codigo fuente de `graph/graph_digraph.cpp`, `graph/graph_graph.cpp` y `graph/undigraph.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `graph > ...` ➡️ Por **Gennady Korotkevich (Tourist)**
 
 * **Numeric**
     * Algunos componentes del codigo fuente de `numeric/numeric_mint.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `numeric > mint.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
