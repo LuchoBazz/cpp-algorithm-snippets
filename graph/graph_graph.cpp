@@ -6,10 +6,16 @@ public:
         int to;
         T cost;
     };
+    struct link {
+        int to;
+        T cost;
+        bool operator>(const link& other) const {return cost > other.cost;}
+        bool operator<(const link& other) const {return cost < other.cost;}
+    };
     vector<edge> edges;
-    vector<vector<pair<T, int>>> adj;
+    vector<vector<link>> adj;
     int n;
-    graph(int _n) : n(_n) {
+    graph(int sz) : n(sz) {
         adj.resize(n);
     }
     virtual void add(int from, int to, T cost) = 0;

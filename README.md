@@ -17,6 +17,8 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `macros_pairs` - Macros para acortar las tuples y pairs
     * `macros_precise` - Macros para acortar la precision de decimales
     * `macros_infinity` - Macros que define las constantes de infinito
+    * `macros_loops` - Macros para acortar los loops
+    * `macros_min_max` - funciones min y max por referencia
 
 * **Math**
     * `math_check_prime` - Test de Primalidad de un numero
@@ -35,6 +37,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `graph_undigraph` - Clase hijo que representa a un grafo no dirigido
     * `graph_dijkstra_std` - Algoritmo de Dijkstra
     * `graph_dsu` - Estructura de datos Disjoint Set Union
+    * `graph_toposort_dfs` - Algoritmo de ordenamiento topologico usando dfs
 
 * **Numeric**
     * `numeric_mint` - Template Completo de Aritmetica Modular
