@@ -1,7 +1,3 @@
-// Usage:
-//    DisjointSet dsu(n);
-//    dsu.join(0, 2); 
-
 class DisjointSet {
     vector<int> parent;
     vector<int> sizes;
@@ -45,3 +41,6 @@ public:
         return comps;
     }
 };
+// Usage:
+//    DisjointSet dsu(n);
+//    dsu.unite(0, 2); 
