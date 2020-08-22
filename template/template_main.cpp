@@ -1,6 +1,6 @@
 /**
- * @author      : {{NAME}} <{{EMAIL}}>
- * @created     : {{DAY_FULL}} {{MONTH_FULL}} {{DATE}}, {{YEAR}}
+ * @author      : Luis Miguel Baez <es.luismiguelbaez@gmail.com>
+ * @created     : `!v strftime("%B %d, %Y")`
  */
 
 #include <bits/stdc++.h>
@@ -21,7 +21,7 @@ class Task {
 public:
     
     void solveOne(istream &in, ostream &out) {
-         {{CURSOR}}
+        
     }
     
     void solve(istream &in, ostream &out) {
