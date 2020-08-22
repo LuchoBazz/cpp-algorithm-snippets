@@ -44,6 +44,9 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `numeric_mod` - Template de Aritmetica Modular Basica
     * `numeric_bigint` - Template Completo para hacer operaciones numericas con numeros muy grandes
 
+* **String**
+    * `string_suffix_array` - Algoritmo de Suffix Array
+
 * **Template**
     * `template_main` - C++ Template
 
@@ -59,3 +62,6 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * Algunos componentes del codigo fuente de `numeric/numeric_mint.cpp` fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `numeric > mint.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
 
     * Algunos componentes del codigo fuente de `numeric/bitint.cpp` fué extraido de [indy256/codelibrary](https://github.com/indy256/codelibrary) `numeric > bitint.cpp` ➡️ Por **Andrei Navumenka**
+
+* **String**
+    * Algunos componentes del codigo fuente de `string/string_suffix_array.cpp` fué extraido de [ekzhang/library](https://github.com/ekzhang/library) `suffix_array.cpp` ➡️ Por **Eric Zhang**

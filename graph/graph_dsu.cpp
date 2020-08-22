@@ -1,25 +1,24 @@
 class DisjointSet {
-    vector<int> parent;
+    vector<int> parents;
     vector<int> sizes;
     int comps;
 public:
-    DisjointSet(int n): parent(n), sizes(n) {
+    DisjointSet(int n): parents(n), sizes(n) {
         comps = n;
         for(int i = 0; i < n; ++i) {
-            parent[i] = i;
+            parents[i] = i;
             sizes[i] = 1;
         }
     }
 
     int find(int x) { 
-        if (parent[x] != x) { 
-            parent[x] = find(parent[x]); 
+        if (parents[x] != x) { 
+            parents[x] = find(parents[x]); 
         } 
-        return parent[x]; 
+        return parents[x]; 
     }
 
-
-    void unite(int left, int left) { 
+    void unite(int left, int right) { 
         int x = find(left);
         int y = find(right);
         if(x == y) return;
@@ -30,7 +29,7 @@ public:
             sizes[x] += sizes[y];
             parents[y] = x;
         }
-        this.comps--;
+        comps--;
     };
 
     bool united(int left, int right) {

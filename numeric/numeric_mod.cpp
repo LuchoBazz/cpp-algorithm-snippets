@@ -34,7 +34,7 @@ T inverse(T a) {
     if (a < 0) a += MOD;
     T b = MOD, u = 0, v = 1;
     while (a) {
-        t t = b / a;
+        T t = b / a;
         b -= t * a; swap(a, b);
         u -= t * v; swap(u, v);
     }
