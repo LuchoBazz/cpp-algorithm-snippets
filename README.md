@@ -40,6 +40,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `graph_dsu` - Estructura de datos Disjoint Set Union
     * `graph_toposort_dfs` - Algoritmo de ordenamiento topologico usando dfs
     * `graph_kruskal` - Algoritmo de Kruskal (Minimo Arbol de Expansión)
+    * `graph_scc_kosaraju` - Algoritmo de Kosaraju para buscar los Componentes fuertemente conexos (SCC)
 
 * **Numeric**
     * `numeric_mint` - Template Completo de Aritmetica Modular
