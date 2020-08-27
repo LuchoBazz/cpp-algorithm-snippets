@@ -1,6 +1,3 @@
-// usage:
-//   int number = 100;
-//   vector<int> ans = divisors<int>(number);
 template<class T>
 vector<T> divisors(T number) {
     vector<T> solutions;
@@ -20,4 +17,7 @@ vector<T> divisors(T number) {
         }
     }
     return solutions;
-} 
+}
+// usage:
+//   int number = 100;
+//   vector<int> ans = divisors<int>(number);

@@ -1,6 +1,3 @@
-// usage:
-//   bool ans = isPrime(number);
-
 template<class T>
 bool isPrime(T number) {
     if(number <= 0) return false;
@@ -13,3 +10,5 @@ bool isPrime(T number) {
     }
     return true;
 }
+// usage:
+//   bool ans = isPrime(number);

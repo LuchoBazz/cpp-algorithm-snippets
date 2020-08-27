@@ -18,10 +18,10 @@ public:
         return parents[x]; 
     }
 
-    void unite(int left, int right) { 
+    bool unite(int left, int right) { 
         int x = find(left);
         int y = find(right);
-        if(x == y) return;
+        if(x == y) return false;
         if(sizes[x] < sizes[y]) {
             sizes[y] += sizes[x];
             parents[x] = y;
@@ -30,6 +30,7 @@ public:
             parents[y] = x;
         }
         comps--;
+        return true;
     };
 
     bool united(int left, int right) {
@@ -42,4 +43,5 @@ public:
 };
 // Usage:
 //    DisjointSet dsu(n);
-//    dsu.unite(0, 2); 
+//    dsu.unite(.., ..);
+//    dsu.united(.., ..);
