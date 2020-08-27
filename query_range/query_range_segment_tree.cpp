@@ -1,9 +1,3 @@
-// usage:
-//  auto func = [&](int i, int j) -> int { return max(i, j); };
-//  SegmentTree<int, decltype(func)> st(values, -oo, func);
-// or:
-// SegmentTree<int> st(values, -oo, [&](int x, int y) -> int {return max(x, y);});
-
 template <typename T, class F = function<T(const T&, const T&)>>
 class SegmentTree {
     int NEUTRAL;
@@ -47,3 +41,8 @@ public:
         return ans;
     }
 };
+// usage:
+//  auto func = [&](int i, int j) -> int { return max(i, j); };
+//  SegmentTree<int, decltype(func)> st(values, -oo, func);
+// or:
+// SegmentTree<int> st(values, -oo, [&](int x, int y) -> int {return max(x, y);});

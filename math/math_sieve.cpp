@@ -1,8 +1,3 @@
-// usage:
-//   int n = 100;
-//   vector<int> primes = sieve<int>(n);
-//   {2, 3, 5, 7, ... 83, 89, 97}
-
 template<class T>
 vector<T> sieve(T number) {
     vector<bool> is_prime(number+1, false);
@@ -22,3 +17,7 @@ vector<T> sieve(T number) {
     }
     return primes;
 }
+// usage:
+//   int n = 100;
+//   vector<int> primes = sieve<int>(n);
+//   {2, 3, 5, 7, ... 83, 89, 97}

@@ -23,7 +23,8 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 * **Math**
     * `math_check_prime` - Test de Primalidad de un numero
     * `math_divisors` - Obtener todos los divisores de un numero
-    * `math_gcd` - Maximo comun divisor
+    * `math_gcd_recursive` - Maximo comun divisor (Implementación Recursiva)
+    * `math_gcd_iterative` - Maximo comun divisor (Implementación Iterativa)
     * `math_lcm` - Minimo comun multiplo
     * `math_prime_factors` - Obtener los factores primos de un numero
     * `math_sieve` - Todos los numeros primos en un rango dado
@@ -38,6 +39,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `graph_dijkstra_std` - Algoritmo de Dijkstra
     * `graph_dsu` - Estructura de datos Disjoint Set Union
     * `graph_toposort_dfs` - Algoritmo de ordenamiento topologico usando dfs
+    * `graph_kruskal` - Algoritmo de Kruskal (Minimo Arbol de Expansión)
 
 * **Numeric**
     * `numeric_mint` - Template Completo de Aritmetica Modular

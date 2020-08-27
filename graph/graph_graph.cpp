@@ -1,19 +1,23 @@
 template <typename T>
+struct edge {
+    int from;
+    int to;
+    T cost;
+};
+
+template <typename T>
+struct link {
+    int to;
+    T cost;
+    bool operator>(const link& other) const {return cost > other.cost;}
+    bool operator<(const link& other) const {return cost < other.cost;}
+};
+
+template <typename T>
 class graph {
 public:
-    struct edge {
-        int from;
-        int to;
-        T cost;
-    };
-    struct link {
-        int to;
-        T cost;
-        bool operator>(const link& other) const {return cost > other.cost;}
-        bool operator<(const link& other) const {return cost < other.cost;}
-    };
-    vector<edge> edges;
-    vector<vector<link>> adj;
+    vector<edge<T>> edges;
+    vector<vector<link<T>>> adj;
     int n;
     graph(int sz) : n(sz) {
         adj.resize(n);

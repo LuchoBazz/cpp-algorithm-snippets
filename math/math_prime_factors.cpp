@@ -1,9 +1,3 @@
-// usage:
-//   int n = 100;
-//   vector<int> factors = primeFactors<int>(n);
-//   {2, 2, 5, 5}
-//   2*2*5*5 = 2^2 * 5^2 = 100
-
 template<class T>
 vector<T> primeFactors(T number)  {
     vector<T> factors;
@@ -22,3 +16,8 @@ vector<T> primeFactors(T number)  {
     }
     return factors;
 }
+// usage:
+//   int n = 100;
+//   vector<int> factors = primeFactors<int>(n);
+//   {2, 2, 5, 5}
+//   2*2*5*5 = 2^2 * 5^2 = 100

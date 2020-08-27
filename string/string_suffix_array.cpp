@@ -45,6 +45,7 @@ vector<int> lcp_array(const vector<int>& sa, const T &S) {
     }
     return lcp;
 }
+/// Complexity: O(|N|*log(|N|))
 // Usage:
 //   Index:                012345 
 //   string some_string = "banana";
