@@ -9,7 +9,10 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `to_string_other` - metodo to_string de pairs, tuple y bitset
 
 * **Geometry**
-    * `2d_geometry_main` - todos los templates de geometria en 2D
+    * `2d_geometry_point` - Estructura Point
+    * `2d_geometry_area` - Algoritmo que calcula el area de un poligono
+    * `2d_geometry_perimeter` - Algoritmo que calcula el perimetro de un poligono
+    * `2d_geometry_convex_hull_mc` - Algoritmo de Convex Hull (Monotone Chain)
 
 * **Macros**
     * `macros_main` - Macros principales del template
