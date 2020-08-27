@@ -10,3 +10,5 @@ floating_t area(vector<Point> points, bool sign = false) {
     // ans < 0  (clockwise): Agujas del Reloj
     return (!sign)? abs(ans):ans;
 }
+// Time Complexity: O(N), Space Complexity: O(1)
+// N: Number of Points

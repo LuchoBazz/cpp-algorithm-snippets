@@ -7,3 +7,5 @@ floating_t perimeter(vector<Point> points) {
     }
     return ans;
 }
+// Time Complexity: O(N), Space Complexity: O(1)
+// N: Number of Points

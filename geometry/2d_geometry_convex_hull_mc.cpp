@@ -24,3 +24,5 @@ vector<Point> convex_hull(vector<Point> points) {
     if(hull.size()==2 && hull[0]==hull[1]) hull.pop_back();
     return hull;
 }
+// Time Complexity: O(N*log2(N)), Space Complexity: O(N)
+// N: Number of Points
