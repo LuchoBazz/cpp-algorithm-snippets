@@ -52,6 +52,8 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **String**
     * `string_suffix_array` - Algoritmo de Suffix Array
+    * `string_kmp` - Algoritmo Knuth-Morris-Pratt (KMP)
+    * `string_lps` - Mas grande prefijo que es tambien sufijo (Longest prefix suffix)
 
 * **Template**
     * `template_main` - C++ Template
