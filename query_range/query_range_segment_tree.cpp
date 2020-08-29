@@ -1,14 +1,13 @@
 template <typename T, class F = function<T(const T&, const T&)>>
 class SegmentTree {
-    int NEUTRAL;
+    T NEUTRAL;
     int n;
-    vector<int> tree;
+    vector<T> tree;
     F func;
 public:
     
-    SegmentTree(vector<int> values, int neutral, const F& f) : func(f) {
+    SegmentTree(const vector<T> &values, T neutral, const F& f) : func(f) {
         NEUTRAL = neutral;
-        
         n = values.size();
         tree.resize(n*2);
         // Build
@@ -20,7 +19,7 @@ public:
         }
     }
     
-    void update(int index, int value) {
+    void update(int index, T value) {
         tree[index+n] = value;
         index = index + n;
         for (int i = index; i > 1; i >>= 1){
@@ -28,8 +27,8 @@ public:
         }
     }
     
-    int query(int l, int r) {
-        int ans = NEUTRAL;
+    T query(int l, int r) {
+        T ans = NEUTRAL;
         for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
             if (l&1) {
                 ans = func(ans, tree[l++]);
