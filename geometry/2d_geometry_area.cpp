@@ -1,6 +1,7 @@
 // Area of a Polygon
-floating_t area(vector<Point> points, bool sign = false) {
-    int n = points.size();
+template<typename T>
+floating_t area(Polygon<T> points, bool sign = false) {
+    int n = int(points.size());
     floating_t ans = 0.0;
     for(int i = 0; i < n; ++i) {
         ans += points[i].cross(points[(i + 1) % n]);

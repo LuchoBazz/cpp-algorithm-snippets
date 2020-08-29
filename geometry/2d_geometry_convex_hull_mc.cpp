@@ -1,8 +1,9 @@
 // Convex Hull - Monotone Chain
-vector<Point> convex_hull(vector<Point> points) {
+template<typename T>
+Polygon<T> convex_hull(Polygon<T> points) {
     int n = int(points.size());
     if(n <= 1) return points;
-    vector<Point> hull;
+    vector<Point<T>> hull;
     // Sorting Points
     sort(points.begin(), points.end());
     // it=0: Upper Hull
@@ -22,7 +23,7 @@ vector<Point> convex_hull(vector<Point> points) {
     }
     // removing duplicate points
     if(hull.size()==2 && hull[0]==hull[1]) hull.pop_back();
-    return hull;
+    return Polygon<T>(hull);
 }
 // Time Complexity: O(N*log2(N)), Space Complexity: O(N)
 // N: Number of Points
