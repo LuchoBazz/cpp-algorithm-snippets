@@ -1,5 +1,5 @@
 template<class T>
-vector<T> primeFactors(T number)  {
+vector<T> prime_factors(T number)  {
     vector<T> factors;
     while (number % 2 == 0) {
         factors.push_back(2);
@@ -18,6 +18,6 @@ vector<T> primeFactors(T number)  {
 }
 // usage:
 //   int n = 100;
-//   vector<int> factors = primeFactors<int>(n);
+//   vector<int> factors = prime_factors<int>(n);
 //   {2, 2, 5, 5}
 //   2*2*5*5 = 2^2 * 5^2 = 100

@@ -1,5 +1,5 @@
 template<class T>
-bool isPrime(T number) {
+bool is_prime(T number) {
     if(number <= 0) return false;
     else if(number <= 3) return true;
     if(number%2==0 || number%3==0) return false;
@@ -10,5 +10,7 @@ bool isPrime(T number) {
     }
     return true;
 }
+// Time Complexity: O(sqrt(N)), Space Complexity:  O(1)
 // usage:
-//   bool ans = isPrime(number);
+//   int number = 210;
+//   bool ans = is_prime(number);

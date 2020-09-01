@@ -55,6 +55,11 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `string_kmp` - Algoritmo Knuth-Morris-Pratt (KMP)
     * `string_lps` - Mas grande prefijo que es tambien sufijo (Longest prefix suffix)
 
+* **Random**
+    * `random_init` - Generar valor aleatorio en un rango
+    * `random_permutation` - Generar permutación aleatoria
+    * `random_vector` - Generar vector aleatorio
+
 * **Template**
     * `template_main` - C++ Template
 
