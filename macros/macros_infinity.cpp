@@ -1,2 +1,2 @@
-const int oo  = (int)(1e9);
-const ll lloo  = (ll)(1e18);
+const int       oo  = int(1e9);
+const int64_t lloo  = int64_t(1e18);

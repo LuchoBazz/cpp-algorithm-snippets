@@ -8,14 +8,7 @@
 using namespace std;
 
 #define endl '\n'
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define ms(arr, value) memset(arr, value, sizeof(arr))
-#define finally(value) {cout << value << '\n'; return;}
-#define ll    int64_t
-
-const int oo = int(1e9);
-const ll lloo  = (ll)(1e18);
+#define finally(value) {cout << (value) << '\n'; return;}
 
 class Task {
 public:
