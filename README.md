@@ -34,6 +34,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `math_lcm` - Minimo comun multiplo
     * `math_prime_factors` - Obtener los factores primos de un numero
     * `math_sieve` - Todos los numeros primos en un rango dado
+    * `math_is_power_of_n` - Algoritmo que verifica si un numero es potencia de `n`
 
 * **Query Range**
     * `query_range_segment_tree` - Estructura de datos Segment Tree
@@ -57,6 +58,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `string_suffix_array` - Algoritmo de Suffix Array
     * `string_kmp` - Algoritmo Knuth-Morris-Pratt (KMP)
     * `string_lps` - Mas grande prefijo que es tambien sufijo (Longest prefix suffix)
+    * `string_trie` - Estructura de datos Arbol de Prefijos Trie (Prefix Tree)
 
 * **Random**
     * `random_init` - Generar valor aleatorio en un rango
