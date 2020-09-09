@@ -27,7 +27,7 @@ string to_string(A v) {
 
 template<class T>
 void println(const T &data) {
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL
     cout << to_string((T)data) << endl;
 #endif
 }

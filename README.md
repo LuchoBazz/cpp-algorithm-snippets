@@ -9,16 +9,22 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `to_string_other` - metodo to_string de pairs, tuple y bitset
 
 * **Geometry**
-    * `2d_geometry_main` - todos los templates de geometria en 2D
+    * `2d_geometry_point` - Estructura Point
+    * `2d_geometry_area` - Algoritmo que calcula el area de un poligono
+    * `2d_geometry_perimeter` - Algoritmo que calcula el perimetro de un poligono
+    * `2d_geometry_convex_hull_mc` - Algoritmo de Convex Hull (Monotone Chain)
 
 * **Macros**
     * `macros_main` - Macros principales del template
-    * `macros_numeric` - Macros para acortar los tipos de datos numericos
+    * `macros_data_types` - Macros para acortar los tipos de datos numericos
     * `macros_pairs` - Macros para acortar las tuples y pairs
     * `macros_precise` - Macros para acortar la precision de decimales
     * `macros_infinity` - Macros que define las constantes de infinito
     * `macros_loops` - Macros para acortar los loops
     * `macros_min_max` - funciones min y max por referencia
+    * `macros_directions` - Array con los valores para explorar una cuadricula 2D
+    * `macros_reference` - Macros para acurtar el codigo de las referencias de un vector y fill un array
+    * `macros_math` - Algunas constantes y funciones matematicas
 
 * **Math**
     * `math_check_prime` - Test de Primalidad de un numero
@@ -28,6 +34,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `math_lcm` - Minimo comun multiplo
     * `math_prime_factors` - Obtener los factores primos de un numero
     * `math_sieve` - Todos los numeros primos en un rango dado
+    * `math_is_power_of_n` - Algoritmo que verifica si un numero es potencia de `n`
 
 * **Query Range**
     * `query_range_segment_tree` - Estructura de datos Segment Tree
@@ -40,6 +47,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `graph_dsu` - Estructura de datos Disjoint Set Union
     * `graph_toposort_dfs` - Algoritmo de ordenamiento topologico usando dfs
     * `graph_kruskal` - Algoritmo de Kruskal (Minimo Arbol de Expansión)
+    * `graph_scc_kosaraju` - Algoritmo de Kosaraju para buscar los Componentes fuertemente conexos (SCC)
 
 * **Numeric**
     * `numeric_mint` - Template Completo de Aritmetica Modular
@@ -48,6 +56,14 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **String**
     * `string_suffix_array` - Algoritmo de Suffix Array
+    * `string_kmp` - Algoritmo Knuth-Morris-Pratt (KMP)
+    * `string_lps` - Mas grande prefijo que es tambien sufijo (Longest prefix suffix)
+    * `string_trie` - Estructura de datos Arbol de Prefijos Trie (Prefix Tree)
+
+* **Random**
+    * `random_init` - Generar valor aleatorio en un rango
+    * `random_permutation` - Generar permutación aleatoria
+    * `random_vector` - Generar vector aleatorio
 
 * **Template**
     * `template_main` - C++ Template
