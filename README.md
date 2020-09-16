@@ -4,27 +4,30 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 ## Contenido
 
-* **Debugging**
-    * `to_string_main` - metodo to_string de los principales tipos de datos y estructuras de datos estandard
-    * `to_string_other` - metodo to_string de pairs, tuple y bitset
+* **Misc**
+    * **Debugging**
+        * `to_string_main` - metodo to_string de los principales tipos de datos y estructuras de datos estandard
+        * `to_string_other` - metodo to_string de pairs, tuple y bitset
+
+    * **Misc**
+        * `misc_main` - Macros principales del template
+        * `misc_data_types` - Macros para acortar los tipos de datos numericos
+        * `misc_pairs` - Macros para acortar las tuples y pairs
+        * `misc_precise` - Macros para acortar la precision de decimales
+        * `misc_infinity` - Macros que define las constantes de infinito
+        * `misc_loops` - Macros para acortar los loops
+        * `misc_min_max` - funciones min y max por referencia
+        * `misc_directions` - Array con los valores para explorar una cuadricula 2D
+        * `misc_reference` - Macros para acurtar el codigo de las referencias de un vector y fill un array
+        * `misc_math` - Algunas constantes y funciones matematicas
+        * `misc_vector_n_d` - Funciones para acortar la creacion de un vector de 2,3 y 4 dimensiones
+        * `misc_cond` - Funciones y macros para acortar condiciones
 
 * **Geometry**
     * `2d_geometry_point` - Estructura Point
     * `2d_geometry_area` - Algoritmo que calcula el area de un poligono
     * `2d_geometry_perimeter` - Algoritmo que calcula el perimetro de un poligono
     * `2d_geometry_convex_hull_mc` - Algoritmo de Convex Hull (Monotone Chain)
-
-* **Macros**
-    * `macros_main` - Macros principales del template
-    * `macros_data_types` - Macros para acortar los tipos de datos numericos
-    * `macros_pairs` - Macros para acortar las tuples y pairs
-    * `macros_precise` - Macros para acortar la precision de decimales
-    * `macros_infinity` - Macros que define las constantes de infinito
-    * `macros_loops` - Macros para acortar los loops
-    * `macros_min_max` - funciones min y max por referencia
-    * `macros_directions` - Array con los valores para explorar una cuadricula 2D
-    * `macros_reference` - Macros para acurtar el codigo de las referencias de un vector y fill un array
-    * `macros_math` - Algunas constantes y funciones matematicas
 
 * **Math**
     * `math_check_prime` - Test de Primalidad de un numero
@@ -59,6 +62,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `string_kmp` - Algoritmo Knuth-Morris-Pratt (KMP)
     * `string_lps` - Mas grande prefijo que es tambien sufijo (Longest prefix suffix)
     * `string_trie` - Estructura de datos Arbol de Prefijos Trie (Prefix Tree)
+    * `string_split` - Función split
 
 * **Random**
     * `random_init` - Generar valor aleatorio en un rango
