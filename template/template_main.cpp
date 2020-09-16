@@ -11,12 +11,13 @@ using namespace std;
 #define finally(value) {cout << (value) << '\n'; return;}
 
 class Task {
-public:
+private:
     
     void solveOne(istream &in, ostream &out) {
         
     }
-    
+
+public:
     void solve(istream &in, ostream &out) {
         int t=1;
         in >> t;
