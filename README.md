@@ -41,6 +41,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **Query Range**
     * `query_range_segment_tree` - Estructura de datos Segment Tree
+    * `query_sum_range_immutable` - Consultas de suma en rangos (Immutable)
 
 * **Graph**
     * `graph_graph` - Clase padre de la representacion de un grafo
