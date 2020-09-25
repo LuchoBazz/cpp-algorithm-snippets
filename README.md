@@ -38,6 +38,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `math_prime_factors` - Obtener los factores primos de un numero
     * `math_sieve` - Todos los numeros primos en un rango dado
     * `math_is_power_of_n` - Algoritmo que verifica si un numero es potencia de `n`
+    * `math_matrix` - Clase que representa a una matrix 2D con sus operaciones matriciales
 
 * **Query Range**
     * `query_range_segment_tree` - Estructura de datos Segment Tree
