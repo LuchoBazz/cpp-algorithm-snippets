@@ -18,19 +18,48 @@ public:
         if(iden) for(int i = 0; i < r; i++) M[i][i] = T(1);
     }
     
-    Matrix<T> operator * (const Matrix<T> &other) const {
+    typename vector<vector<T>>::iterator begin() { return M.begin(); }
+    typename vector<vector<T>>::iterator end() { return M.end(); }
+    int size() { return int(M.size()); }
+    vector<T>& operator [] (int i) { return M[i]; }
+    
+    Matrix<T> operator * (Matrix<T> &other) const {
+        assert(col==other.row);
         Matrix<T> product(row, other.col);
         for(int i = 0; i < row; i++) {
             for (int j = 0; j < other.col; j++) {
-                T &ref = product.M[i][j];
+                T &ref = product[i][j];
                 for (int k = 0; k < col; k++) {
-                    // ref = (ref +  M[i][k] * other.M[k][j]) % MOD;
-                    ref += M[i][k] * other.M[k][j];
+                    // ref = (ref +  M[i][k] * other[k][j]) % MOD;
+                    ref += (M[i][k] * other[k][j]);
                 }
             }
         }
         return product;
     }
+    
+    Matrix<T> operator + (Matrix<T> &other) const {
+        assert(row==other.row && col==other.col);
+        Matrix<T> ans(row, col);
+        for(int i = 0; i < row; ++i) {
+            for(int j = 0; j < col; ++j) {
+                ans[i][j] = (M[i][j] + other[i][j]);
+            }
+        }
+        return ans;
+    }
+
+    Matrix<T> operator - (Matrix<T> &other) const {
+        assert(row==other.row && col==other.col);
+        Matrix<T> ans(row, col);
+        for(int i = 0; i < row; ++i) {
+            for(int j = 0; j < col; ++j) {
+                ans[i][j] = (M[i][j] - other[i][j]);
+            }
+        }
+        return ans;
+    }
+    
 };
 // Usage:
 // Matrix<int> A(10, 20); or
