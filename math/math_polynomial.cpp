@@ -14,9 +14,9 @@ public:
     Polynomial(int n, T initialize) : poly(n, initialize) {check_data_types();}
     Polynomial(const vector<T> &p) : poly(p) {check_data_types();}
 
-    int degree() {
+    int degree() const {
         // degree of the polynomial
-        return int(poly.size()) - 1;
+        return int(poly.size()) - 1; 
     }
 
     Polynomial<T> scale(int n) {
@@ -33,7 +33,7 @@ public:
         } else {
             ans.poly.insert(ans.poly.end(), poly.begin(), poly.begin() + n);
         }
-        return ans;
+        return ans.norm();
     }
 
     Polynomial<T> extend(int d) {
@@ -46,7 +46,7 @@ public:
             ans.poly.push_back(poly[i]);
         }
         poly.swap(ans.poly);
-        return *this;
+        return norm();
     }
 
     Polynomial<T> norm() {
@@ -71,7 +71,7 @@ public:
         for(int i = 0; i < int(poly.size()); ++i){
             poly[i] *= number;
         }
-        return *this;
+        return norm();
     }
 
     Polynomial<T> operator+(const Polynomial<T> &other) {
@@ -87,7 +87,7 @@ public:
         for(int i = 0; i < sz; ++i){
             ans.poly[i] = fx.poly[i] + gx.poly[i];
         }
-        return ans;
+        return ans.norm();
     }
 
     Polynomial<T> operator-(const Polynomial<T> &other) {
@@ -103,7 +103,7 @@ public:
         for(int i = 0; i < sz; ++i){
             ans.poly[i] = fx.poly[i] - gx.poly[i];
         }
-        return ans;
+        return ans.norm();
     }
 
     Polynomial<T> operator*(Polynomial<T> &other) {
@@ -127,6 +127,13 @@ public:
         return ans.norm();
     }
 };
+
+template<typename T>
+string to_string(const Polynomial<T> &poly) {
+    int degree = poly.degree();
+    vector<T> p(poly.poly.begin(), poly.poly.end());
+    return "Polynomial<" + to_string(p) + ", x^" + to_string(degree) + ">";
+}
 
 using Poly = Polynomial<int>;
 // using Poly = Polynomial<int64_t>;
