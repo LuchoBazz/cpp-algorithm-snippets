@@ -25,10 +25,19 @@ public:
     }
 };
 
-auto main() -> int {
+void set_usaco(string filename="") {
+    if(int(filename.size())) {
+        freopen((filename+".in").c_str(), "r", stdin);
+        freopen((filename+".out").c_str(), "w", stdout);
+    }
+}
+
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+
+    set_usaco("");
     
     Task solver;
     istream &in(cin);
