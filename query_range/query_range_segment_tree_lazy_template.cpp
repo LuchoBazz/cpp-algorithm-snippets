@@ -8,7 +8,7 @@ public:
         
         ... a = ...;
         T lazy = neutral;
-        bool changed = true;
+        bool changed = false;
 
         void apply(int left, int right, ... v) {
             ...
@@ -124,7 +124,7 @@ public:
         }
         push(x, from, to);
         int y = (from + to) >> 1;
-        int z = x + ((y - l + 1) << 1);
+        int z = x + ((y - left + 1) << 1);
         int res = -1;
         if (left <= y) {
             res = find_first(x + 1, from, y, left, right, func);

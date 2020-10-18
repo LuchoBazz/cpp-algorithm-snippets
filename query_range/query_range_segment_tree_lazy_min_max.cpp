@@ -1,7 +1,7 @@
 template<typename T>
 class SegmentTree {
 public:
-    static const T neutral = oo;
+    static const T neutral = T(...);
     struct Node {
         T lazy = neutral;
         T ans = neutral;
