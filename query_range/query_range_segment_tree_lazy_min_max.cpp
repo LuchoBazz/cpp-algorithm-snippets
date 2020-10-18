@@ -1,41 +1,34 @@
 template<typename T>
 class SegmentTree {
 public:
-    
-    static const T neutral = 0;
+
+    static const T neutral = oo;
 
     struct Node {
         T lazy = neutral;
-        T sum = neutral;
+        T ans = neutral;
         bool changed = false;
 
-        void apply(int left, int right, T value, bool replace=false) {
-            if(replace) {
-                // change to 'value' to [left, right]
-                lazy = value;
-                sum = value*(right - left + 1);
-            } else {
-                // add 'value' to [left, right]
-                lazy += value;
-                sum += value*(right - left + 1);
-            }
+        void apply(int left, int right, T value) {
+            lazy = value;
+            ans = value;
             changed = true;
         }
     };
 
     Node unite(const Node &a, const Node &b) const {
         Node res;
-        res.sum = a.sum + b.sum;
+        // res.ans = min(a.ans, b.ans);
+        // res.ans = max(a.ans, b.ans);
         return res;
     }
 
     inline void push(int x, int left, int right) {
         int y = (left + right) >> 1;
         int z = x + ((y - left + 1) << 1);
-        bool replace=false;
         if (tree[x].lazy != neutral || tree[x].changed) {
-            tree[x + 1].apply(left, y, tree[x].lazy, replace);
-            tree[z].apply(y + 1, right, tree[x].lazy, replace);
+            tree[x + 1].apply(left, y, tree[x].lazy);
+            tree[z].apply(y + 1, right, tree[x].lazy);
             tree[x].lazy = neutral;
         }
     }
@@ -138,12 +131,10 @@ public:
         modify(0, 0, n - 1, left, right, v...);
     }
 };
-
 template<typename T>
 using segtree = SegmentTree<T>; 
 
 // Usage:
 // segtree<int> st(n); or segtree<int64_t> st({1, 2, 3, ..});
-// st.modify(l, r, val); or st.modify(l, r, val, true);
-// st.query(l, r).sum
-
+// st.modify(l, r, val);
+// st.query(l, r).ans
