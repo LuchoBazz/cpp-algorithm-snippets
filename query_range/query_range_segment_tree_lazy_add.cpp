@@ -1,9 +1,7 @@
 template<typename T>
 class SegmentTree {
 public:
-    
     static const T neutral = 0;
-
     struct Node {
         T lazy = neutral;
         T sum = neutral;
@@ -32,7 +30,7 @@ public:
     inline void push(int x, int left, int right) {
         int y = (left + right) >> 1;
         int z = x + ((y - left + 1) << 1);
-        bool replace=false;
+        bool replace=...(false or true);
         if (tree[x].lazy != neutral || tree[x].changed) {
             tree[x + 1].apply(left, y, tree[x].lazy, replace);
             tree[z].apply(y + 1, right, tree[x].lazy, replace);
@@ -70,9 +68,7 @@ public:
     }
 
     Node query(int x, int from, int to, int left, int right) {
-        if (left <= from && to <= right) {
-            return tree[x];
-        }
+        if (left <= from && to <= right) return tree[x];
         int y = (from + to) >> 1;
         int z = x + ((y - from + 1) << 1);
         push(x, from, to);

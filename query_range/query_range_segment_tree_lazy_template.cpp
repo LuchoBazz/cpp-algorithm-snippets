@@ -1,9 +1,7 @@
 template<typename T>
 class SegmentTree {
 public:
-    
     static const T neutral = ...;
-
     struct Node {
         // don't forquery to set default value (used for leaves)
         // not necessarily neutral element!
@@ -21,6 +19,7 @@ public:
     Node unite(const Node &a, const Node &b) const {
         Node res;
         ...
+        // res.sum = a.any operator b.any;
         return res;
     }
 
@@ -67,9 +66,7 @@ public:
     }
 
     Node query(int x, int from, int to, int left, int right) {
-        if (left <= from && to <= right) {
-            return tree[x];
-        }
+        if (left <= from && to <= right) return tree[x];
         int y = (from + to) >> 1;
         int z = x + ((y - from + 1) << 1);
         push(x, from, to);
@@ -122,9 +119,7 @@ public:
 
     int find_first(int x, int from, int to, int left, int right, const function<bool(const Node&)> &func) {
         if (left <= from && to <= right) {
-            if (!func(tree[x])) {
-            return -1;
-            }
+            if (!func(tree[x])) return -1;
             return find_first_knowingly(x, from, to, func);
         }
         push(x, from, to);
@@ -158,9 +153,7 @@ public:
 
     int find_last(int x, int from, int to, int left, int right, const function<bool(const Node&)> &func) {
         if (left <= from && to <= right) {
-            if (!func(tree[x])) {
-            return -1;
-            }
+            if (!func(tree[x])) return -1;
             return find_last_knowingly(x, from, to, func);
         }
         push(x, from, to);

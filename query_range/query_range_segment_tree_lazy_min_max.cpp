@@ -1,9 +1,7 @@
 template<typename T>
 class SegmentTree {
 public:
-
     static const T neutral = oo;
-
     struct Node {
         T lazy = neutral;
         T ans = neutral;
@@ -63,9 +61,7 @@ public:
     }
 
     Node query(int x, int from, int to, int left, int right) {
-        if (left <= from && to <= right) {
-            return tree[x];
-        }
+        if (left <= from && to <= right) return tree[x];
         int y = (from + to) >> 1;
         int z = x + ((y - from + 1) << 1);
         push(x, from, to);
