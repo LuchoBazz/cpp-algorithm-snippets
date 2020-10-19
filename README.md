@@ -38,9 +38,13 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `math_prime_factors` - Obtener los factores primos de un numero
     * `math_sieve` - Todos los numeros primos en un rango dado
     * `math_is_power_of_n` - Algoritmo que verifica si un numero es potencia de `n`
+    * `math_matrix` - Clase que representa a una matrix 2D con sus operaciones matriciales
+    * `math_fft` - Algoritmo de Fast Fourier Transform (fft)
+    * `math_polynomial` - Clase Polinomio con las siguientes Operaciones (Suma, Resta, Multiplicación, Division y Modulo)
 
 * **Query Range**
     * `query_range_segment_tree` - Estructura de datos Segment Tree
+    * `query_sum_range_immutable` - Consultas de suma en rangos (Immutable)
 
 * **Graph**
     * `graph_graph` - Clase padre de la representacion de un grafo
