@@ -1,4 +1,4 @@
-typedef uint32_t uint;
-typedef uint64_t ull;
-typedef long double ld;
-typedef int64_t ll;
+using uint = uint32_t;
+using ull  = uint64_t;
+using ld   = long double;
+using ll   = int64_t;

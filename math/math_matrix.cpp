@@ -43,7 +43,8 @@ public:
         Matrix<T> ans(row, col);
         for(int i = 0; i < row; ++i) {
             for(int j = 0; j < col; ++j) {
-                ans[i][j] = (M[i][j] + other[i][j]);
+                // ans[i][j] = (M[i][j] + other[i][j]) % MOD;
+                ans[i][j] = M[i][j] + other[i][j];
             }
         }
         return ans;
@@ -54,6 +55,7 @@ public:
         Matrix<T> ans(row, col);
         for(int i = 0; i < row; ++i) {
             for(int j = 0; j < col; ++j) {
+                // ans[i][j] = (M[i][j] - other[i][j] + MOD) % MOD;
                 ans[i][j] = (M[i][j] - other[i][j]);
             }
         }
@@ -61,12 +63,15 @@ public:
     }
     
 };
-// Usage:
-// Matrix<int> A(10, 20); or
-// vector<vector<int>> vector1 {{1, 2}, {2, 3}};
-// Matrix A(vector1);
 
 template<typename T>
 string to_string(const Matrix<T> &mat) {
     return to_string(mat.M);
 }
+
+template<typename T>
+using matrix = Matrix<T>;
+// Usage:
+// matrix<int> A(10, 20); or
+// vector<vector<int>> vector1 {{1, 2}, {2, 3}};
+// matrix A(vector1);

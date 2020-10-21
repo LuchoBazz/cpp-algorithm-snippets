@@ -30,3 +30,6 @@ string to_string(Polygon<T> p) {
     vector<Point<T>> points(p.begin(), p.end());
     return to_string(points);
 }
+
+template<typename T>
+using polygon = Polygon<T>;

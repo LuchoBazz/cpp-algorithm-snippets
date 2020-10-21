@@ -37,15 +37,15 @@ auto main() -> int {
     return 0;
 }
 
-// COSAS A TENER EN CUENTA
-//   * int overflow, limites de tiempo y memoria
-//   * Caso especial (n=1?)
-//   * Haz algo en lugar de nada y mantente organizado
-//   * No se quede en un solo enfoque
+// THINGS TO KEEP IN MIND
+//   * int overflow, time and memory limits
+//   * Special case (n = 1?)
+//   * Do something instead of nothing and stay organized
+//   * Don't get stuck in one focus
 
-// LIMITES DE TIEMPO Y MEMORIA
-//   * 1 Segundo es Aproximadamente 10^8 Operaciones (c++)
-//   * 10^6 Elementos de 32 Bits (4 bytes) es igual a 4 MB
-//   * 62x10^6 Elementos de 32 Bits (4 bytes) es igual a 250 MB
-//   * 10^6 Elementos de 64 Bits (8 bytes) es igual a 8 MB
-//   * 31x10^6 Elementos de 64 Bits (8 bytes) es igual a 250 MB
+// TIME AND MEMORY LIMITS
+//   * 1 second is approximately 10^8 operations (c++)
+//   * 10^6 Elements of 32 Bit (4 bytes) is equal to 4 MB
+//   * 62x10^6 Elements of 32 Bit (4 bytes) is equal to 250 MB
+//   * 10^6 Elements of 64 Bits (8 bytes) is equal to 8 MB
+//   * 31x10^6 Elements of 64 Bit (8 bytes) is equal to 250 MB
