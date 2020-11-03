@@ -1,25 +1,31 @@
 template<typename T>
 class SegmentTree {
 public:
-    static const T neutral = ...;
+    static const T neutral = T(...);
     struct Node {
         // don't forquery to set default value (used for leaves)
         // not necessarily neutral element!
-        
-        ... a = ...;
         T lazy = neutral;
+        T mx = neutral;
+        T mn = neutral;
+        T sum = neutral;
+        
         bool changed = false;
 
-        void apply(int left, int right, ... v) {
-            ...
+        void apply(int left, int right, T value) {
+            lazy = value;
+            mx = value;
+            mn = value;
+            sum = (right - left + 1) * value;
             changed = true; 
         }
     };
 
     Node unite(const Node &a, const Node &b) const {
         Node res;
-        ...
-        // res.sum = a.any operator b.any;
+        res.sum = a.sum + b.sum;
+        res.mx = max(a.mx, b.mx);
+        res.mn = min(a.mn, b.mn);
         return res;
     }
 
@@ -27,13 +33,11 @@ public:
         int y = (left + right) >> 1;
         int z = x + ((y - left + 1) << 1);
         // push from x into (x + 1) and z
-        //...
-        /*
         if (tree[x].lazy != neutral || tree[x].changed) {
             tree[x + 1].apply(left, y, tree[x].lazy);
             tree[z].apply(y + 1, right, tree[x].lazy);
             tree[x].lazy = neutral;
-        }*/
+        }
     }
     
     inline void pull(int x, int z) {
@@ -212,9 +216,20 @@ public:
     }
 };
 template<typename T>
-using segtree = SegmentTree<T>; 
+using segtree = SegmentTree<T>;
 
 // Usage:
 // segtree<int> st(n);
 // st.modify(l, r, val);
-// st.query(l, r).ans
+// st.query(l, r).(sum, mn, mx)
+
+// Returns min(p | p <=right && sum[left..p]>=sum). If no such p exists, returns -1
+template<typename T>
+int sum_lower_bound(SegmentTree<T> &st, int left, int right, T sum) {
+    T accum_sum = T(0);
+    return st.find_first(left, right, [&](const typename SegmentTree<T>::Node &node) {
+        if (accum_sum + node.sum >= sum) return true;
+        accum_sum += node.sum;
+        return false;
+    });
+}
