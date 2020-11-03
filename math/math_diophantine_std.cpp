@@ -1,3 +1,7 @@
+// math_extgcd_recursive
+// or
+// math_extgcd_iterative
+
 template<typename T>
 bool diophantine(T a, T b, T c, T & x, T & y, T & g) {
     if (a == 0 && b == 0) {
