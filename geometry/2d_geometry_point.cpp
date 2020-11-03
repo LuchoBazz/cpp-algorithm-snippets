@@ -10,10 +10,11 @@ struct Point {
     Point<T> operator * (Point<T> p) { return {x*p.x-y*p.y, x*p.y+y*p.x};}
     Point<T> operator * (T p) { return {x*p, y*p};}
     Point<T> operator / (T p) { return {x/p, y/p};} // only for floating point
-    bool operator == (Point<T> &p) const { return x==p.x && y == p.y;}
-    bool operator != (Point<T> &p) const { return !(*this == p);}
-    bool operator < (Point<T> &p) const { return x < p.x || (x == p.x && y < p.y);}
-    bool operator > (Point<T> &p) const { return x > p.x || (x == p.x && y > p.y);}
+    
+    bool operator == (const Point<T> &p) const { return x==p.x && y == p.y;}
+    bool operator != (const Point<T> &p) const { return !(*this == p);}
+    bool operator <  (const Point<T> &p) const { return x < p.x || (x == p.x && y < p.y);}
+    bool operator >  (const Point<T> &p) const { return x > p.x || (x == p.x && y > p.y);}
     
     // bool operator < (const Point<T> &p) const { return y<p.y || (y==p.y && x < p.x); }
     // bool operator > (const Point<T> &p) const { return y>p.y || (y==p.y && x > p.x); }
@@ -39,6 +40,14 @@ struct Point {
     // Chebyshev Distance
     T ch_dist() { return max(abs(x), abs(y));}
     T ch_dist(Point<T> p) { return max(abs(x-p.x), abs(y-p.y));}
+};
+
+template<typename T>
+struct hasher {
+    size_t operator()(const Point<T> &p) const { 
+        return hash<T>()(p.x) ^ hash<T>()(p.y);
+    }
+    // unordered_map<point<int>, int, hasher<int>> mp;
 };
 
 template<typename T>
