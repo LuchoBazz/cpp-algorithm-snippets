@@ -45,3 +45,6 @@ template<typename T>
 string to_string(Point<T> p) {
     return "(" + to_string(p.x) + ", " + to_string(p.y) + ")";
 }
+
+template<typename T>
+using point = Point<T>;

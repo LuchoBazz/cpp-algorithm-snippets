@@ -1,5 +1,5 @@
 template<typename T>
-tuple<T, T, T> xgcd(T a, T b) {
+tuple<T, T, T> extgcd(T a, T b) {
     if(b == T(0)) return {a, 1, 0};
     T x=1, xtmp=0, y=0, ytmp=1;
     while(b != 0) {
@@ -17,9 +17,11 @@ tuple<T, T, T> xgcd(T a, T b) {
     return {a, x, y};
 }
 // Usage:
-//   auto [g, x, y] = xgcd(a, b);
+//   auto [g, x, y] = extgcd(a, b);
 
-// a*x ≡ 1 (mod m)
+// a*x ≡ 1 (mod m) -> If and only if gcd(a, m) == 1
 // a*x + m*y = 1
 
-// auto [g, x, y] = xgcd(a, m);
+// auto [g, x, y] = extgcd(a, m);
+
+// a*x + b*y = gcd(a, b) 

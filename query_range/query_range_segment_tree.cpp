@@ -11,7 +11,7 @@ public:
         n = values.size();
         tree.resize(n*2);
         // Build
-        for (int i=0; i < n; i++){
+        for (int i=0; i < n; i++) {
             tree[n+i] = values[i];
         }
         for (int i = n - 1; i > 0; --i) {
@@ -19,7 +19,7 @@ public:
         }
     }
     
-    void update(int index, T value) {
+    void modify(int index, T value) {
         tree[index+n] = value;
         index = index + n;
         for (int i = index; i > 1; i >>= 1){
@@ -40,8 +40,10 @@ public:
         return ans;
     }
 };
+template<typename T>
+using segtree = SegmentTree<T>;
 // usage:
 //  auto func = [&](int i, int j) -> int { return max(i, j); };
-//  SegmentTree<int, decltype(func)> st(values, -oo, func);
+//  segtree<int, decltype(func)> st(values, -oo, func);
 // or:
-// SegmentTree<int> st(values, -oo, [&](int x, int y) -> int {return max(x, y);});
+// segtree<int> st(values, -oo, [&](int x, int y) -> int {return max(x, y);});
