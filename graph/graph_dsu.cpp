@@ -41,7 +41,10 @@ public:
         return comps;
     }
 };
+
+using DSU = DisjointSet;
+
 // Usage:
-//    DisjointSet dsu(n);
+//    DSU dsu(n);
 //    dsu.unite(.., ..);
 //    dsu.united(.., ..);

@@ -135,5 +135,6 @@ string to_string(const Polynomial<T> &poly) {
     return "Polynomial<" + to_string(p) + ", x^" + to_string(degree) + ">";
 }
 
-using Poly = Polynomial<int>;
-// using Poly = Polynomial<int64_t>;
+template<typename T>
+using poly = Polynomial<T>;
+// using poly = Polynomial<int>;

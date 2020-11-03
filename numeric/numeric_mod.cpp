@@ -44,6 +44,6 @@ T inverse(T a) {
 }
 
 template<typename T>
-T divi(T a, T b) {
+T division(T a, T b) {
     return mul(a ,  inverse(b));
 }
