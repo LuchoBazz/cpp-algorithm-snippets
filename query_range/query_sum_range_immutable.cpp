@@ -1,20 +1,19 @@
 template<typename T>
-class Range {
+class QuerySum {
 public:
  
     vector<T> dp;
  
-    Range(vector<T>& nums) {
-        if(nums.size() == 0) return;
-        dp.resize(nums.size());
-        dp[0] = nums[0];
-        for(int i = 1; i < int(nums.size()); ++i) {
-            dp[i] = dp[i - 1] + nums[i];
+    QuerySum(vector<T>& nums) {
+        if(int(nums.size()) == 0) return;
+        dp.resize(int(nums.size()) + 1);
+        dp[0] = 0;
+        for(int i = 1; i <= int(nums.size()); ++i) {
+            dp[i] = dp[i-1] + nums[i-1];
         }
     }
     
-    T sum(int i, int j) {
-        if(i==0) return dp[j];
-        return dp[j] - dp[i-1];
+    T sum(int left, int right) {
+        return dp[right+1] - dp[left];
     }
 };

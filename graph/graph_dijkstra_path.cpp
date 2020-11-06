@@ -42,7 +42,7 @@ vector<int> rebuild_path(const vector<int> &prev, int end) {
 // Usage:
 
 // auto [dist, prev] = dijkstra(G, start);
-// if(check_path(prev, end)) {
+// if(check_path(dist, end)) {
 //    vector<int> path = rebuild_path(prev, end);
 // } else {
 //    There is no path
