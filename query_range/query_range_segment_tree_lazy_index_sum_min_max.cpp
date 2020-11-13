@@ -9,26 +9,34 @@ public:
         T mx = neutral;
         T mn = neutral;
         T sum = neutral;
+        int idx_mn = -1;
+        int idx_mx = -1;
         
         bool changed = false;
-
+ 
         void apply(int left, int right, T value) {
             lazy = value;
             mx = value;
             mn = value;
             sum = (right - left + 1) * value;
-            changed = true; 
+            if(left == right) {
+                idx_mn = left;
+                idx_mx = left;
+            }
+            changed = true;
         }
     };
-
+ 
     Node unite(const Node &a, const Node &b) const {
         Node res;
         res.sum = a.sum + b.sum;
         res.mx = max(a.mx, b.mx);
         res.mn = min(a.mn, b.mn);
+        res.idx_mn = (res.mn == a.mn? a.idx_mn: b.idx_mn);
+        res.idx_mx = (res.mx == a.mx? a.idx_mx: b.idx_mx);
         return res;
     }
-
+ 
     inline void push(int x, int left, int right) {
         int y = (left + right) >> 1;
         int z = x + ((y - left + 1) << 1);
@@ -43,10 +51,10 @@ public:
     inline void pull(int x, int z) {
         tree[x] = unite(tree[x + 1], tree[z]);
     }
-
+ 
     int n;
     vector<Node> tree;
-
+ 
     void build(int x, int left, int right) {
         if (left == right) return;
         int y = (left + right) >> 1;
@@ -55,7 +63,7 @@ public:
         build(z, y + 1, right);
         pull(x, z);
     }
-
+ 
     template <typename M>
     void build(int x, int left, int right, const vector<M> &v) {
         if (left == right) {
@@ -68,7 +76,7 @@ public:
         build(z, y + 1, right, v);
         pull(x, z);
     }
-
+ 
     Node query(int x, int from, int to, int left, int right) {
         if (left <= from && to <= right) return tree[x];
         int y = (from + to) >> 1;
@@ -87,7 +95,7 @@ public:
         pull(x, z);
         return res;
     }
-
+ 
     template <typename... M>
     void modify(int x, int from, int to, int left, int right, const M&... v) {
         if (left <= from && to <= right) {
@@ -105,7 +113,7 @@ public:
         }
         pull(x, z);
     }
-
+ 
     int find_first_knowingly(int x, int left, int right, const function<bool(const Node&)> &f) {
         if (left == right) return left;
         push(x, left, right);
@@ -120,7 +128,7 @@ public:
         pull(x, z);
         return res;
     }
-
+ 
     int find_first(int x, int from, int to, int left, int right, const function<bool(const Node&)> &func) {
         if (left <= from && to <= right) {
             if (!func(tree[x])) return -1;
@@ -139,7 +147,7 @@ public:
         pull(x, z);
         return res;
     }
-
+ 
     int find_last_knowingly(int x, int from, int to, const function<bool(const Node&)> &func) {
         if (from == to) return from;
         push(x, from, to);
@@ -154,7 +162,7 @@ public:
         pull(x, z);
         return res;
     }
-
+ 
     int find_last(int x, int from, int to, int left, int right, const function<bool(const Node&)> &func) {
         if (left <= from && to <= right) {
             if (!func(tree[x])) return -1;
@@ -173,43 +181,43 @@ public:
         pull(x, z);
         return res;
     }
-
+ 
     SegmentTree(int _n) : n(_n) {
         assert(n > 0);
         tree.resize(2 * n - 1);
         build(0, 0, n - 1);
     }
-
+ 
     SegmentTree(const vector<T> &v) {
         n = v.size();
         assert(n > 0);
         tree.resize(2 * n - 1);
         build(0, 0, n - 1, v);
     }
-
+ 
     Node query(int left, int right) {
         assert(0 <= left && left <= right && right <= n - 1);
         return query(0, 0, n - 1, left, right);
     }
-
+ 
     Node query(int idx) {
         assert(0 <= idx && idx <= n - 1);
         return query(0, 0, n - 1, idx, idx);
     }
-
+ 
     template <typename... M>
     void modify(int left, int right, const M&... v) {
         assert(0 <= left && left <= right && right <= n - 1);
         modify(0, 0, n - 1, left, right, v...);
     }
-
+ 
     // find_first and find_last call all FALSE elements
     // to the left (right) of the sought position exactly once
     int find_first(int left, int right, const function<bool(const Node&)> &func) {
         assert(0 <= left && left <= right && right <= n - 1);
         return find_first(0, 0, n - 1, left, right, func);
     }
-
+ 
     int find_last(int left, int right, const function<bool(const Node&)> &f) {
         assert(0 <= left && left <= right && right <= n - 1);
         return find_last(0, 0, n - 1, left, right, f);
@@ -217,12 +225,12 @@ public:
 };
 template<typename T>
 using segtree = SegmentTree<T>;
-
+ 
 // Usage:
 // segtree<int> st(n);
 // st.modify(l, r, val);
-// st.query(l, r).(sum, mn, mx)
-
+// st.query(l, r).(sum, mn, mx, idx_mn, idx_mx)
+ 
 // Returns min(p | p <=right && sum[left..p]>=sum). If no such p exists, returns -1
 template<typename T>
 int sum_lower_bound(SegmentTree<T> &st, int left, int right, T sum) {

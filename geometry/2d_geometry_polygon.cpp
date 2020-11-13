@@ -13,7 +13,7 @@ public:
         points.push_back(point);
     }
     void delete_repetead() {
-        // Time Complexity: O(N)
+        // Time Complexity: O(N*log2(N))
         vector<Point<T>> aux;
         sort(points.begin(), points.end());
         for(Point<T> &pt : points) {
