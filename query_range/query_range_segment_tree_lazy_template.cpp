@@ -3,7 +3,7 @@ class SegmentTree {
 public:
     static const T neutral = ...;
     struct Node {
-        // don't forquery to set default value (used for leaves)
+        // don't forget to set default value (used for leaves)
         // not necessarily neutral element!
         
         ... a = ...;
