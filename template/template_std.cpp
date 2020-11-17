@@ -8,42 +8,18 @@
 using namespace std;
 
 #define endl '\n'
-#define finally(value) {cout << (value) << '\n'; return;}
 using int64 = int64_t;
 
-class Task {
-private:
-    
-    void solveOne(istream &in, ostream &out) {
-        
-    }
-
-public:
-    void solve(istream &in, ostream &out) {
-        int t=1;
-        in >> t;
-        while(t--) solveOne(in, out);
-    }
-};
-
-void set_usaco(string filename="") {
-    if(int(filename.size())) {
-        freopen((filename+".in").c_str(), "r", stdin);
-        freopen((filename+".out").c_str(), "w", stdout);
-    }
-}
-
-int main() {
+auto main() -> int {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-
-    set_usaco("");
     
-    Task solver;
-    istream &in(cin);
-    ostream &out(cout);
-    solver.solve(in, out);
+    int tt=1;
+    cin >> tt;
+    while(tt--) {
+        
+    }
     return 0;
 }
 
