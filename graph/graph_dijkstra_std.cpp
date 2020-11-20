@@ -1,3 +1,9 @@
+// graph_graph
+
+// graph_undigraph
+// or
+// graph_digraph
+
 template <typename T>
 vector <T> dijkstra(const graph<T> &g, int start) {
     assert(0 <= start && start < g.n);
