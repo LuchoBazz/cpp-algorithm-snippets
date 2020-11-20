@@ -15,11 +15,7 @@ auto main() -> int {
     cin.tie(NULL);
     cout.tie(NULL);
     
-    int tt=1;
-    cin >> tt;
-    while(tt--) {
-        
-    }
+    
     return 0;
 }
 
