@@ -1,4 +1,5 @@
-//KMP - Knuth-Morris-Pratt algorithm 
+// string_lps
+
 template <typename T>
 vector<int> search_kmp(const T &txt, const T &pat) {
     vector<int> output;
@@ -27,6 +28,7 @@ vector<int> search_kmp(const T &txt, const T &pat) {
     }
     return output;
 }
+//KMP - Knuth-Morris-Pratt algorithm 
 // Time Complexity: O(N), Space Complexity: O(N)
 // N: Length of text
 // Usage:

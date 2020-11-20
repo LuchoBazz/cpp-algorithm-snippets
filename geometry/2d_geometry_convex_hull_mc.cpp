@@ -1,4 +1,5 @@
-// Convex Hull - Monotone Chain
+// 2d_geometry_polygon
+
 template<typename T>
 Polygon<T> convex_hull(Polygon<T> points) {
     int n = int(points.size());
@@ -25,5 +26,6 @@ Polygon<T> convex_hull(Polygon<T> points) {
     if(hull.size()==2 && hull[0]==hull[1]) hull.pop_back();
     return Polygon<T>(hull);
 }
+// Convex Hull - Monotone Chain
 // Time Complexity: O(N*log2(N)), Space Complexity: O(N)
 // N: Number of Points

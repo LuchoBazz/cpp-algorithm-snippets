@@ -7,6 +7,7 @@ T inverse(T a, T m) {
         u -= t * v; swap(u, v);
     }
     assert(m == 1);
+    if(u < static_cast<T>(0)) u = (u + m) % m;
     return u;
 }
 

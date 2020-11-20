@@ -1,4 +1,3 @@
-// Euclid's algorithm
 template<class T>
 T gcd(T a, T b) {
     T tmp = 0;
@@ -9,5 +8,6 @@ T gcd(T a, T b) {
     }
     return a;
 }
+// Euclid's algorithm
 // usage:
-//   int ans = gcd<int>(15, 25);
+//   int ans = gcd(15, 25);

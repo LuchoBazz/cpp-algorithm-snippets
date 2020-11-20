@@ -1,5 +1,7 @@
 
-// math_fft
+// math_fft_recursive
+// or
+// math_fft_iterative
 
 template<typename T>
 class Polynomial {

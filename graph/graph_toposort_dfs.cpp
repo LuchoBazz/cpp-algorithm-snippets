@@ -1,4 +1,7 @@
-// Topological Sort - Detecting Cycles
+// graph_graph
+
+// graph_digraph
+
 template <typename T>
 vector<int> find_toposort(const digraph<T> &g, bool &isCyclic) {
     vector<bool> visited(g.n, false);
@@ -29,6 +32,7 @@ vector<int> find_toposort(const digraph<T> &g, bool &isCyclic) {
     reverse(toposort.begin(), toposort.end());
     return toposort;
 }
+// Topological Sort - Detecting Cycles
 // Usage:
 //   digraph<int> g(n);
 //   g.add(..., ...);

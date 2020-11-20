@@ -1,3 +1,7 @@
+// graph_graph
+
+// graph_digraph
+
 template <typename T>
 class SCC {
 private:
