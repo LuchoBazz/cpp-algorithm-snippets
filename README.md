@@ -1,5 +1,7 @@
 # :pushpin: Algorithms Template for Competitive Programming
 
+[![Generic badge](https://img.shields.io/badge/Codeforces-@SorKierkegaard-sucess.svg)](https://codeforces.com/profile/SorKierkegaard)
+
 Este repositorio contiene templates de algorimtos y estructuras de datos populares codificados en C++ para usar en competencias de programación.
 
 ## Contenido
@@ -91,3 +93,6 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **String**
     * Algunos componentes del codigo fuente de `string/string_suffix_array.cpp` fué extraido de [ekzhang/library](https://github.com/ekzhang/library) `suffix_array.cpp` ➡️ Por **Eric Zhang**
+
+* **Query Range**
+    * Algunos componentes del codigo fuente de este folder fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `data > segtree.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**

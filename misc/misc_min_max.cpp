@@ -1,9 +1,11 @@
 template<typename T>
-void min_ref(T &x, T y) {
-    if(y < x) x = y;
+bool min_ref(T &x, T y) {
+    if(y < x) {x = y; return true;}
+    return false;
 }
 
 template<typename T>
-void max_ref(T &x, T y) {
-    if(y > x) x = y;
+bool max_ref(T &x, T y) {
+    if(y > x) {x = y; return true;}
+    return false;
 }
