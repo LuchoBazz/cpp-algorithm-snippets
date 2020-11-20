@@ -9,6 +9,7 @@ using namespace std;
 
 #define endl '\n'
 #define finally(value) {cout << (value) << '\n'; return;}
+using int64 = int64_t;
 
 class Task {
 private:
@@ -41,7 +42,7 @@ auto main() -> int {
 //   * int overflow, time and memory limits
 //   * Special case (n = 1?)
 //   * Do something instead of nothing and stay organized
-//   * Don't get stuck in one focus
+//   * Don't get stuck in one approach
 
 // TIME AND MEMORY LIMITS
 //   * 1 second is approximately 10^8 operations (c++)
