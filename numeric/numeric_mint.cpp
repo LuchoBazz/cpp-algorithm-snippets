@@ -144,7 +144,7 @@ template <typename T, typename U> bool operator>=(const Modular<T>& lhs, U rhs) 
 template <typename T, typename U> bool operator>=(U lhs, const Modular<T>& rhs) { return Modular<T>(lhs) >= rhs; }
 
 template<typename T, typename U>
-Modular<T> power(const Modular<T>& a, const U& b) {
+Modular<T> fastpow(const Modular<T>& a, const U& b) {
     assert(b >= 0);
     Modular<T> x = a, res = 1;
     U p = b;
