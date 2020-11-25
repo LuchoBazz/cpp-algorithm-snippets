@@ -1,5 +1,5 @@
-int tt;
-cin >> tt;
-while(tt--) {
+int T;
+cin >> T;
+while(T --> 0) {
     
 }
