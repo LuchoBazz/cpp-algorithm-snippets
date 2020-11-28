@@ -16,7 +16,7 @@ T mul(T a, T b) {
 }
 
 template<typename T>
-T power(T a, T b) {
+T fastpow(T a, T b) {
     T answer = (T)1;
     while (b > 0) {
         if (b & 1) {
