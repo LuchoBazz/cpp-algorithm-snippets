@@ -7,30 +7,30 @@ T FactorizerVarMod<T>::value;
 
 // Miller-Rabin primality test
 template <typename T>
-bool is_prime(T n, const vector<T>& bases) {
-    if (n < 2) return false;
+bool miller_rabin(T number, const vector<T>& bases) {
+    if (number < 2) return false;
     vector<T> small_primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
     for (const T& x : small_primes) {
-        if (n % x == 0) {
-            return n == x;
+        if (number % x == 0) {
+            return number == x;
         }
     }
-    if (n < 31 * 31) return true;
+    if (number < 31 * 31) return true;
     int s = 0;
-    T d = n - 1;
+    T d = number - 1;
     while ((d & 1) == 0) {
         d >>= 1;
         s++;
     }
-    FactorizerVarMod<T>::value = n;
+    FactorizerVarMod<T>::value = number;
     for (const T& a : bases) {
-        if (a % n == 0) continue;
+        if (a % number == 0) continue;
         Modular<FactorizerVarMod<T>> cur = a;
         cur = fastpow(cur, d);
         if (cur == 1) continue;
         bool witness = true;
         for (int r = 0; r < s; r++) {
-            if (cur == n - 1) {
+            if (cur == number - 1) {
                 witness = false;
                 break;
             }
@@ -41,35 +41,35 @@ bool is_prime(T n, const vector<T>& bases) {
     return true;
 }
 
-bool is_prime(uint64_t n) {
-    if (n < 2) return false;
+bool miller_rabin(uint64_t number) {
+    if (number < 2) return false;
     vector<uint32_t> small_primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
     for (uint32_t x : small_primes) {
-        if (n == x) return true;
-        if (n % x == 0) return false;
+        if (number == x) return true;
+        if (number % x == 0) return false;
     }
-    if (n < 31 * 31) return true;
-    uint32_t s = __builtin_ctzll(n - 1);
-    uint64_t d = (n - 1) >> s;
-    function<bool(uint64_t)> witness = [&n, &s, &d](uint64_t a) {
+    if (number < 31 * 31) return true;
+    uint32_t s = __builtin_ctzll(number - 1);
+    uint64_t d = (number - 1) >> s;
+    function<bool(uint64_t)> witness = [&number, &s, &d](uint64_t a) {
         uint64_t cur = 1, p = d;
         while (p > 0) {
             if (p & 1) {
-                cur = (uint64_t) cur * a % n;
+                cur = (uint64_t) cur * a % number;
             }
-            a = (uint64_t) a * a % n;
+            a = (uint64_t) a * a % number;
             p >>= 1;
         }
         if (cur == 1) return false;
         for (uint32_t r = 0; r < s; r++) {
-            if (cur == n - 1) return false;
-            cur = (uint64_t) cur * cur % n;
+            if (cur == number - 1) return false;
+            cur = (uint64_t) cur * cur % number;
         }
         return true;
     };
     vector<uint64_t> bases_64bit = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};
     for (uint64_t a : bases_64bit) {
-        if (a % n == 0) return true;
+        if (a % number == 0) return true;
         if (witness(a)) return false;
     }
     return true;
@@ -90,9 +90,9 @@ bool is_prime_slow(T number) {
 }
 
 bool is_prime(int64_t n) {
-    return is_prime(n, {2, 325, 9375, 28178, 450775, 9780504, 1795265022});
+    return miller_rabin(n, {2, 325, 9375, 28178, 450775, 9780504, 1795265022});
 }
 
 bool is_prime(int32_t n) {
-    return is_prime(n, {2, 7, 61});
+    return miller_rabin(n, {2, 7, 61});
 }
