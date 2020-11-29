@@ -65,8 +65,8 @@ public:
         return *this;
     }
     Modular& operator/=(const Modular& other) { return *this *= Modular(inverse(other.value, mod())); }
+    template <typename U> Modular<U> abs(const Modular<U>& v) { return v; }
 
-    template <typename U> friend const Modular<U>& abs(const Modular<U>& v) { return v; }
     template <typename U> friend bool operator==(const Modular<U>& lhs, const Modular<U>& rhs);
     template <typename U> friend bool operator<(const Modular<U>& lhs, const Modular<U>& rhs);
     template <typename U> friend bool operator<=(const Modular<U>& lhs, const Modular<U>& rhs);
