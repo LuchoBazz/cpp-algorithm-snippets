@@ -15,9 +15,10 @@ T mul(T a, T b) {
     return ((a%MOD) * (b%MOD)) % MOD;
 }
 
-template<typename T>
-T fastpow(T a, T b) {
-    T answer = (T)1;
+template<typename T, typename U>
+T fastpow(T a, U b) {
+    assert(0 <= b);
+    T answer = static_cast<T>(1);
     while (b > 0) {
         if (b & 1) {
             answer = mul(answer, a);
