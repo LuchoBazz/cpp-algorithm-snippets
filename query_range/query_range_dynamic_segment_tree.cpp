@@ -3,12 +3,16 @@ class SegmentTree {
     static const T neutral = T(...);
     struct Node {
         T sum = neutral;
+        T mx = neutral;
         T mn = neutral;
+        int idx_mx = -1;
         int idx_mn = -1;
-        void apply(int left, int right, T value) {
+        void apply(int index, T value) {
             sum = value;
+            mx = value;
             mn = value;
-            if(left == right) idx_mn = left;
+            idx_mx = index;
+            idx_mn = index;
         }
     };
     SegmentTree<T> *left, *right;
@@ -25,13 +29,15 @@ public:
     Node unite(const Node &a, const Node &b) {
         Node res;
         res.sum = a.sum + b.sum;
+        res.mx = max(a.mx, b.mx);
         res.mn = min(a.mn, b.mn);
+        res.idx_mx = (res.mx==a.mx)?a.idx_mx:b.idx_mx;
         res.idx_mn = (res.mn==a.mn)?a.idx_mn:b.idx_mn;
         return res;
     }
     void modify(int index, T value) {
         if(low == high) {
-            data.apply(low, high, value);
+            data.apply(low, value);
         } else {
             if(index <= mid) left->modify(index, value);
             else right->modify(index, value);
@@ -46,15 +52,15 @@ public:
 };
 
 template<typename T>
-void fill(SegmentTree<T> &st, const vector<T> &values) {
-    for(int i = 0; i < int(values.size()); ++i) {
-        st.modify(i, values[i]);
-    }
+void fill(SegmentTree<T> &st, const vector<T> &v) {
+    for(int i = 0; i < (int) v.size(); ++i)
+        st.modify(i, v[i]);
 }
 
 template<typename T>
 using segtree = SegmentTree<T>;
 
 // Usage:
-// segtree<int> st(0, int(values.size())-1);
-// fill(st, values);
+// int n = (int) A.size();
+// segtree<int> st(0, n-1);
+// fill(st, A);
