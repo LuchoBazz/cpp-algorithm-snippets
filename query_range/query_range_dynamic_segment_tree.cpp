@@ -1,12 +1,13 @@
 template<typename T>
 class SegmentTree {
-    static const T neutral = T(...);
     struct Node {
-        T sum = neutral;
-        T mx = neutral;
-        T mn = neutral;
+        // set default values
+        T sum = ...;
+        T mx = ...;
+        T mn = ...;
         int idx_mx = -1;
         int idx_mn = -1;
+        // apply: set values for leaves
         void apply(int index, T value) {
             sum = value;
             mx = value;
