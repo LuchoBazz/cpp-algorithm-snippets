@@ -86,6 +86,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `string_trie` - Estructura de datos Arbol de Prefijos Trie (Prefix Tree).
     * `string_manacher` - Algoritmo Manacher (Encontrar todos los substring palindromos de un string en O(n)).
     * `string_split` - Función split en string.
+    * `string_hashing` - Implementación de Rolling Hashing 
 
 * **Random**
     * `random_init` - Generar valor aleatorio en un rango.
@@ -122,6 +123,8 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **String**
     * Algunos componentes del codigo fuente de `string/string_suffix_array.cpp` fué extraido de [ekzhang/library](https://github.com/ekzhang/library) `suffix_array.cpp` ➡️ Por **Eric Zhang**
+
+    * Algunos componentes del codigo fuente de `string/string_hashing.cpp` fué extraido de [mavd09/notebook_unal](https://github.com/mavd09/notebook_unal) `String/Hashing.cpp` ➡️ Por **Osman Jimenez, Manuel Vergara y Víctor Ramírez**
 
 * **Query Range**
     * Algunos componentes del codigo fuente de este folder fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `data > segtree.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
