@@ -1,5 +1,5 @@
-// 1000567999, 1000111997, 1000777121
-vector<int> MODS = { 1001864327, 1001265673, 1000234999};
+// 1000234999, 1000567999, 1000111997, 1000777121
+vector<int> MODS = { 1001864327, 1001265673};
 
 int add(int a, int b, int mod) { return ((a%mod)+(b%mod)) % mod; }
 int sub(int a, int b, int mod) { return ((a%mod)-(b%mod)+mod)%mod; }
@@ -7,7 +7,8 @@ int mul(int a, int b, int mod) { return (1LL*(a%mod)*(b%mod))%mod; }
 
 template<vector<int> &MD>
 class HashInt {
-    friend HashInt<MD> operator_hash(const HashInt<MD> &a,  const HashInt<MD> &b, const function<int(int, int, int)> &F) {
+    friend HashInt<MD> operator_hash(const HashInt<MD> &a,  const HashInt<MD> &b, 
+            const function<int(int, int, int)> &F) {
         int n = (int) MD.size();
         HashInt<MD> res(vector<int>(n, 0));
         for(int i = 0; i < n; ++i)
@@ -29,6 +30,9 @@ public:
     int& operator [] (int i) { assert(0 <= i && i < sz); return values[i]; }
     friend bool operator==(const HashInt<MD> &lhs,  const HashInt<MD> &rhs) {
         return lhs.values == rhs.values;
+    }
+    friend bool operator!=(const HashInt<MD> &lhs,  const HashInt<MD> &rhs) {
+        return lhs.values != rhs.values;
     }
     friend HashInt<MD> operator+(const HashInt<MD> &lhs,  const HashInt<MD> &rhs) {
         return operator_hash(lhs, rhs, add);
