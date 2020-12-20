@@ -60,8 +60,8 @@ struct RollingHashing {
         for (int i = 1; i < code.size(); ++i)
             code[i] = code[i-1]*BASE + hash_int((int)t[i-1]);
     }
-    hash_int query(int l, int r) {
-        return code[r+1] - code[l]*base[r-l+1];
+    hash_int query(int left, int right) {
+        return code[right+1] - code[left]*base[right-left+1];
     }
 };
 
