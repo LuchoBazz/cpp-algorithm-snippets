@@ -1,7 +1,6 @@
 /**
  * @author      : Luis Miguel Baez <es.luismiguelbaez@gmail.com>
  * @created     : `!v strftime("%B %d, %Y")`
- * @Handle      : 🇨🇴 @SorKierkegaard
  */
 
 #include <bits/stdc++.h>
@@ -33,7 +32,7 @@ private:
     }
 };
 
-auto main() -> int {
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
