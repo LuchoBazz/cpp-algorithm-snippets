@@ -48,19 +48,22 @@ template <class T>
 struct RollingHashing {
     vector<hash_int> code;
     vector<hash_int> base;
+    int n;
     
-    RollingHashing(const T &t) {
-        base.resize((int)t.size()+1, hash_int(0));
+    RollingHashing(const T &s) {
+        n = (int) s.size();
+        base.resize(n+1, hash_int(0) );
         base[0] = ONE;
-        for(int i = 1; i <= (int)t.size(); i++)
+        for(int i = 1; i <= n; i++)
             base[i] = base[i-1]*BASE;
         
-        code.resize((int) t.size()+1, hash_int(0));
+        code.resize(n+1, hash_int(0));
         code[0] = ZERO;
         for (int i = 1; i < code.size(); ++i)
-            code[i] = code[i-1]*BASE + hash_int((int)t[i-1]);
+            code[i] = code[i-1]*BASE + hash_int((int)s[i-1]);
     }
     hash_int query(int left, int right) {
+        assert(0 <= left && left <= right && right < n);
         return code[right+1] - code[left]*base[right-left+1];
     }
 };
