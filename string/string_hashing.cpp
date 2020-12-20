@@ -50,12 +50,12 @@ struct RollingHashing {
     vector<hash_int> base;
     
     RollingHashing(const T &t) {
-        base.resize((int)t.size()+1, hash_int(vector<int>(hash_int(0).sz, 0)));
+        base.resize((int)t.size()+1, hash_int(0));
         base[0] = ONE;
         for(int i = 1; i <= (int)t.size(); i++)
             base[i] = base[i-1]*BASE;
         
-        code.resize((int) t.size()+1, hash_int(vector<int>(hash_int(0).sz, 0)));
+        code.resize((int) t.size()+1, hash_int(0));
         code[0] = ZERO;
         for (int i = 1; i < code.size(); ++i)
             code[i] = code[i-1]*BASE + hash_int((int)t[i-1]);
