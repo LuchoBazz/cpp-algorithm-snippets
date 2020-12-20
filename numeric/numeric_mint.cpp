@@ -19,7 +19,7 @@ public:
     constexpr Modular() : value() {}
 
     template <typename U>
-    Modular(const U& x) {
+    Modular(U x) {
         value = normalize(x);
     }
 
@@ -50,18 +50,7 @@ public:
 
     template <typename U = T>
     typename enable_if<is_same<typename Modular<U>::Type, int>::value, Modular>::type& operator*=(const Modular& rhs) {
-#ifdef _WIN32
-        uint64_t x = static_cast<int64_t>(value) * static_cast<int64_t>(rhs.value);
-        uint32_t xh = static_cast<uint32_t>(x >> 32), xl = static_cast<uint32_t>(x), d, m;
-        asm(
-            "divl %4; \n\t"
-            : "=a" (d), "=d" (m)
-            : "d" (xh), "a" (xl), "r" (mod())
-        );
-        value = m;
-#else
-        value = normalize(static_cast<int64_t>(value) * static_cast<int64_t>(rhs.value));
-#endif
+        value = normalize(static_cast<int64_t>(value) * static_cast<int64_t>(rhs.value)); 
         return *this;
     }
     template <typename U = T>
@@ -75,30 +64,18 @@ public:
         value = normalize(value * rhs.value);
         return *this;
     }
-
     Modular& operator/=(const Modular& other) { return *this *= Modular(inverse(other.value, mod())); }
+    template <typename U> Modular<U> abs(const Modular<U>& v) { return v; }
 
-    template <typename U>
-    friend const Modular<U>& abs(const Modular<U>& v) { return v; }
+    template <typename U> friend bool operator==(const Modular<U>& lhs, const Modular<U>& rhs);
+    template <typename U> friend bool operator<(const Modular<U>& lhs, const Modular<U>& rhs);
+    template <typename U> friend bool operator<=(const Modular<U>& lhs, const Modular<U>& rhs);
+    template <typename U> friend bool operator>(const Modular<U>& lhs, const Modular<U>& rhs);
+    template <typename U> friend bool operator>=(const Modular<U>& lhs, const Modular<U>& rhs);
+    template <typename U> friend istream& operator>>(istream& stream, Modular<U>& number);
 
-    template <typename U>
-    friend bool operator==(const Modular<U>& lhs, const Modular<U>& rhs);
-
-    template <typename U>
-    friend bool operator<(const Modular<U>& lhs, const Modular<U>& rhs);
-
-    template <typename U>
-    friend bool operator<=(const Modular<U>& lhs, const Modular<U>& rhs);
-
-    template <typename U>
-    friend bool operator>(const Modular<U>& lhs, const Modular<U>& rhs);
-
-    template <typename U>
-    friend bool operator>=(const Modular<U>& lhs, const Modular<U>& rhs);
-
-    template <typename U>
-    friend std::istream& operator>>(std::istream& stream, Modular<U>& number);
-
+    operator int() {return (int) value;}
+    operator int64_t() {return (int64_t) value;}
 private:
     Type value;
 };
@@ -154,11 +131,6 @@ Modular<T> fastpow(const Modular<T>& a, const U& b) {
         p >>= 1;
     }
     return res;
-}
-
-template <typename T>
-bool IsZero(const Modular<T>& number) {
-    return number() == 0;
 }
 
 template <typename T>

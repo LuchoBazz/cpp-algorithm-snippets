@@ -24,6 +24,12 @@ public:
         in >> t;
         while(t--) solveOne(in, out);
     }
+private:
+    void print() {cout << "\n";}
+    template<class H, class... T> void print(const H& h, const T&... t) {
+        cout << h;
+        if(sizeof...(t)) cout << ' '; print(t...);
+    }
 };
 
 void set_usaco(string filename="") {
