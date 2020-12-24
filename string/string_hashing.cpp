@@ -1,77 +1,59 @@
 // 1000234999, 1000567999, 1000111997, 1000777121
-vector<int> MODS = { 1001864327, 1001265673};
-
-int add(int a, int b, int mod) { return ((a%mod)+(b%mod)) % mod; }
-int sub(int a, int b, int mod) { return ((a%mod)-(b%mod)+mod)%mod; }
-int mul(int a, int b, int mod) { return (1LL*(a%mod)*(b%mod))%mod; }
-
-template<vector<int> &MD>
+const int MODS[] = { 1001864327, 1001265673 };
+ 
+inline int add(int a, int b, const int& mod) { return (a+b>=mod)? a+b-mod : a+b; }
+inline int sub(int a, int b, const int& mod) { return (a-b<0)? a-b+mod : a-b; }
+inline int mul(int a, int b, const int& mod) { return (1LL*a*b)%mod; }
+ 
 class HashInt {
-    friend HashInt<MD> operator_hash(const HashInt<MD> &a,  const HashInt<MD> &b, 
-            const function<int(int, int, int)> &F) {
-        int n = (int) MD.size();
-        HashInt<MD> res(vector<int>(n, 0));
-        for(int i = 0; i < n; ++i)
-            res[i] = F(a.values[i], b.values[i], MD[i]);
-        return res;
-    }
 public:
-    vector<int> values;
-    int sz;
-    HashInt(vector<int> v) {
-        assert((int) v.size() == (int) MD.size());
-        sz = (int) MD.size();
-        values = v;
+    int first;
+    int second;
+    HashInt(int a, int b) : first(a), second(b) {}
+    HashInt(int a) : first(a), second(a) {}
+    inline friend bool operator==(const HashInt &a,  const HashInt &b) {
+        return a.first==b.first&&a.second==b.second;
     }
-    HashInt(int value) {
-        values.resize((int) MD.size(), value);
-        sz = (int) MD.size();
+    inline friend bool operator!=(const HashInt &a,  const HashInt &b) {
+        return a.first!=b.first&&a.second!=b.second;
     }
-    int& operator [] (int i) { assert(0 <= i && i < sz); return values[i]; }
-    friend bool operator==(const HashInt<MD> &lhs,  const HashInt<MD> &rhs) {
-        return lhs.values == rhs.values;
+    inline friend HashInt operator+(const HashInt &a,  const HashInt &b) {
+        return HashInt{add(a.first, b.first, MODS[0]), add(a.second, b.second, MODS[1])};
     }
-    friend bool operator!=(const HashInt<MD> &lhs,  const HashInt<MD> &rhs) {
-        return lhs.values != rhs.values;
+    inline friend HashInt operator-(const HashInt &a,  const HashInt &b) {
+        return HashInt{sub(a.first, b.first, MODS[0]), sub(a.second, b.second, MODS[1])};
     }
-    friend HashInt<MD> operator+(const HashInt<MD> &lhs,  const HashInt<MD> &rhs) {
-        return operator_hash(lhs, rhs, add);
-    }
-    friend HashInt<MD> operator-(const HashInt<MD> &lhs,  const HashInt<MD> &rhs) {
-        return operator_hash(lhs, rhs, sub);
-    }
-    friend HashInt<MD> operator*(const HashInt<MD> &lhs,  const HashInt<MD> &rhs) {
-        return operator_hash(lhs, rhs, mul);
+    inline friend HashInt operator*(const HashInt &a,  const HashInt &b) {
+        return HashInt{mul(a.first, b.first, MODS[0]), mul(a.second, b.second, MODS[1])};
     }
 };
-
-using hash_int = HashInt<MODS>;
-const hash_int BASE(256), ZERO(0), ONE(1);
-
+using hash_int = HashInt;
+ 
+const HashInt BASE(256), ZERO(0), ONE(1);
 template <class T>
 struct RollingHashing {
-    vector<hash_int> code;
-    vector<hash_int> base;
     int n;
-    
+    vector<HashInt> code;
+    vector<HashInt> base;
+ 
     RollingHashing(const T &s) {
         n = (int) s.size();
-        base.resize(n+1, hash_int(0) );
+        base.resize(n+1, HashInt(0));
         base[0] = ONE;
         for(int i = 1; i <= n; i++)
             base[i] = base[i-1]*BASE;
         
-        code.resize(n+1, hash_int(0));
+        code.resize(n+1, HashInt(0));
         code[0] = ZERO;
         for (int i = 1; i < code.size(); ++i)
-            code[i] = code[i-1]*BASE + hash_int((int)s[i-1]);
+            code[i] = code[i-1]*BASE + HashInt(s[i-1]);
     }
-    hash_int query(int left, int right) {
+    inline HashInt query(int left, int right) {
         assert(0 <= left && left <= right && right < n);
         return code[right+1] - code[left]*base[right-left+1];
     }
 };
-
+ 
 template <class T>
 using hashing = RollingHashing<T>;
 // Usage:
