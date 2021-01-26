@@ -26,6 +26,9 @@ public:
     inline friend HashInt operator*(const HashInt &a,  const HashInt &b) {
         return HashInt{mul(a.first, b.first, MODS[0]), mul(a.second, b.second, MODS[1])};
     }
+    operator int64_t() {
+        return (int64_t(first)<<32)|int64_t(second);
+    }
 };
 using hash_int = HashInt;
  
@@ -48,9 +51,9 @@ struct RollingHashing {
         for (int i = 1; i < code.size(); ++i)
             code[i] = code[i-1]*BASE + HashInt(s[i-1]);
     }
-    inline HashInt query(int left, int right) {
+    inline int64_t query(int left, int right) {
         assert(0 <= left && left <= right && right < n);
-        return code[right+1] - code[left]*base[right-left+1];
+        return int64_t(code[right+1] - code[left]*base[right-left+1]);
     }
 };
  
@@ -59,5 +62,5 @@ using hashing = RollingHashing<T>;
 // Usage:
 //    string s = "Hello World":
 //    hashing<string> h(s);
-//    hash_int val = h.query(l, r);
-//    h.query(l1, r1) == h1.query(l2, r2);
+//    int64_t val = h.query(l, r);
+//    h1.query(l1, r1) == h2.query(l2, r2);
