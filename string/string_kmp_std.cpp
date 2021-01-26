@@ -21,7 +21,7 @@ vector<int> kmp(const T &text, const T &pattern) {
 }
 
 template <typename T>
-int search_pattern(const T &text, const T &pattern)  {
+vector<int> search_pattern(const T &text, const T &pattern) {
     return kmp(text, pattern);
 }
 //KMP - Knuth-Morris-Pratt algorithm 
