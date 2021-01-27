@@ -1,3 +1,10 @@
+/**
+ * Description: Aho-Corasick tree is used for multiple pattern matching.
+ * Time: O(|text|+SUM(|pattern_i|)+matches)
+ * Source: t.ly/x11y
+ * Verification: t.ly/KTfw
+ */
+
 const int ALPHA = ...; // alphabet size
 const char L = ...; // first letter of the alphabet
 
@@ -119,3 +126,7 @@ public:
         return answer;
     }
 };
+
+// Usage:
+//   AhoCorasick ac(patterns);
+//   auto ans = ac.search(text);
