@@ -1,3 +1,13 @@
+/**
+ * Description: hashing is a known way to convert a string to an integer, in order to have substring comparisons efficiently
+ * Time:
+ *      n: string size
+ *     * build: O(n)
+ *     * query: O(1)
+ * Source: t.ly/VZdC String/Hashing.cpp
+ * Verification: t.ly/xaRc
+ */
+
 // 1000234999, 1000567999, 1000111997, 1000777121
 const int MODS[] = { 1001864327, 1001265673 };
  
