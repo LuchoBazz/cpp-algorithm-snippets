@@ -10,10 +10,10 @@ using __gnu_pbds::tree_order_statistics_node_update;
 using __gnu_pbds::null_type;
 
 template <typename K, typename V, typename Comp = less<K>>
-using ordered_map = tree<K, V, Comp, rb_tree_tag, tree_order_statistics_node_update>;
+using indexed_map = tree<K, V, Comp, rb_tree_tag, tree_order_statistics_node_update>;
 
 template <typename K, typename Comp = less<K>>
-using ordered_set = ordered_map<K, null_type, Comp>;
+using indexed_set = ordered_map<K, null_type, Comp>;
 
 // Usage
 //    auto it = any.find_by_order(idx); (0-indexed)
