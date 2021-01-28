@@ -126,5 +126,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
     * Algunos componentes del codigo fuente de `string/string_hashing.cpp` fué extraido de [mavd09/notebook_unal](https://github.com/mavd09/notebook_unal) `String/Hashing.cpp` ➡️ Por **Osman Jimenez, Manuel Vergara y Víctor Ramírez**
 
+    * Algunos componentes del codigo fuente de `string/string_hashing_dynamic_compress.cpp` fué extraido de [ekzhang/library](https://github.com/ekzhang/library) `hashing_bit.cpp` ➡️ Por **Eric Zhang**
+
 * **Query Range**
     * Algunos componentes del codigo fuente de este folder fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `data > segtree.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
