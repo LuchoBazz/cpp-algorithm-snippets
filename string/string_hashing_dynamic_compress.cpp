@@ -78,7 +78,7 @@ struct RollingHashing {
             modify(i, S[i]);
     }
 private:
-    void modify(int index, HashInt value) {
+    inline void modify(int index, HashInt value) {
         HashInt val = base[index]*value;
         index += 1;
         while(index <= n) {
@@ -87,7 +87,7 @@ private:
         }
     }
     
-    HashInt query(int index) {
+    inline HashInt query(int index) {
         index += 1;
         HashInt ans(0);
         while(index > 0) {
@@ -97,11 +97,11 @@ private:
         return ans;
     }
 public:
-    void set(int index, char value) {
+    inline void set(int index, char value) {
         int delta1 = (MODS[0] + value - S[index]) % MODS[0];
         int delta2 = (MODS[1] + value - S[index]) % MODS[1];
-		S[index] = value;
-		modify(index, HashInt(delta1, delta2));
+        S[index] = value;
+        modify(index, HashInt(delta1, delta2));
     }
         
     inline int64_t query(int left, int right) {
