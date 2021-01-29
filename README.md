@@ -53,14 +53,14 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `math_fft_recursive` - Algoritmo de la Transformada Rapida de Fourier (Recusiva).
 
 * **Query Range**
-    * `query_range_segment_tree` - Estructura de datos Segment Tree.
-    * `query_sum_range_immutable` - Consultas de suma en rangos (Immutable).
-    * `query_range_fenwick_tree_std` - Arbon binario Indexado estandard (fenwick tree)
-    * `query_range_segment_tree_lazy_index_sum_min_max` - Estructura de datos Segment Tree Lazy propagation con (add, max, min, index) operaciones.
-    * `query_range_segment_tree_lazy_sum_min_max` - Estructura de datos Segment Tree Lazy propagation con (add, max, min) operaciones.
-    * `query_range_segment_tree_lazy_template` - Template de la estructura de datos Segment Tree Lazy propagation.
-    * `query_range_sum_lower_bound_segment_tree_lazy` - Algoritmo Lower Bound en el Segment Tree Lazy.
-    * `query_range_find_less_than_segment_tree_lazy` - Encontrar el elemento menor mas a la derecha de un valor dado en el Segment Tree Lazy.
+    * `range_query_segment_tree` - Estructura de datos Segment Tree.
+    * `range_query_sum_immutable` - Consultas de suma en rangos (Immutable).
+    * `range_query_fenwick_tree_std` - Arbon binario Indexado estandard (fenwick tree)
+    * `range_query_segment_tree_lazy_index_sum_min_max` - Estructura de datos Segment Tree Lazy propagation con (add, max, min, index) operaciones.
+    * `range_query_segment_tree_lazy_sum_min_max` - Estructura de datos Segment Tree Lazy propagation con (add, max, min) operaciones.
+    * `range_query_segment_tree_lazy_template` - Template de la estructura de datos Segment Tree Lazy propagation.
+    * `range_query_sum_lower_bound_segment_tree_lazy` - Algoritmo Lower Bound en el Segment Tree Lazy.
+    * `range_query_find_less_than_segment_tree_lazy` - Encontrar el elemento menor mas a la derecha de un valor dado en el Segment Tree Lazy.
 
 * **Graph**
     * `graph_graph` - Clase padre de la representacion de un grafo.
