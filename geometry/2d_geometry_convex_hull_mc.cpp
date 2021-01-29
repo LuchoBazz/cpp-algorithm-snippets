@@ -2,7 +2,7 @@
 
 template<typename T>
 Polygon<T> convex_hull(Polygon<T> points) {
-    int n = int(points.size());
+    int n = (int) points.size();
     if(n <= 1) return points;
     vector<Point<T>> hull;
     // Sorting Points
