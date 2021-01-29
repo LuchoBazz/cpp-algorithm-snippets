@@ -6,7 +6,8 @@
 template<typename T>
 int find_less_than(SegmentTree<T> &st, int left, int right, T target) {
     return st.find_last(left, right, [&](const typename SegmentTree<T>::Node &node) {
-        if (node.mn < target) return true;
+        if (node.mn < target)
+            return true;
         return false;
     });
 }

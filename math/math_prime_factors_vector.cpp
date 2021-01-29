@@ -11,9 +11,8 @@ vector<T> prime_factors(T number)  {
             number = number / i; 
         }
     }
-    if (number > 2)  {
+    if (number > 2)
         factors.push_back(number);
-    }
     return factors;
 }
 // usage:

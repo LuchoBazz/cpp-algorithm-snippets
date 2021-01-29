@@ -12,7 +12,8 @@ bool diophantine(T a, T b, T c, T & x, T & y, T & g) {
         return false;
     }
     auto [g1, x1, y1] = extgcd(a, b);
-    if (c % g1 != 0) return false;
+    if (c % g1 != 0)
+        return false;
     g = g1;
     x = x1 * (c / g);
     y = y1 * (c / g);

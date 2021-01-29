@@ -5,20 +5,18 @@
 
 template<typename T>
 class Polynomial {
-    void check_data_types() {
-        assert(is_integral<T>::value || is_floating_point<T>::value);
-    }
 public:
+    static_assert(is_integral<T>::value || is_floating_point<T>::value);
 
     vector<T> poly;
 
-    Polynomial(int n) : poly(n) {check_data_types();}
-    Polynomial(int n, T initialize) : poly(n, initialize) {check_data_types();}
-    Polynomial(const vector<T> &p) : poly(p) {check_data_types();}
+    Polynomial(int n) : poly(n) {}
+    Polynomial(int n, T initialize) : poly(n, initialize) {}
+    Polynomial(const vector<T> &p) : poly(p) {}
 
     int degree() const {
         // degree of the polynomial
-        return int(poly.size()) - 1; 
+        return (int) poly.size() - 1; 
     }
 
     Polynomial<T> scale(int n) {
@@ -41,10 +39,10 @@ public:
     Polynomial<T> extend(int d) {
         // Extend list p representing a polynomial p(x) to
         // match polynomials of degree d-1.
-        int sz = d-int(poly.size());
+        int sz = d-(int) poly.size();
         if(sz <= 0) return *this;
         Polynomial<T> ans(sz, T(0));
-        for(int i = 0; i < int(poly.size()); ++i) {
+        for(int i = 0; i < (int) poly.size(); ++i) {
             ans.poly.push_back(poly[i]);
         }
         poly.swap(ans.poly);
@@ -56,10 +54,10 @@ public:
         // coefficient.
         // [0, 0, 3, 1] -> [3, 1]
         vector<T> ans;
-        for(int i = 0; i < int(poly.size()); ++i){
+        for(int i = 0; i < (int) poly.size(); ++i){
             if(poly[i] != T(0)) {
-                ans.reserve(int(poly.size()) - i);
-                for(int j = i; j < int(poly.size()); ++j){
+                ans.reserve((int) poly.size() - i);
+                for(int j = i; j < (int) poly.size(); ++j){
                     ans.push_back(poly[j]);
                 }
                 return ans;
@@ -70,7 +68,7 @@ public:
 
     Polynomial<T> operator*(T number) {
         // Multiply polynomial p(x) with scalar (constant) a.
-        for(int i = 0; i < int(poly.size()); ++i){
+        for(int i = 0; i < (int) poly.size(); ++i){
             poly[i] *= number;
         }
         return norm();
@@ -78,8 +76,8 @@ public:
 
     Polynomial<T> operator+(const Polynomial<T> &other) {
         // Add polynomials f(x) and g(x).
-        int n = int(poly.size());
-        int m = int(other.poly.size());
+        int n = (int) poly.size();
+        int m = (int) other.poly.size();
         int sz = max(n, m);
         Polynomial<T> fx(poly);
         Polynomial<T> gx(other.poly);
@@ -94,8 +92,8 @@ public:
 
     Polynomial<T> operator-(const Polynomial<T> &other) {
         // Subtract polynomials f(x) and g(x).
-        int n = int(poly.size());
-        int m = int(other.poly.size());
+        int n = (int) poly.size();
+        int m = (int) other.poly.size();
         int sz = max(n, m);
         Polynomial<T> fx(poly);
         Polynomial<T> gx(other.poly);
@@ -113,7 +111,7 @@ public:
         vector<complex<double>> fx(poly.rbegin(), poly.rend());
         vector<complex<double>> gx(other.poly.rbegin(), other.poly.rend());
         int n = 1;
-        while (n < int(poly.size()) + int(other.poly.size())) n <<= 1;
+        while (n < (int) poly.size() + (int) other.poly.size()) n <<= 1;
         fx.resize(n);
         gx.resize(n);
 

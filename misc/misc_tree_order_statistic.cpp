@@ -13,7 +13,7 @@ template <typename K, typename V, typename Comp = less<K>>
 using indexed_map = tree<K, V, Comp, rb_tree_tag, tree_order_statistics_node_update>;
 
 template <typename K, typename Comp = less<K>>
-using indexed_set = ordered_map<K, null_type, Comp>;
+using indexed_set = indexed_map<K, null_type, Comp>;
 
 // Usage
 //    auto it = any.find_by_order(idx); (0-indexed)
