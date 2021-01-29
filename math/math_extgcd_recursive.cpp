@@ -1,8 +1,7 @@
 template<typename T>
 tuple<T, T, T> extgcd(T a, T b) {
-    if (a == 0) {
+    if (a == 0)
         return {b, 0, 1};
-    }
     T p = b / a;
     auto [g, y, x] = extgcd(b - p * a, a);
     x -= p * y;

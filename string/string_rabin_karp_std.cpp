@@ -7,8 +7,8 @@ vector<int> rabin_karp(const T &text, const T &pattern) {
     hashing<string> txt(text);
     hashing<string> pat(pattern);
     vector<int> occurrences;
+    auto hash_pat = pat.query(0, m-1);
     for(int i = 0; i < n-m+1; ++i){
-        auto hash_pat = pat.query(0, m-1);
         auto hash_txt = txt.query(i, i+m-1);
         if(hash_pat == hash_txt)
             occurrences.push_back(i);

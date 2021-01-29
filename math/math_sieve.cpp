@@ -1,19 +1,19 @@
 template<class T>
 vector<T> sieve(T number) {
     vector<bool> isprime(number+1, false);
-    for(T i = 4; i <= number; i += 2) {
+    for(T i = 4; i <= number; i += 2)
         isprime[i] = true;
-    }
+    
     for(T prime = 3; prime <= number; prime += 2) {
         if(!isprime[prime]) {
-            for(int j = prime*2; j <= number; j += prime) {
+            for(int j = prime*2; j <= number; j += prime)
                 isprime[j] = true;
-            }
         }
     }
     vector<T> primes;
     for(T i = 2; i <= number; ++i) {
-        if(!isprime[i]) primes.push_back(i);
+        if(!isprime[i])
+            primes.push_back(i);
     }
     return primes;
 }

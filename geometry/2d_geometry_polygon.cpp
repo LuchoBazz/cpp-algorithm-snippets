@@ -9,7 +9,7 @@ public:
     Polygon(vector<Point<T>> pts) : points(pts.begin(), pts.end()) {}
     typename vector<Point<T>>::iterator begin() { return points.begin(); }
     typename vector<Point<T>>::iterator end() { return points.end(); }
-    int size() { return int(points.size()); }
+    int size() { return (int) points.size(); }
     Point<T>& operator [] (int i) { return points[i]; }
     void add(Point<T> point) {
         points.push_back(point);

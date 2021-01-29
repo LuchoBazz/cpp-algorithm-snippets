@@ -8,7 +8,7 @@ template<typename T>
 pair<vector<T>, vector<int>> dijkstra(const graph<T> &G, int start) {
     vector<T> dist(G.n, numeric_limits<T>::max());
     vector<int> prev(G.n, -1);
-    dist[start] = T(0);
+    dist[start] = static_cast<T>(0);
     priority_queue<link<T>, vector<link<T>>, greater<link<T>>> Q;
     Q.push({start, T(0)});
     while(!Q.empty()) {
