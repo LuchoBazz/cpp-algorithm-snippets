@@ -5,16 +5,14 @@
 
 template<typename T>
 class Polynomial {
-    void check_data_types() {
-        assert(is_integral<T>::value || is_floating_point<T>::value);
-    }
 public:
+    static_assert(is_integral<T>::value || is_floating_point<T>::value);
 
     vector<T> poly;
 
-    Polynomial(int n) : poly(n) {check_data_types();}
-    Polynomial(int n, T initialize) : poly(n, initialize) {check_data_types();}
-    Polynomial(const vector<T> &p) : poly(p) {check_data_types();}
+    Polynomial(int n) : poly(n) {}
+    Polynomial(int n, T initialize) : poly(n, initialize) {}
+    Polynomial(const vector<T> &p) : poly(p) {}
 
     int degree() const {
         // degree of the polynomial

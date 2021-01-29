@@ -11,9 +11,8 @@ map<T, int> prime_factors(T number)  {
             number = number / i; 
         }
     }
-    if (number > 2)  {
+    if (number > 2)
         factors[number]++;
-    }
     return factors;
 }
 // usage:

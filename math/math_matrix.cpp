@@ -6,21 +6,25 @@ public:
     int row, col;
     
     Matrix(const vector<vector<T>> &m) : M(m) {
-        int n = int(m.size());
+        int n = (int) m.size();
         row = n;
-        if(n == 0) col = 0;
-        else col = int(m[0].size());
+        if(n == 0)
+            col = 0;
+        else
+            col = (int) m[0].size();
     }
     
     Matrix(int r, int c, bool iden = false) : row(r), col(c) {
         assert(0 <= row && 0 <= col);
         M.resize(row, vector<T>(col, T(0)));
-        if(iden) for(int i = 0; i < r; i++) M[i][i] = T(1);
+        if(iden) 
+            for(int i = 0; i < r; i++) 
+                M[i][i] = T(1);
     }
     
     typename vector<vector<T>>::iterator begin() { return M.begin(); }
     typename vector<vector<T>>::iterator end() { return M.end(); }
-    int size() { return int(M.size()); }
+    int size() { return (int) M.size(); }
     vector<T>& operator [] (int i) { return M[i]; }
     
     Matrix<T> operator * (Matrix<T> &other) const {

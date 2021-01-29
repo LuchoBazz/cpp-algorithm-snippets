@@ -1,7 +1,8 @@
 template <typename T>
 vector<int> manacher(const T &s) {
-    int n = int(s.size());
-    if (n == 0) return vector<int>();
+    int n = (int) s.size();
+    if (n == 0)
+        return vector<int>();
     vector<int> res(2 * n - 1, 0);
     int l = -1, r = -1;
     for (int z = 0; z < 2 * n - 1; z++) {
@@ -25,16 +26,18 @@ vector<int> manacher(const T &s) {
 template <typename T>
 vector<string> palindromes(const T &txt) {
     vector<int> res = manacher(txt);
-    int n = int(txt.size());
+    int n = (int) txt.size();
     vector<string> answer;
     for(int z = 0; z < 2*n-1; ++z) {
         int i = (z + 1) / 2;
         int j = z / 2;
-        if (i > j && res[z] == 0) continue;
+        if (i > j && res[z] == 0)
+            continue;
         int from = i - res[z];
         int to = j + res[z];
         string pal="";
-        for(int i = from; i <= to; ++i) pal.push_back(txt[i]);
+        for(int i = from; i <= to; ++i)
+            pal.push_back(txt[i]);
         answer.push_back(pal);
     }
     return answer;

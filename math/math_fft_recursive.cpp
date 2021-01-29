@@ -3,7 +3,7 @@ const double PI = 3.141592653589793238462643383279502884L;
 template<typename T>
 void fft(vector<complex<T>> &a, bool invert=false) {
     assert(is_floating_point<T>::value);
-    int n = int(a.size());
+    int n = (int) a.size();
     if (n == 1) return;
     vector<complex<T>> a0(n / 2), a1(n / 2);
     for (int i = 0; 2 * i < n; i++) {

@@ -58,7 +58,7 @@ struct RollingHashing {
         
         code.resize(n+1, HashInt(0));
         code[0] = ZERO;
-        for (int i = 1; i < code.size(); ++i)
+        for (int i = 1; i < (int) code.size(); ++i)
             code[i] = code[i-1]*BASE + HashInt(s[i-1]);
     }
     inline int64_t query(int left, int right) {

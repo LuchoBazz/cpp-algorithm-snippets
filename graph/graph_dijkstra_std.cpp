@@ -9,7 +9,7 @@ vector <T> dijkstra(const graph<T> &g, int start) {
     assert(0 <= start && start < g.n);
     priority_queue<link<T>, vector<link<T>>, greater<link<T>>> Q;
     vector<T> dist(g.n, numeric_limits<T>::max());
-    dist[start] = 0;
+    dist[start] = static_cast<T>(0);
     Q.push({start, static_cast<T>(0)});
     while (!Q.empty()) {
         int to = Q.top().to; Q.pop();
