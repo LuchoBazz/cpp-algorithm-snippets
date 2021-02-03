@@ -1,3 +1,9 @@
+/**
+ * Description: Square Root Decomposition
+ * Verification: 
+	* t.ly/BMP9
+ */
+
 template<typename T>
 struct Node {
     T mn = numeric_limits<T>::max();
