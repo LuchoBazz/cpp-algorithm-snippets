@@ -1,12 +1,14 @@
-struct query {
+// Complexity: O(|N+Q|*sqrt(|N|)*|add+del|)
+
+struct Query {
     int left, right, index;
-    query (int l, int r, int idx)
+    Query (int l, int r, int idx)
         : left(l), right(r), index(idx) {}
 };
 
 int S; // S = sqrt(n);
 
-bool cmp (query a, query b) {
+bool cmp (const Query &a, const Query &b) {
     if (a.left/S != b.left/S)
         return a.left/S < b.left/S;
     return a.right > b.right;
@@ -19,17 +21,17 @@ void add(int idx) {
 void del(int idx) {
 
 }
-int get_ans() {
+auto get_answer() {
 
 }
 
 // at main()
-vector<query> Q;
+vector<Query> Q;
 Q.reserve(q+1);
 int from, to;
 for(int i = 0; i < q; ++i){
-    in >> from >> to;
-    Q.push_back(query(from, to, i));
+    in >> from >> to; // don't forget (from--, to--) if it's 1-indexed
+    Q.push_back(Query(from, to, i));
 }
 
 S = sqrt(n); // n = size of array
@@ -48,5 +50,5 @@ for (int i = 0; i < (int) Q.size(); ++i) {
     while (left < Q[i].left)
         del(left++);
     
-    ans[Q[i].index] = get_ans();
+    ans[Q[i].index] = get_answer();
 }
