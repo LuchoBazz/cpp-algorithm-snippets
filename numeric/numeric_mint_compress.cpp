@@ -12,15 +12,13 @@ T inverse(T a, T m) {
 template<typename Type>
 struct Modular {
     using T = typename decay<decltype(Type::value)>::type;
-    const T MOD = Type::value;
+    constexpr static T MD() { return Type::value; }
     T value; 
-    operator int() const { return static_cast<int>(value); }
-    operator int64_t() const { return static_cast<int64_t>(value); }
     Modular() { value = static_cast<T>(0); }
     T normalize(int64_t num) {
-        return static_cast<T>((-MOD < num && num < MOD) ? num : num % MOD); }
+        return static_cast<T>((-MD()<num&&num<MD()) ? num : num % MD()); }
     Modular(int64_t num) { value = normalize(num);
-        if (value < static_cast<T>(0)) value += MOD; }
+        if (value < static_cast<T>(0)) value += MD(); }
     friend bool operator==(const Modular& a, const Modular& b) { 
         return a.value == b.value; }
     friend bool operator!=(const Modular& a, const Modular& b) { 
@@ -33,11 +31,11 @@ struct Modular {
         T tmp; stream >> tmp; number = Modular(tmp);return stream; }
     friend string to_string(Modular a) { return to_string(a.value); }
     Modular& operator+=(const Modular& m) { 
-        if ((value += m.value) >= MOD) value -= MOD; return *this; }
+        if ((value += m.value) >= MD()) value -= MD(); return *this; }
     Modular& operator-=(const Modular& m) { 
-        if ((value -= m.value) < 0) value += MOD; return *this; }
+        if ((value -= m.value) < 0) value += MD(); return *this; }
     Modular& operator*=(const Modular& m) { 
-        value = static_cast<T>(1LL*value*m.value%MOD); return *this; }
+        value = static_cast<T>((1LL*value*m.value)%MD()); return *this; }
     Modular& operator/=(const Modular& m) { return (*this) *= inverse(m); }
     friend Modular inverse(const Modular& a) {
         assert(a.value != 0); return inverse(a.value, Type::value); }
@@ -48,15 +46,18 @@ struct Modular {
     friend Modular operator-(Modular a, const Modular& b) { return a -= b; }
     friend Modular operator*(Modular a, const Modular& b) { return a *= b; }
     friend Modular operator/(Modular a, const Modular& b) { return a /= b; }
+    operator int() const { return static_cast<int>(value); }
+    operator int64_t() const { return static_cast<int64_t>(value); }
 };
-// using ModType = int;
+// using ModType = int__;
 // struct VarMod { static ModType value; };
 // ModType VarMod::value;
 // ModType& MOD = VarMod::value;
 // using Mint = Modular<VarMod>;
-const int MOD = int(1e9+7); 
+const int MOD = int(1e9)+7; 
 // Modular Integer -> Mint
 using Mint = Modular<integral_constant<decay<decltype(MOD)>::type, MOD>>;
+
 bool is_zero_division(Mint &a) {
     using T = Mint::T; // don't forget to remove assert in reverse
-    return inverse(static_cast<T>(a), MOD) < static_cast<T>(0);}
+    return inverse(static_cast<T>(a), MOD) < static_cast<T>(0); }

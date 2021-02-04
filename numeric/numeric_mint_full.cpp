@@ -1,16 +1,3 @@
-template <typename T>
-T inverse(T a, T m) {
-    T u = 0, v = 1;
-    while (a != 0) {
-        T t = m / a;
-        m -= t * a; swap(a, m);
-        u -= t * v; swap(u, v);
-    }
-    assert(m == 1);
-    if(u < static_cast<T>(0)) u = (u + m) % m;
-    return u;
-}
-
 template<typename T>
 T inverse(T a, T m) {
     a = (a + m) % m;
@@ -176,7 +163,7 @@ ModType& MOD = VarMod::value;
 using Mint = Modular<VarMod>;
 */
 
-const int MOD = int(1e9+7);
+const int MOD = int(1e9) + 7;
 
 // Modular Integer -> Mint
 using Mint = Modular<integral_constant<decay<decltype(MOD)>::type, MOD>>;
