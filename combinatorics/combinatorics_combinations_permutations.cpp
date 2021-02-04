@@ -9,6 +9,7 @@ struct Combinatorics {
     int sz;
     Factorial<T> fact;
     
+    Combinatorics() : sz(-1), fact() {}
     Combinatorics(int n) : sz(n), fact(n) {}
     
     // en: Combinations WITHOUT repetitions (NO matter order)
@@ -41,7 +42,7 @@ struct Combinatorics {
         T product = static_cast<T>(0);
         for(int i = 0; i < (int) m.size(); ++i) {
             assert(0 <= n && n <= sz && 0 <= m[i] && m[i] <= sz);
-            product *= static_cast<T>(m[i]);
+            product *= fact[m[i]];
         }
         return fact[n] / product;
     }
