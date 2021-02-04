@@ -155,7 +155,7 @@ std::istream& operator>>(std::istream& stream, Modular<T>& number) {
 }
 
 /*
-using ModType = int;
+using ModType = int__;
 
 struct VarMod { static ModType value; };
 ModType VarMod::value;
