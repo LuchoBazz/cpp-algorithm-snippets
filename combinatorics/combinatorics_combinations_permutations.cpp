@@ -1,6 +1,6 @@
-// numeric_mint_full
-// or
 // numeric_mint_compress
+// or
+// numeric_mint_full
 
 // math_factorial
 
@@ -12,8 +12,6 @@ struct Combinatorics {
     Combinatorics() : sz(-1), fact() {}
     Combinatorics(int n) : sz(n), fact(n) {}
     
-    // en: Combinations WITHOUT repetitions (NO matter order)
-    // es: Combinaciones SIN repeticiones (NO importa el Orden)
     T C(int n, int k) {
         assert(0 <= n && n <= sz && 0 <= k && k <= sz);
         if(n < k)
@@ -21,14 +19,10 @@ struct Combinatorics {
         return fact[n] / (fact[n-k]*fact[k]);
     }
     
-    // en: Combinations WITH repetitions (NO matter order)
-    // es: Combinaciones CON repeticiones (NO importa el Orden)
     T H(int n, int k) {
         return C(n+k-1, k);
     }
     
-    // en: Permutations WITHOUT repetitions (Order DOES matter)
-    // es: Permutaciones SIN repeticiones (SI importa el Orden)
     T P(int n, int k) {
         assert(0 <= n && n <= sz && 0 <= k && k <= sz);
         if(n < k)
@@ -36,19 +30,21 @@ struct Combinatorics {
         return fact[n] / fact[n-k];
     }
     
-    // en: Permutations WITH repetitions (Order DOES matter)
-    // es: Permutaciones CON repeticiones (SI importa el Orden)
-    T P(int n,const vector<int> &m) {
-        T product = static_cast<T>(0);
+    T P(int n, const vector<int> &m) {
+        T product = static_cast<T>(1);
         for(int i = 0; i < (int) m.size(); ++i) {
             assert(0 <= n && n <= sz && 0 <= m[i] && m[i] <= sz);
             product *= fact[m[i]];
         }
         return fact[n] / product;
     }
+
+    T catalan(int n) {
+        return C(static_cast<T>(2)*n, n) / static_cast<T>(n+1);
+    }
 };
 
-template<typename T = Mint>
+template<typename T>
 using Comb = Combinatorics<T>;
 
 // en: Permutations (Order DOES matter)
@@ -56,3 +52,33 @@ using Comb = Combinatorics<T>;
 
 // en: Combinations (NO matter order)
 // es:Combinaciones (NO importa el Orden)
+
+// ********************************************************************
+
+// C(n, k):
+// en: Combinations WITHOUT repetitions (NO matter order)
+// es: Combinaciones SIN repeticiones (NO importa el Orden)
+
+// H(n, k):
+// en: Combinations WITH repetitions (NO matter order)
+// es: Combinaciones CON repeticiones (NO importa el Orden)
+
+// P(n, k):
+// en: Permutations WITHOUT repetitions (Order DOES matter)
+// es: Permutaciones SIN repeticiones (SI importa el Orden)
+
+// P(n, {m1, m2, m3, ... }):
+// en: Permutations WITH repetitions (Order DOES matter)
+// es: Permutaciones CON repeticiones (SI importa el Orden)
+
+// catalan(n):
+// k-th: 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2674440
+
+// ********************************************************************
+
+// Properties
+
+// C(n, k) = C(n, n-k)
+// C(n, 0) = C(n, n) = 1
+// C(n, k) = C(n-1, k-1) + C(n-1, k)
+// C(n, 0)+C(n, 1)+C(n, 2)+...+C(n, n-1)+C(n, n) = 2^n
