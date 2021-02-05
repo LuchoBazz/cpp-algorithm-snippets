@@ -1,13 +1,16 @@
-template <typename T>
+template<typename T>
 T inverse(T a, T m) {
-    T u = 0, v = 1;
-    while (a != 0) {
-        T t = m / a;
-        m -= t * a; swap(a, m);
+    a = (a + m) % m;
+    if (a < static_cast<T>(a)) a += m;
+    T b = m, u = 0, v = 1;
+    while (static_cast<T>(a) > 0) {
+        T t = b / a;
+        b -= t * a; swap(a, b);
         u -= t * v; swap(u, v);
     }
-    assert(m == 1);
-    if(u < static_cast<T>(0)) u = (u + m) % m;
+    assert(b == static_cast<T>(1)); // zero division
+    if (u < static_cast<T>(0)) u += m;
+    if(b != static_cast<T>(1)) u = -1;
     return u;
 }
 
@@ -152,15 +155,20 @@ std::istream& operator>>(std::istream& stream, Modular<T>& number) {
 }
 
 /*
-using ModType = int;
+using ModType = int__;
 
 struct VarMod { static ModType value; };
 ModType VarMod::value;
-ModType& md = VarMod::value;
+ModType& MOD = VarMod::value;
 using Mint = Modular<VarMod>;
 */
 
-const int MOD = int(1e9+7);
+const int MOD = int(1e9) + 7;
 
 // Modular Integer -> Mint
 using Mint = Modular<integral_constant<decay<decltype(MOD)>::type, MOD>>;
+
+bool is_zero_division(Mint &a) {
+    using T = Mint::Type; // don't forget to remove assert in reverse
+    return inverse(static_cast<T>(a), MOD) < static_cast<T>(0);
+}
