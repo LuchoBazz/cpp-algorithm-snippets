@@ -20,7 +20,7 @@ struct Combinatorics {
     }
 
     T C_slow(int n, int k) { // O(k)
-        assert(0 <= n && n <= sz && 0 <= k && k <= sz);
+        assert(0 <= n && 0 <= k);
         if(n < k)
             return static_cast<T>(0);
         T ans = static_cast<T>(1);

@@ -1,15 +1,15 @@
-#define zeros_left(number)  ((number == 0)?32:__builtin_clz(number))
-#define zeros_right(number) ((number == 0)?0:__builtin_ctz(number))
-#define count_ones(number)  (__builtin_popcount(number))
-#define parity(number)      (__builtin_parity(number))
-#define LSB(number)         (__builtin_ffs(number)) //  Least Significant Bit [0 if number == 0]
-
-#define zeros_left64(number)  ((number == 0LL)?64:__builtin_clzll(number))
-#define zeros_right64(number) ((number == 0LL)?0:__builtin_ctzll(number))
-#define count_ones64(number)  (__builtin_popcountll(number))
-#define parity64(number)      (__builtin_parityll(number))
-#define LSB64(number)         (__builtin_ffsll(number)) //  Least Significant Bit [0 if number == 0]
-
+int zeros_left(int num) {return (num==0)?32:__builtin_clz(num);}
+int zeros_right(int num) {return (num==0)?0:__builtin_ctz(num);}
+int count_ones(int num) {return __builtin_popcount(num);}
+int parity(int num) {return __builtin_parity(num);}
+int LSB(int num) {return __builtin_ffs(num);} //  Least Significant Bit [0 if num == 0]
+ 
+int64_t zeros_left(int64_t num) {return (num==0LL)?64LL:__builtin_clzll(num);}
+int64_t zeros_right(int64_t num) {return (num==0LL)?0LL:__builtin_ctzll(num);}
+int64_t count_ones(int64_t num) {return __builtin_popcountll(num);}
+int64_t parity(int64_t num) {return __builtin_parityll(num);}
+int64_t LSB(int64_t num) {return __builtin_ffsll(num);} //  Least Significant Bit [0 if number == 0]
+ 
 template<typename T>
 int hamming(const T &lhs, const T &rhs) {
     if(is_same<T, int64_t>::value) return __builtin_popcountll(lhs ^ rhs);
