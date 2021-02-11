@@ -1,34 +1,50 @@
 template<typename T>
+struct Node {
+    // set default values
+    T sum = ...;
+    T mx = ...;
+    T mn = ...;
+    int idx_mx = -1;
+    int idx_mn = -1;
+    // apply: set values for leaves
+    void apply(int index, T value) {
+        sum = value;
+        mx = value;
+        mn = value;
+        idx_mx = index;
+        idx_mn = index;
+    }
+};
+
+template<typename T>
 class SegmentTree {
-    struct Node {
-        // set default values
-        T sum = ...;
-        T mx = ...;
-        T mn = ...;
-        int idx_mx = -1;
-        int idx_mn = -1;
-        // apply: set values for leaves
-        void apply(int index, T value) {
-            sum = value;
-            mx = value;
-            mn = value;
-            idx_mx = index;
-            idx_mn = index;
-        }
-    };
     SegmentTree<T> *left, *right;
     int low, high, mid;
-    Node data;
-public:
-    SegmentTree(int low, int high) : low(low), high(high), data{} {
-        if(low != high) {
+    Node<T> data;
+
+    SegmentTree(int low, int high, const vector<T> &v) 
+            : low(low), high(high), data{} {
+        if(low == high) {
+            data.apply(low, v[low]);
+        } else {
             mid = low + (high - low)/2;
-            left = new SegmentTree<T>(low, mid);
-            right = new SegmentTree<T>(mid+1, high);
+            left = new SegmentTree<T>(low, mid, v);
+            right = new SegmentTree<T>(mid+1, high, v);
         }
     }
-    Node unite(const Node &a, const Node &b) {
-        Node res;
+public:
+    SegmentTree(const vector<T> &v) {
+        low = 0; high = (int) v.size() - 1;
+        mid = low + (high - low) / 2;
+        if(low != high) {
+            left = new SegmentTree<T>(low, mid, v);
+            right = new SegmentTree<T>(mid+1, high, v);
+        } else {
+            data.apply(low, v[low]);
+        }
+    }
+    Node<T> unite(const Node<T> &a, const Node<T> &b) {
+        Node<T> res;
         res.sum = a.sum + b.sum;
         res.mx = max(a.mx, b.mx);
         res.mn = min(a.mn, b.mn);
@@ -45,23 +61,9 @@ public:
             data = unite(left->data, right->data);
         }
     }
-    Node query(int a, int b) {
-        if(a > high || b < low) return Node{};
+    Node<T> query(int a, int b) {
+        if(a > high || b < low) return Node<T>{};
         if(a <= low && high <= b) return data;
         return unite(left->query(a, b), right->query(a, b));
     }
 };
-
-template<typename T>
-void fill(SegmentTree<T> &st, const vector<T> &v) {
-    for(int i = 0; i < (int) v.size(); ++i)
-        st.modify(i, v[i]);
-}
-
-template<typename T>
-using segtree = SegmentTree<T>;
-
-// Usage:
-// int n = (int) A.size();
-// segtree<int> st(0, n-1);
-// fill(st, A);

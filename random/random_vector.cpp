@@ -1,3 +1,5 @@
+// random_init
+
 template<typename T>
 vector<T> random_vector(int n, T from, T to) {
     vector<T> values(n);

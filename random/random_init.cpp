@@ -7,9 +7,8 @@ T random(T from, T to) {
         return uniform_int_distribution<T>(from, to)(gen);
     } else if constexpr (is_floating_point<T>::value) {
         return uniform_real_distribution<T>(from, to)(gen);
-    } else {
-        return uniform_int_distribution<T>(from, to)(gen);
     }
+    return uniform_int_distribution<T>(from, to)(gen);
 }
 // Usage:
 //   int value = random<int>(1, 10);

@@ -12,11 +12,23 @@ struct Combinatorics {
     Combinatorics() : sz(-1), fact() {}
     Combinatorics(int n) : sz(n), fact(n) {}
     
-    T C(int n, int k) {
+    T C(int n, int k) { // O(1) with preprocessing O(n)
         assert(0 <= n && n <= sz && 0 <= k && k <= sz);
         if(n < k)
             return static_cast<T>(0);
         return fact[n] / (fact[n-k]*fact[k]);
+    }
+
+    T C_slow(int n, int k) { // O(k)
+        assert(0 <= n && 0 <= k);
+        if(n < k)
+            return static_cast<T>(0);
+        T ans = static_cast<T>(1);
+        for(int i = 1; i <= k; i++) {
+            ans *= static_cast<T>(n - k + i);
+            ans /= static_cast<T>(i);
+        }
+        return ans;
     }
     
     T H(int n, int k) {
@@ -40,7 +52,7 @@ struct Combinatorics {
     }
 
     T catalan(int n) {
-        return C(static_cast<T>(2)*n, n) / static_cast<T>(n+1);
+        return C(2*n, n) / static_cast<T>(n+1);
     }
 };
 
