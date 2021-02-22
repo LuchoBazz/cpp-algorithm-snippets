@@ -1,7 +1,5 @@
 # :pushpin: Algorithms Template for Competitive Programming
 
-[![Generic badge](https://img.shields.io/badge/Codeforces-@SorKierkegaard-sucess.svg)](https://codeforces.com/profile/SorKierkegaard)
-
 Este repositorio contiene templates de algorimtos y estructuras de datos populares codificados en C++ para usar en competencias de programación.
 
 ## Contenido
@@ -26,6 +24,8 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
         * `misc_cond` - Funciones y macros para acortar condiciones.
         * `misc_bits` - Operaciones con Bits.
         * `misc_unique` - Eliminar valores duplicados de un vector.
+        * `misc_tree_order_statistic` - Implementacion de un Tree Order Statistic en Set y Map.
+        * `misc_y_combinator` - Permite hacer una función Lambda Recursiva.
 
 * **Geometry**
     * `2d_geometry_point` - Objeto Point.
@@ -51,16 +51,23 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `math_extgcd_recursive` - Algoritmo Extendido de Euclides (Recursivo).
     * `math_fft_iterative` - Algoritmo de la Transformada Rapida de Fourier (Iterativo).
     * `math_fft_recursive` - Algoritmo de la Transformada Rapida de Fourier (Recusiva).
+    * `math_factorial` - Implementación del Factorial.
 
 * **Query Range**
     * `range_query_segment_tree` - Estructura de datos Segment Tree.
     * `range_query_sum_immutable` - Consultas de suma en rangos (Immutable).
+    * `ange_query_sum_2d_immutable` - Consultas de sumas en rangos 2D (Immnutable).
     * `range_query_fenwick_tree_std` - Arbon binario Indexado estandard (fenwick tree)
     * `range_query_segment_tree_lazy_index_sum_min_max` - Estructura de datos Segment Tree Lazy propagation con (add, max, min, index) operaciones.
     * `range_query_segment_tree_lazy_sum_min_max` - Estructura de datos Segment Tree Lazy propagation con (add, max, min) operaciones.
     * `range_query_segment_tree_lazy_template` - Template de la estructura de datos Segment Tree Lazy propagation.
     * `range_query_sum_lower_bound_segment_tree_lazy` - Algoritmo Lower Bound en el Segment Tree Lazy.
     * `range_query_find_less_than_segment_tree_lazy` - Encontrar el elemento menor mas a la derecha de un valor dado en el Segment Tree Lazy.
+    * `range_query_dynamic_segment_tree` - Implementacion de un Segment Tree con nodos Dinamicos.
+    * `range_query_persistent_segment_tree` - Implementacion de un Segment Tree Persistente.
+    * `range_query_sqrt_decomposition` - Implementacion de SQRT Descomposition usando Bucket
+    * 
+
 
 * **Graph**
     * `graph_graph` - Clase padre de la representacion de un grafo.
@@ -73,11 +80,19 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `graph_kruskal` - Algoritmo de Kruskal (Minimo Arbol de Expansión).
     * `graph_scc_kosaraju` - Algoritmo de Kosaraju para buscar los Componentes fuertemente conexos (SCC).
     * `graph_bellman_ford` - Algoritmo estandard de Bellman Ford.
+    * `graph_find_cycle` - Encuentra circulos en un Grafo.
+
+* **Data Structure**
+    * `data_structure_mos_algorithm` - Implementación del Algoritmo de Mo.
+    * `data_structure_trie_automaton` - Implementación del Arbol de Prefijos mediante un Automata.
+    * `data_structure_trie_dynamic` - Implementación del Arbol de Prefijos mediante un Nodos Dinamicos.
 
 * **Numeric**
-    * `numeric_mint` - Template Completo de Aritmetica Modular.
+    * `numeric_mint_full` - Template Completo de Aritmetica Modular.
+    * `numeric_mint_compress` - Template Completo de Aritmetica Modular Comprimido.
     * `numeric_mod` - Template de Aritmetica Modular Basica.
     * `numeric_bigint` - Template Completo para hacer operaciones numericas con numeros muy grandes.
+    * `numeric_fastpow` - Calcula potencias rapidamente. 
 
 * **String**
     * `string_suffix_array` - Algoritmo de Suffix Array.
@@ -87,6 +102,9 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `string_manacher` - Algoritmo Manacher (Encontrar todos los substring palindromos de un string en O(n)).
     * `string_split` - Función split en string.
     * `string_hashing` - Implementación de Rolling Hashing 
+
+* **Combinatorics**
+    * `combinatorics_combinations_permutations` - Metodos que permiten contar el numero de combinaciones y permutaciones de un conjunto de elementos.
 
 * **Random**
     * `random_init` - Generar valor aleatorio en un rango.
@@ -98,15 +116,26 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `searches_binary_search_II` - Segunda Implementación de busqueda binaria.
     * `searches_binary_search_III` - Implementacion de busqueda binaria basada en busqueda exponencial.
 
+* **Techniques**
+    * `techniques_divide_and_conquer` - Template de la Técnica Divide y Conquistaras.
+    * `techniques_sliding_windows` - Template de la Técnica Ventana Deslizante.
+    * `techniques_sweep_line` - Template de la Técnica Linea de Barrido.
+    * `techniques_two_pointer1_pointer2` - Template de la Técnica de dos punteros en dos secuencias.
+    * `techniques_two_pointer_left_right_boundary` - Template de la Técnica de dos punteros "Limite izquierdo y derecho".
+    * `techniques_two_pointers_old_and_new_state` - Template de la Técnica de dos punteros "Estado viejo y nuevo".
+    * `techniques_two_pointers_slow_fast` - Template de la Técnica de dos punteros "Puntero lento y rapido".
+
 * **IO - Input/Output**
     * `io_print` - Imprime varias variales con codigo corto.
-    * `io_read_write_vector` - Leer datos en un vector y imprimir los datos de un vector.
+    * `io_read_write` - Leer datos de (vector, list, forward_list or deque) y los imprime
 
 * **Template**
     * `template_main` - Template con Task para c++17.
     * `template_std` - Template para c++17.
     * `template_test_case` - Fragmento de caso de prueba
-    * `template_usaco` - Template para usaco.com
+    * `template_usaco` - Template para usaco.org
+    * `template_spoj` - Template para spoj.com
+    * `template_std_leetcode` - Template para leetcode.com
 
 ## Creditos
  
