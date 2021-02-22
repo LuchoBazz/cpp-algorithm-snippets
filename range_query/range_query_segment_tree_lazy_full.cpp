@@ -1,14 +1,16 @@
 template<typename T>
 class SegmentTree {
 public:
-    static const T neutral = T(...);
+    
+    static const T lazy_neutral = static_cast<T>(0);
+    
     struct Node {
         // don't forget to set default value (used for leaves)
         // not necessarily neutral element!
-        T lazy = neutral;
-        T mx = neutral;
-        T mn = neutral;
-        T sum = neutral;
+        T lazy = lazy_neutral;
+        T mx = static_cast<T>(...);
+        T mn = static_cast<T>(...);
+        T sum = static_cast<T>(...);
         int idx_mn = -1;
         int idx_mx = -1;
         
@@ -41,10 +43,10 @@ public:
         int y = (left + right) >> 1;
         int z = x + ((y - left + 1) << 1);
         // push from x into (x + 1) and z
-        if (tree[x].lazy != neutral || tree[x].changed) {
+        if (tree[x].lazy != lazy_neutral || tree[x].changed) {
             tree[x + 1].apply(left, y, tree[x].lazy);
             tree[z].apply(y + 1, right, tree[x].lazy);
-            tree[x].lazy = neutral;
+            tree[x].lazy = lazy_neutral;
         }
     }
     
@@ -225,6 +227,9 @@ public:
 };
 template<typename T>
 using segtree = SegmentTree<T>;
+
+template<typename T>
+using Node = typename SegmentTree<T>::Node;
  
 // Usage:
 // segtree<int> st(n);
