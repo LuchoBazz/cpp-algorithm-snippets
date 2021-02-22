@@ -1,4 +1,4 @@
-// range_query_segment_tree_lazy_index_sum_min_max_full
+// range_query_segment_tree_lazy_full
 
 // Finds the element less than target furthest to the right. If no such p exists, returns -1
 template<typename T>

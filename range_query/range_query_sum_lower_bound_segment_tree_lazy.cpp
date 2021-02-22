@@ -1,4 +1,4 @@
-// range_query_segment_tree_lazy_index_sum_min_max_full
+// range_query_segment_tree_lazy_full
 
 // Returns min(p | p <=right && sum[left..p]>=sum). If no such p exists, returns -1
 template<typename T>
