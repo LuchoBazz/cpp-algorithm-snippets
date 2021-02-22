@@ -1,5 +1,3 @@
-#define debug(...) "[" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
-
 string to_string(string s) {
     return '"' + s + '"';
 }
@@ -27,7 +25,16 @@ string to_string(A v) {
 
 template<class T>
 void println(const T &data) {
-#ifdef LOCAL
+#ifndef ONLINE_JUDGE
     cout << to_string((T)data) << endl;
 #endif
 }
+
+#ifndef ONLINE_JUDGE
+#define writer_out cerr
+#define debug(x) writer_out<<"["<<#x": "<<to_string(x)<<"] ";
+#define debugln(x) debug(x); writer_out<<"\n";
+#else
+#define debug(x)
+#define debugln(x)
+#endif

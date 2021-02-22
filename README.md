@@ -58,8 +58,8 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `range_query_sum_immutable` - Consultas de suma en rangos (Immutable).
     * `ange_query_sum_2d_immutable` - Consultas de sumas en rangos 2D (Immnutable).
     * `range_query_fenwick_tree_std` - Arbon binario Indexado estandard (fenwick tree)
-    * `range_query_segment_tree_lazy_index_sum_min_max` - Estructura de datos Segment Tree Lazy propagation con (add, max, min, index) operaciones.
-    * `range_query_segment_tree_lazy_sum_min_max` - Estructura de datos Segment Tree Lazy propagation con (add, max, min) operaciones.
+    * `range_query_segment_tree_lazy_compress` - Estructura de datos Segment Tree Lazy propagation con (add, max, min, index) operaciones comprimido.
+    * `range_query_segment_tree_lazy_full` - Estructura de datos Segment Tree Lazy propagation con (add, max, min, index) operaciones completo incluye metodos find_first y find_last.
     * `range_query_segment_tree_lazy_template` - Template de la estructura de datos Segment Tree Lazy propagation.
     * `range_query_sum_lower_bound_segment_tree_lazy` - Algoritmo Lower Bound en el Segment Tree Lazy.
     * `range_query_find_less_than_segment_tree_lazy` - Encontrar el elemento menor mas a la derecha de un valor dado en el Segment Tree Lazy.
@@ -105,6 +105,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **Combinatorics**
     * `combinatorics_combinations_permutations` - Metodos que permiten contar el numero de combinaciones y permutaciones de un conjunto de elementos.
+    * `combinatorics_next_combination` - Algunos metodos que generan todas la combinaciones de un conjunto de `n` elementos con subconjuntos de `k` elementos.
 
 * **Random**
     * `random_init` - Generar valor aleatorio en un rango.
@@ -136,6 +137,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `template_usaco` - Template para usaco.org
     * `template_spoj` - Template para spoj.com
     * `template_std_leetcode` - Template para leetcode.com
+    * `template_random` - Template para generar casos de prueba aleatorios.
 
 ## Creditos
  
@@ -159,3 +161,6 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
 
 * **Query Range**
     * Algunos componentes del codigo fuente de este folder fué extraido de [the-tourist/algo](https://github.com/the-tourist/algo) `data > segtree.cpp` ➡️ Por **Gennady Korotkevich (Tourist)**
+
+* **Combinatorics**
+    * Algunos componentes del codigo fuente de este folder fué extraido de [indy256/codelibrary](https://github.com/indy256/codelibrary/) `cpp > combinatorics > enumerating_combinations.cpp` ➡️ Por **Andrei Navumenka (indy256)**
