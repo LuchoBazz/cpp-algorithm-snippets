@@ -19,18 +19,6 @@ struct Combinatorics {
         return fact[n] / (fact[n-k]*fact[k]);
     }
 
-    T C_slow(int n, int k) { // O(k)
-        assert(0 <= n && 0 <= k);
-        if(n < k)
-            return static_cast<T>(0);
-        T ans = static_cast<T>(1);
-        for(int i = 1; i <= k; i++) {
-            ans *= static_cast<T>(n - k + i);
-            ans /= static_cast<T>(i);
-        }
-        return ans;
-    }
-    
     T H(int n, int k) {
         return C(n+k-1, k);
     }
@@ -58,6 +46,19 @@ struct Combinatorics {
 
 template<typename T>
 using Comb = Combinatorics<T>;
+
+template<typename T>
+T C(T n, T k) { // O(k)
+    assert(0 <= n && 0 <= k);
+    if(n < k)
+        return static_cast<T>(0);
+    T ans = static_cast<T>(1);
+    for(T i = static_cast<T>(1); i <= k; i++) {
+        ans *= (n - k + i);
+        ans /= i;
+    }
+    return ans;
+}
 
 // en: Permutations (Order DOES matter)
 // es: Permutaciones (SI importa el Orden)
