@@ -152,7 +152,7 @@ This repository contains templates of useful algorithms and data structures code
 * **String**
     * Some components of the source code of `string/string_suffix_array.cpp` were taken from [ekzhang/library](https://github.com/ekzhang/library) `suffix_array.cpp` ➡️ By **Eric Zhang**
 
-    * Some components of the source code of `string/string_hashing.cpp` were taken from [mavd09/notebook_unal](https://github.com/mavd09/notebook_unal) `String/Hashing.cpp` ➡️ By **Osman Jimenez, Manuel Vergara y Víctor Ramírez**
+    * Some components of the source code of `string/string_hashing.cpp` were taken from [mavd09/notebook_unal](https://github.com/mavd09/notebook_unal) `String/Hashing.cpp` ➡️ By **Osman Jimenez, Manuel Vergara and Víctor Ramírez**
 
     * Some components of the source code of `string/string_hashing_dynamic_compress.cpp` were taken from [ekzhang/library](https://github.com/ekzhang/library) `hashing_bit.cpp` ➡️ By **Eric Zhang**
 
