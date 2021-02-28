@@ -74,3 +74,8 @@ using hashing = RollingHashing<T>;
 //    hashing<string> h(s);
 //    int64_t val = h.query(l, r);
 //    h1.query(l1, r1) == h2.query(l2, r2);
+
+// Check palindrome: from - to
+// auto hash1 = hash.query(from, to);
+// auto hash2 = hash_reverse.query(n-to-1, n-from-1);
+// hash1 == hash2
