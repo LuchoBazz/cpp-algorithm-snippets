@@ -4,12 +4,12 @@ struct Wrapper {
     T op;
 };
 
-template<typename T, typename Compare>
+template<typename T, typename Operate>
 class Stack {
 public:
     stack<Wrapper<T>> st;
     T global_op;
-    Compare comp;
+    Operate Oper;
     
     Stack() {}
     
@@ -17,7 +17,7 @@ public:
         if(st.empty()) {
             global_op = value;
         } else {
-            global_op = comp(global_op, value);
+            global_op = Oper(global_op, value);
         }
         st.push(Wrapper<T>{value, global_op});
     }
@@ -32,9 +32,14 @@ public:
         }
     }
     
-    Wrapper<T> top() {
+    T top() {
         assert(!st.empty());
-        return st.top();
+        return st.top().value;
+    }
+
+    T operate() {
+        assert(!st.empty());
+        return st.top().op;
     }
 
     bool empty() {
