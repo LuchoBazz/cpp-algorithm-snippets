@@ -24,7 +24,6 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
         * `misc_cond` - Funciones y macros para acortar condiciones.
         * `misc_bits` - Operaciones con Bits.
         * `misc_unique` - Eliminar valores duplicados de un vector.
-        * `misc_tree_order_statistic` - Implementacion de un Tree Order Statistic en Set y Map.
         * `misc_y_combinator` - Permite hacer una función Lambda Recursiva.
 
 * **Geometry**
@@ -86,6 +85,7 @@ Este repositorio contiene templates de algorimtos y estructuras de datos popular
     * `data_structure_mos_algorithm` - Implementación del Algoritmo de Mo.
     * `data_structure_trie_automaton` - Implementación del Arbol de Prefijos mediante un Automata.
     * `data_structure_trie_dynamic` - Implementación del Arbol de Prefijos mediante un Nodos Dinamicos.
+    * `data_structure_tree_order_statistic` - Implementacion de un Tree Order Statistic en Set y Map.
 
 * **Numeric**
     * `numeric_mint_full` - Template Completo de Aritmetica Modular.

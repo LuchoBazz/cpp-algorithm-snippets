@@ -24,7 +24,6 @@ This repository contains templates of useful algorithms and data structures code
         * `misc_cond` - Functions and macros to shorten the code writing of some defined conditions..
         * `misc_bits` - Operations and tricks with Bits.
         * `misc_unique` - Remove duplicate values from a vector.
-        * `misc_tree_order_statistic` - Implementation of a Tree Order Statistic in Set and Map.
         * `misc_y_combinator` - Allows you to define a recursive Lambda function.
 
 * **Geometry**
@@ -84,6 +83,7 @@ This repository contains templates of useful algorithms and data structures code
     * `data_structure_mos_algorithm` - implementation of Mo's Algorithm.
     * `data_structure_trie_automaton` - Implementation of the Prefix Tree through an Automata.
     * `data_structure_trie_dynamic` - Implementation of the Prefix Tree through a Dynamic Node.
+    * `data_structure_tree_order_statistic` - Implementation of a Tree Order Statistic in Set and Map.
 
 * **Numeric**
     * `numeric_mint_full` - Modular arithmetic template.
