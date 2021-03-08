@@ -3,7 +3,7 @@
 #define eps  1e-9
 
 template<typename T>
-T discreet_ceiling(T numerator, T denominator) {
+T ceiling_division(T numerator, T denominator) {
     assert(denominator != static_cast<T>(0));
     return (numerator+denominator-1)/denominator;
 }
