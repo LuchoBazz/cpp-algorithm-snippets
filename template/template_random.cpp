@@ -1,5 +1,4 @@
 /**
- * @author      : Luis Miguel Baez <es.luismiguelbaez@gmail.com>
  * @created     : `!v strftime("%B %d, %Y")`
  */
 
@@ -8,7 +7,7 @@
 using namespace std;
  
 #define endl '\n'
-#define finally(value) {cout << (value) << '\n'; return;}
+#define finally(value) {cout << (value) << endl; return;}
 using int64 = int64_t;
 
 template<typename T>
@@ -78,7 +77,7 @@ void test_cases(Limits<T> test_number, F func) {
 
 auto main() -> int {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);cout.tie(NULL);
+    cin.tie(NULL);
     
     using Type = int64;
     
@@ -93,7 +92,7 @@ auto main() -> int {
         vector<Type> v = random_vector(n, Ai);
         write(v);
     });
-    
+    cout.flush();
     return 0;
 }
  

@@ -1,7 +1,6 @@
 /**
- * @author      : Luis Miguel Baez <es.luismiguelbaez@gmail.com>
  * @created     : `!v strftime("%B %d, %Y")`
- * @Handle      : 🇨🇴 @SorKierkegaard
+ * @handle      : 🇨🇴 @SorKierkegaard
  */
 
 #include <bits/stdc++.h>
@@ -9,39 +8,43 @@
 using namespace std;
 
 #define endl '\n'
-#define finally(value) {cout << (value) << '\n'; return;}
+#define finally(value) {cout << (value) << endl; return;}
 using int64 = int64_t;
 
 class Task {
 private:
-    
-    void solveOne(istream &in, ostream &out) {
-        
+
+    void clear() {}
+    void read() {}
+
+    void solveOne() {
+        ;
     }
 
 public:
-    void solve(istream &in, ostream &out) {
-        int t=1;
-        in >> t;
-        while(t--) solveOne(in, out);
+    void solve() {
+        int T=1;
+        cin >> T;
+        while (T --> 0) {
+            clear();
+            read();
+            solveOne();
+        }
     }
 private:
     void print() {cout << "\n";}
     template<class H, class... T> void print(const H& h, const T&... t) {
-        cout << h;
-        if(sizeof...(t)) cout << ' '; print(t...);
+        cout << h; if(sizeof...(t)) cout << ' '; print(t...);
     }
 };
 
 auto main() -> int {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);
     
     Task solver;
-    istream &in(cin);
-    ostream &out(cout);
-    solver.solve(in, out);
+    solver.solve();
+    cout.flush();
     return 0;
 }
 

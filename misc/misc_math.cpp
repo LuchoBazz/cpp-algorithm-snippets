@@ -3,6 +3,12 @@
 #define eps  1e-9
 
 template<typename T>
+T ceiling_division(T numerator, T denominator) {
+    assert(denominator != static_cast<T>(0));
+    return (numerator+denominator-1)/denominator;
+}
+
+template<typename T>
 int cmp(const T &a, const T &b) {
     return ( (a + eps < b)? -1 :( (b + eps < a )? 1 : 0) );
 }

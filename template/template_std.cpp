@@ -1,6 +1,6 @@
 /**
- * @author      : Luis Miguel Baez <es.luismiguelbaez@gmail.com>
  * @created     : `!v strftime("%B %d, %Y")`
+ * @handle      : 🇨🇴 @SorKierkegaard
  */
 
 #include <bits/stdc++.h>
@@ -13,9 +13,9 @@ using int64 = int64_t;
 auto main() -> int {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);
     
     
+    cout.flush();
     return 0;
 }
 
