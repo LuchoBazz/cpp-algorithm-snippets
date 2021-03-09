@@ -1,23 +1,56 @@
-template<class T>
-vector<T> sieve(T number) {
-    vector<bool> isprime(number+1, false);
-    for(T i = 4; i <= number; i += 2)
-        isprime[i] = true;
+class Sieve {
+    int maximum;
+    vector<int> primes;
+    vector<int> smallest_factor;
+    vector<bool> isprime;
+public:
     
-    for(T prime = 3; prime <= number; prime += 2) {
-        if(!isprime[prime]) {
-            for(int j = prime*2; j <= number; j += prime)
-                isprime[j] = true;
+    Sieve() : maximum(-1) {}
+
+    Sieve(int mx) : maximum(mx) {
+        assert(0 <= mx);
+        isprime.resize(maximum+1, true);
+        smallest_factor.resize(maximum+1, 0);
+        
+        smallest_factor[0] = smallest_factor[1] = 1;
+        isprime[0] = isprime[1] = false;
+        
+        for(int prime = 2; prime <= maximum; ++prime) {
+            if(isprime[prime]) {
+                primes.push_back(prime);
+                smallest_factor[prime] = prime;
+                for(int64_t j = 1LL*prime*prime; j <= maximum; j += prime) {
+                    if(isprime[j]) {
+                        isprime[j] = false;
+                        smallest_factor[j] = prime;
+                    }
+                }
+            }
         }
     }
-    vector<T> primes;
-    for(T i = 2; i <= number; ++i) {
-        if(!isprime[i])
-            primes.push_back(i);
+
+    int prime_kth(int k) {
+        // returns the k-th prime (1-indexed)
+        assert(1 <= k && k <= (int) primes.size());
+        return primes[k-1];
     }
-    return primes;
-}
-// usage:
-//   int n = 100;
-//   vector<int> primes = sieve<int>(n);
-//   {2, 3, 5, 7, ... 83, 89, 97}
+    
+    int size_primes() {
+        // number of primes from 0 to maximum (inclusive)
+        return (int) primes.size();
+    }
+
+    int smallest(int number) { // smallest prime factor of a number
+        assert(1 <= number && number <= maximum);
+        return smallest_factor[number];
+    }
+
+    bool is_prime(int number) {
+        assert(0 <= number && number <= maximum);
+        return isprime[number];
+    }
+
+    bool operator[](int number) {
+        return is_prime(number);
+    }
+};
