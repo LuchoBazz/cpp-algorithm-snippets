@@ -4,6 +4,8 @@ This repository contains templates of useful algorithms and data structures code
 
 ## Contents
 
+`Command` - Description
+
 * **Misc**
     * **Debugging**
         * `to_string_main` - *to_string* method of the main data types and standard data structures.
@@ -136,7 +138,7 @@ This repository contains templates of useful algorithms and data structures code
     * `template_std_leetcode` - Template for leetcode.com
     * `template_random` - Template to generate random test cases.
 
-## Creditos
+## Credits
  
 * **Debugging**
     * Some components of the source code of this folder were taken from [the-tourist/algo](https://github.com/the-tourist/algo) `misc > debug.cpp` ➡️ By **Gennady Korotkevich (Tourist)**
