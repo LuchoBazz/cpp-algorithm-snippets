@@ -1,3 +1,15 @@
+template <typename A, typename B>
+string to_string(const pair<A, B> p);
+
+template <typename A, typename B, typename C>
+string to_string(const tuple<A, B, C> p);
+ 
+template <typename A, typename B, typename C, typename D>
+string to_string(const tuple<A, B, C, D> p);
+
+template <size_t N>
+string to_string(const bitset<N> v);
+
 string to_string(string s) {
     return '"' + s + '"';
 }
@@ -30,11 +42,17 @@ void println(const T &data) {
 #endif
 }
 
-#ifndef ONLINE_JUDGE
-#define writer_out cerr
-#define debug(x) writer_out<<"["<<#x": "<<to_string(x)<<"] ";
-#define debugln(x) debug(x); writer_out<<"\n";
+#define writer_out cout
+void debug_out() { writer_out << "\n"; }
+template <typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+  writer_out << to_string(H);
+  if(sizeof...(T)) writer_out << "] ["; else writer_out << "]";
+  debug_out(T...);
+}
+ 
+#ifndef LOCAL
+#define debug(...) writer_out << "[" << #__VA_ARGS__ << "]: [" , debug_out(__VA_ARGS__)
 #else
-#define debug(x)
-#define debugln(x)
+#define debug(...) 42
 #endif
