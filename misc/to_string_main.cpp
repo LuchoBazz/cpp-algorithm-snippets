@@ -18,7 +18,19 @@ string to_string(bool b) {
     return (b ? "true" : "false");
 }
 
-// add template here
+string to_string(vector<bool> v) {
+  bool first = true;
+  string res = "{";
+  for (int i = 0; i < (int) v.size(); i++) {
+    if (!first) {
+      res += ", ";
+    }
+    first = false;
+    res += to_string(v[i]);
+  }
+  res += "}";
+  return res;
+}
 
 template <typename A>
 string to_string(A v) {
@@ -35,14 +47,9 @@ string to_string(A v) {
     return res;
 }
 
-template<class T>
-void println(const T &data) {
-#ifndef ONLINE_JUDGE
-    cout << to_string((T)data) << endl;
-#endif
-}
+// add template here
 
-#define writer_out cout
+#define writer_out cerr
 void debug_out() { writer_out << "\n"; }
 template <typename Head, typename... Tail>
 void debug_out(Head H, Tail... T) {
