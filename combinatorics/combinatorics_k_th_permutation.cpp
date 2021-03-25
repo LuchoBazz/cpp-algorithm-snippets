@@ -23,7 +23,7 @@ vector<int> kth_permutation(int n, int k, int start=0) {
 }
 
 string kth_perm_string(int n, int k) {
-    assert(1 <= n && n <= 26)
+    assert(1 <= n && n <= 26);
     vector<int> perm = kth_permutation(n, k);
     string alpha = "";
     for(char i='a'; i <= ('a'+n); ++i)
