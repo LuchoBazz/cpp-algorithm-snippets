@@ -1,3 +1,15 @@
+template <typename A, typename B>
+string to_string(const pair<A, B> p);
+
+template <typename A, typename B, typename C>
+string to_string(const tuple<A, B, C> p);
+ 
+template <typename A, typename B, typename C, typename D>
+string to_string(const tuple<A, B, C, D> p);
+
+template <size_t N>
+string to_string(const bitset<N> v);
+
 string to_string(string s) {
     return '"' + s + '"';
 }
@@ -6,7 +18,19 @@ string to_string(bool b) {
     return (b ? "true" : "false");
 }
 
-// add template here
+string to_string(vector<bool> v) {
+  bool first = true;
+  string res = "{";
+  for (int i = 0; i < (int) v.size(); i++) {
+    if (!first) {
+      res += ", ";
+    }
+    first = false;
+    res += to_string(v[i]);
+  }
+  res += "}";
+  return res;
+}
 
 template <typename A>
 string to_string(A v) {
@@ -23,18 +47,19 @@ string to_string(A v) {
     return res;
 }
 
-template<class T>
-void println(const T &data) {
-#ifndef ONLINE_JUDGE
-    cout << to_string((T)data) << endl;
-#endif
-}
+// add template here
 
-#ifndef ONLINE_JUDGE
 #define writer_out cerr
-#define debug(x) writer_out<<"["<<#x": "<<to_string(x)<<"] ";
-#define debugln(x) debug(x); writer_out<<"\n";
+void debug_out() { writer_out << "\n"; }
+template <typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+  writer_out << to_string(H);
+  if(sizeof...(T)) writer_out << "] ["; else writer_out << "]";
+  debug_out(T...);
+}
+ 
+#ifndef ONLINE_JUDGE
+#define debug(...) writer_out << "[" << #__VA_ARGS__ << "]: [" , debug_out(__VA_ARGS__)
 #else
-#define debug(x)
-#define debugln(x)
+#define debug(...) 42
 #endif
