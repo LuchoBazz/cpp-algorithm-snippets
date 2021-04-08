@@ -53,12 +53,12 @@ struct priority_deque {
     void clear() {values.clear();}
 
     priority_deque<T>& operator=(priority_deque<T>&& other) noexcept {
-		swap(values, other.values); return *this;
-	}
+        swap(values, other.values); return *this;
+    }
 
     void swap(priority_deque<T>&& other) noexcept {
-		swap(values, other.values);
-	}
+        swap(values, other.values);
+    }
     bool operator == (const priority_deque<T> &other) const { return values==other.values;}
     bool operator != (const priority_deque<T> &other) const { return !(*this == other);}
 };
