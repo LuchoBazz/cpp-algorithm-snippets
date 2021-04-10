@@ -9,7 +9,12 @@
 using namespace std;
 
 #define endl '\n'
-#define finally(value) {cout << (value) << endl; return;}
+#define finally(value) {cout << (value) << '\n'; return;}
+#define forn(i, b) for(int i = 0; i < (int) b; ++i)
+#define rep(i, a, b) for(int i = int(a); i < (int) b; ++i)
+#define trav(x, a) for(auto &x: a)
+#define sz(v) ((int) v.size())
+
 using int64 = int64_t;
 
 class Task {
@@ -40,7 +45,7 @@ private:
     }
 };
 
-auto main() -> int {
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
