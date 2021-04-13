@@ -7,6 +7,8 @@ using max_heap = template_heap<T>;
 template<typename T>
 using min_heap = template_heap<T, vector<T>, greater<T>>;
 
+#define pop_heap(heap) heap.top(); heap.pop();
+
 template<typename T>
 T get_min(set<T> &st) {
     assert(!st.empty());
@@ -33,6 +35,24 @@ T erase_max(set<T> &st) {
     st.erase(--st.end());
     return to_return;
 }
+
+#define merge_set(big, small) big.insert(small.begin(), small.end());
+
+template<typename T> // To merge two vectors, the answer is an ordered vector
+void merge_vector(vector<T> &big, vector<T> &small) {
+    int n = (int) big.size();
+    int m = (int) small.size();
+    if(m > n) swap(small, big);
+    if(!is_sorted(big.begin(), big.end()))
+        sort(big.begin(), big.end());
+    if(!is_sorted(small.begin(), small.end()))
+        sort(small.begin(), small.end());
+    vector<T> aux;
+    merge(small.begin(), small.end(), big.begin(), big.end(), aux.begin());
+    big = move(res);
+}
+
+#define has_key(it, key) it.find(key) != it.end()
 
 // Finds the element nearest to target
 template<typename T>
