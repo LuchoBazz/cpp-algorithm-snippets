@@ -49,7 +49,7 @@ void merge_vector(vector<T> &big, vector<T> &small) {
         sort(small.begin(), small.end());
     vector<T> aux;
     merge(small.begin(), small.end(), big.begin(), big.end(), aux.begin());
-    big = move(res);
+    big = move(aux);
 }
 
 #define has_key(it, key) it.find(key) != it.end()
@@ -64,13 +64,13 @@ T find_nearest(set<T> &st, T target) {
     } else if (it == st.end()) {
         it--; return *it;
     }
-    T left = *it; it--;
-    T right = *it;
-    if (target-right < left-target) 
-        return right;
+    T right = *it; it--;
+    T left = *it;
+    if (target-left < right-target) 
+        return left;
     // if they are the same distance, choose right
     // if you want to choose left change to <=
-    return left;
+    return right;
 }
 
 template<typename T>
