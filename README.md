@@ -67,6 +67,7 @@ This repository contains templates of useful algorithms and data structures code
     * `range_query_dynamic_segment_tree` - Implementation of a Segment Tree with Dynamic nodes.
     * `range_query_persistent_segment_tree` - Implementation of a Persistent Segment Tree.
     * `range_query_sqrt_decomposition` - SQRT Decomposition implementation using Bucket.
+    * `range_query_sparse_table_std` - Sparse Table implementation.
 
 * **Graph**
     * `graph_graph` - Parent class of the representation of a graph.
@@ -159,7 +160,7 @@ This repository contains templates of useful algorithms and data structures code
     * Some components of the source code of `string/string_hashing_dynamic_compress.cpp` were taken from [ekzhang/library](https://github.com/ekzhang/library) `hashing_bit.cpp` ➡️ By **Eric Zhang**
 
 * **Query Range**
-    * Some components of the source code of this folder were taken from [the-tourist/algo](https://github.com/the-tourist/algo) `data > segtree.cpp` ➡️ By **Gennady Korotkevich (Tourist)**
+    * Some components of the source code of this folder were taken from [the-tourist/algo](https://github.com/the-tourist/algo) `data > segtree.cpp` and `sparsetable.cpp` ➡️ By **Gennady Korotkevich (Tourist)**
 
 * **Combinatorics**
     * Some components of the source code of this folder were taken from [indy256/codelibrary](https://github.com/indy256/codelibrary/) `cpp > combinatorics > enumerating_combinations.cpp` ➡️ By **Andrei Navumenka (indy256)**
