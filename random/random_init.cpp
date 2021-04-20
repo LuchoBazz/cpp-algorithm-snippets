@@ -1,16 +1,14 @@
-random_device rd;
-mt19937 gen(rd());
+template <typename T>
+T random(const T from, const T to) {
+    static random_device rdev;
+    static default_random_engine re(rdev());
 
-template<typename T>
-T random(T from, T to) {
-    if constexpr (is_integral<T>::value) {
-        return uniform_int_distribution<T>(from, to)(gen);
-    } else if constexpr (is_floating_point<T>::value) {
-        return uniform_real_distribution<T>(from, to)(gen);
-    }
-    return uniform_int_distribution<T>(from, to)(gen);
+    using dist_type = typename conditional<
+        is_floating_point<T>::value,
+        uniform_real_distribution<T>,
+        uniform_int_distribution<T>
+    >::type;
+
+    dist_type uni(from, to);
+    return static_cast<T>(uni(re));
 }
-// Usage:
-//   int value = random<int>(1, 10);
-//   char value = random<char>('a', 'z');
-//   double value = random<double>(1.1, 1.93);
