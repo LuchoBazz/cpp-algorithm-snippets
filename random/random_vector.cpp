@@ -8,5 +8,3 @@ vector<T> random_vector(int n, T from, T to) {
     }
     return values;
 }
-// Usage:
-//   vector<int> values = random_vector<int>(10, 2, 6);

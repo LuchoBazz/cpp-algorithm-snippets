@@ -22,17 +22,19 @@ struct Limits {
     Limits(T f, T t) : from(f), to(t) {assert(from <= to);}
 };
 
-random_device rd;
-mt19937_64 gen(rd());
+template <typename T>
+T random(const T from, const T to) {
+    static random_device rdev;
+    static default_random_engine re(rdev());
 
-template<typename T>
-T random(T from, T to) {
-    if constexpr (is_integral<T>::value) {
-        return uniform_int_distribution<T>(from, to)(gen);
-    } else if constexpr (is_floating_point<T>::value) {
-        return uniform_real_distribution<T>(from, to)(gen);
-    }
-    return uniform_int_distribution<T>(from, to)(gen);
+    using dist_type = typename conditional<
+        is_floating_point<T>::value,
+        uniform_real_distribution<T>,
+        uniform_int_distribution<T>
+    >::type;
+
+    dist_type uni(from, to);
+    return static_cast<T>(uni(re));
 }
 
 template<typename T>
@@ -42,9 +44,10 @@ T random(Limits<T> limit) {
 
 template<typename T>
 vector<T> random_permutation(int n, T start = 0) {
+    mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
     vector<T> permutation(n);
     iota(permutation.begin(), permutation.end(), start);
-    shuffle(permutation.begin(), permutation.end(), gen);
+    shuffle(permutation.begin(), permutation.end(), rng);
     return permutation;
 }
 
@@ -52,7 +55,7 @@ template<typename T>
 vector<T> random_vector(int n, Limits<T> limit) {
     vector<T> values(n);
     for(int i = 0; i < n; ++i) {
-        values[i] = random(limit);
+        values[i] = random<T>(limit);
     }
     return values;
 }
@@ -94,7 +97,7 @@ int main() {
     test_cases(T, [&](int test_num) -> void {
         Type n = random(N);
         cout << n << endl;
-        vector<Type> v = random_vector(n, Ai);
+        vector<Type> v = random_vector<Type>(n, Ai);
         write(v);
     });
     cout.flush();
