@@ -8,9 +8,15 @@
 using namespace std;
 
 #define endl '\n'
+#define finally(value) {cout << (value) << '\n'; return 0;}
+#define forn(i, b) for(int i = 0; i < int(b); ++i)
+#define rep(i, a, b) for(int i = int(a); i <= int(b); ++i)
+#define trav(ref, ds) for(auto &ref: ds)
+#define sz(v) ((int) v.size())
+
 using int64 = int64_t;
 
-auto main() -> int {
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
@@ -18,16 +24,3 @@ auto main() -> int {
     cout.flush();
     return 0;
 }
-
-// THINGS TO KEEP IN MIND
-//   * int overflow, time and memory limits
-//   * Special case (n = 1?)
-//   * Do something instead of nothing and stay organized
-//   * Don't get stuck in one approach
-
-// TIME AND MEMORY LIMITS
-//   * 1 second is approximately 10^8 operations (c++)
-//   * 10^6 Elements of 32 Bit (4 bytes) is equal to 4 MB
-//   * 62x10^6 Elements of 32 Bit (4 bytes) is equal to 250 MB
-//   * 10^6 Elements of 64 Bits (8 bytes) is equal to 8 MB
-//   * 31x10^6 Elements of 64 Bit (8 bytes) is equal to 250 MB

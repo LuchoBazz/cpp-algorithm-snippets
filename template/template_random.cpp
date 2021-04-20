@@ -7,7 +7,12 @@
 using namespace std;
  
 #define endl '\n'
-#define finally(value) {cout << (value) << endl; return;}
+#define finally(value) {cout << (value) << '\n'; return 0;}
+#define forn(i, b) for(int i = 0; i < int(b); ++i)
+#define rep(i, a, b) for(int i = int(a); i <= int(b); ++i)
+#define trav(ref, ds) for(auto &ref: ds)
+#define sz(v) ((int) v.size())
+
 using int64 = int64_t;
 
 template<typename T>
@@ -17,17 +22,19 @@ struct Limits {
     Limits(T f, T t) : from(f), to(t) {assert(from <= to);}
 };
 
-random_device rd;
-mt19937_64 gen(rd());
+template <typename T>
+T random(const T from, const T to) {
+    static random_device rdev;
+    static default_random_engine re(rdev());
 
-template<typename T>
-T random(T from, T to) {
-    if constexpr (is_integral<T>::value) {
-        return uniform_int_distribution<T>(from, to)(gen);
-    } else if constexpr (is_floating_point<T>::value) {
-        return uniform_real_distribution<T>(from, to)(gen);
-    }
-    return uniform_int_distribution<T>(from, to)(gen);
+    using dist_type = typename conditional<
+        is_floating_point<T>::value,
+        uniform_real_distribution<T>,
+        uniform_int_distribution<T>
+    >::type;
+
+    dist_type uni(from, to);
+    return static_cast<T>(uni(re));
 }
 
 template<typename T>
@@ -37,9 +44,10 @@ T random(Limits<T> limit) {
 
 template<typename T>
 vector<T> random_permutation(int n, T start = 0) {
+    mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
     vector<T> permutation(n);
     iota(permutation.begin(), permutation.end(), start);
-    shuffle(permutation.begin(), permutation.end(), gen);
+    shuffle(permutation.begin(), permutation.end(), rng);
     return permutation;
 }
 
@@ -47,7 +55,7 @@ template<typename T>
 vector<T> random_vector(int n, Limits<T> limit) {
     vector<T> values(n);
     for(int i = 0; i < n; ++i) {
-        values[i] = random(limit);
+        values[i] = random<T>(limit);
     }
     return values;
 }
@@ -75,7 +83,7 @@ void test_cases(Limits<T> test_number, F func) {
         func(i);
 }
 
-auto main() -> int {
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
@@ -89,22 +97,9 @@ auto main() -> int {
     test_cases(T, [&](int test_num) -> void {
         Type n = random(N);
         cout << n << endl;
-        vector<Type> v = random_vector(n, Ai);
+        vector<Type> v = random_vector<Type>(n, Ai);
         write(v);
     });
     cout.flush();
     return 0;
 }
- 
-// THINGS TO KEEP IN MIND
-//   * int overflow, time and memory limits
-//   * Special case (n = 1?)
-//   * Do something instead of nothing and stay organized
-//   * Don't get stuck in one approach
- 
-// TIME AND MEMORY LIMITS
-//   * 1 second is approximately 10^8 operations (c++)
-//   * 10^6 Elements of 32 Bit (4 bytes) is equal to 4 MB
-//   * 62x10^6 Elements of 32 Bit (4 bytes) is equal to 250 MB
-//   * 10^6 Elements of 64 Bits (8 bytes) is equal to 8 MB
-//   * 31x10^6 Elements of 64 Bit (8 bytes) is equal to 250 MB
