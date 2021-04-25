@@ -8,10 +8,10 @@ using __gnu_pbds::gp_hash_table;
 
 struct chash { 
     // use most bits rather than just the lowest ones
-	const uint64_t C = uint64_t(2e18*PI)+71; // large odd number
-	const int RANDOM = random<int>(0, INT_MAX-1);
-	int64_t operator()(int64_t x) const { // https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html
-		return __builtin_bswap64((x^RANDOM)*C);
+    const uint64_t C = uint64_t(2e18*PI)+71; // large odd number
+    const int RANDOM = random<int>(0, INT_MAX-1);
+    int64_t operator()(int64_t x) const { // https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html
+        return __builtin_bswap64((x^RANDOM)*C);
     }
 };
 // unordered_map<K, V, chash>;
@@ -24,6 +24,6 @@ using hash_table = gp_hash_table<K, V, Hash>;
 
 template<class K,class V>
 V get(hash_table<K, V>& mp, K target) {
-	auto it = mp.find(target);
+    auto it = mp.find(target);
     return it == end(mp) ? 0 : it->second;
 }
