@@ -19,17 +19,17 @@ string to_string(bool b) {
 }
 
 string to_string(vector<bool> v) {
-  bool first = true;
-  string res = "{";
-  for (int i = 0; i < (int) v.size(); i++) {
-    if (!first) {
-      res += ", ";
+    bool first = true;
+    string res = "{";
+    for (int i = 0; i < (int) v.size(); i++) {
+        if (!first) {
+            res += ", ";
+        }
+        first = false;
+        res += to_string(v[i]);
     }
-    first = false;
-    res += to_string(v[i]);
-  }
-  res += "}";
-  return res;
+    res += "}";
+    return res;
 }
 
 template <typename A>
@@ -47,7 +47,7 @@ string to_string(A v) {
     return res;
 }
 
-// add template here
+// to_string_other
 
 #define writer_out cerr
 void debug_out() { writer_out << "\n"; }
