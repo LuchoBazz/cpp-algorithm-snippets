@@ -1,11 +1,14 @@
 template <typename T>
-struct priority_deque {
+struct minmax_heap {
     multiset<T> values;
 
-    priority_deque() {}
-    priority_deque(vector<T> &v) {
+    minmax_heap() {}
+    minmax_heap(vector<T> &v) {
         for(auto &a: v)
             values.insert(a);
+    }
+    minmax_heap(const minmax_heap<T> &other) {
+        values = other.values;
     }
 
     typename multiset<T>::iterator begin() { return values.begin(); }
@@ -24,41 +27,37 @@ struct priority_deque {
         return false;
     }
 
-    T back() { // returns the maximum element in the deque
+    T get_max() {
         assert(!empty());
         return *values.rbegin();
     }
 
-    T front() { // returns the minimum element in the deque
+    T get_min() {
         assert(!empty());
         return *values.begin();
     }
 
-    T pop_back() { // returns and removes the maximum element in the deque
+    T pop_max() {
         assert(!empty());
-        T to_return = back();
+        T to_return = get_max();
         values.erase(--values.end());
         return to_return;
     }
 
-    T pop_front() { // returns and removes the minimum element in the deque
+    T pop_min() {
         assert(!empty());
-        T to_return = front();
+        T to_return = get_min();
         values.erase(values.begin());
         return to_return;
     }
 
     bool empty() {return values.empty();}
     int size() const {return (int) values.size();}
-    void clear() {values.clear();}
+    void clear() { values.clear(); }
 
-    priority_deque<T>& operator=(priority_deque<T>&& other) noexcept {
-        swap(values, other.values); return *this;
+    void swap(minmax_heap<T>& other) noexcept {
+        values.swap(other.values);
     }
-
-    void swap(priority_deque<T>&& other) noexcept {
-        swap(values, other.values);
-    }
-    bool operator == (const priority_deque<T> &other) const { return values==other.values;}
-    bool operator != (const priority_deque<T> &other) const { return !(*this == other);}
+    bool operator == (const minmax_heap<T> &other) const { return values==other.values;}
+    bool operator != (const minmax_heap<T> &other) const { return !(*this == other);}
 };
