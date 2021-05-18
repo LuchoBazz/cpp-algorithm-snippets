@@ -18,12 +18,12 @@ using int64 = int64_t;
 
 class Task {
 private:
-    
-    void clear() {}
-    void read() {}
+    $1
+    void clear() {$2}
+    void read() {$3}
 
     void solveOne() {
-        ;
+        $4
     }
 
 public:
