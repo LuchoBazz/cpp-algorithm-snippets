@@ -1,4 +1,4 @@
-// Old and New State
+// Old and New State: https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-1
 
 // Img1: https://i.imgur.com/xS5ZHoY.png
 // Img2: https://i.imgur.com/t2jr02z.png
