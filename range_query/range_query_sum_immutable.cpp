@@ -5,7 +5,7 @@ public:
     int n;
     vector<T> dp;
  
-    PrefixSum() n(-1) {}
+    PrefixSum() : n(-1) {}
     PrefixSum(vector<T>& nums) {
         n = (int) nums.size();
         if(n == 0)
