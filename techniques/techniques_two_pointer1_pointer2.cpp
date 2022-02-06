@@ -1,4 +1,4 @@
-// Pointer-1 and Pointer-2 from Two Sequences
+// Pointer-1 and Pointer-2 from Two Sequences: https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-2
 
 // Img: https://i.imgur.com/xS5ZHoY.png
 
