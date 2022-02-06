@@ -2,17 +2,17 @@ const int MOD = int(1e9+7);
 
 template<typename T>
 T sub(T a, T b) {
-    return ((a-b)%MOD + MOD) % MOD;
+    return (1LL*(a-b)%MOD + MOD) % MOD;
 }
 
 template<typename T>
 T add(T a, T b) {
-    return ((a%MOD) + (b%MOD)) % MOD;
+    return (1LL*(a%MOD) + 1LL*(b%MOD)) % MOD;
 }
 
 template<typename T>
 T mul(T a, T b) {
-    return ((a%MOD) * (b%MOD)) % MOD;
+    return (1LL*(a%MOD) * (b%MOD)) % MOD;
 }
 
 template<typename T, typename U>
@@ -46,5 +46,5 @@ T inverse(T a) {
 
 template<typename T>
 T division(T a, T b) {
-    return mul(a ,  inverse(b));
+    return mul(a, inverse(b));
 }
