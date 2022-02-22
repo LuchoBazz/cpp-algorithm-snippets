@@ -15,3 +15,9 @@ template<class Fun>
 decltype(auto) y_combinator(Fun &&fun) {
     return y_combinator_result<decay_t<Fun>>(forward<Fun>(fun));
 }
+// Usage:
+// auto go = y_combinator([&](auto Go, int idx) -> int64 {
+//     ...
+//     return Go(idx-1);
+// });
+// int64 ans = go(0);
