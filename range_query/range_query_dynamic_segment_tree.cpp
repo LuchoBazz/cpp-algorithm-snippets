@@ -21,28 +21,28 @@ class SegmentTree {
     SegmentTree<T> *left, *right;
     int low, high, mid;
     Node<T> data;
-
-    SegmentTree(int low, int high, const vector<T> &v) 
+ 
+    SegmentTree(int low, int high) 
             : low(low), high(high), data{} {
-        if(low == high) {
-            data.apply(low, v[low]);
-        } else {
-            mid = low + (high - low)/2;
-            left = new SegmentTree<T>(low, mid, v);
-            right = new SegmentTree<T>(mid+1, high, v);
+        mid = (high + low) / 2;
+        if(low != high) {
+            left = new SegmentTree<T>(low, mid);
+            right = new SegmentTree<T>(mid+1, high);
         }
     }
 public:
     SegmentTree(const vector<T> &v) {
-        low = 0; high = (int) v.size() - 1;
-        mid = low + (high - low) / 2;
+        low = 0; high = int(v.size()) - 1;
+        mid = (high + low) / 2;
         if(low != high) {
-            left = new SegmentTree<T>(low, mid, v);
-            right = new SegmentTree<T>(mid+1, high, v);
-        } else {
-            data.apply(low, v[low]);
+            left = new SegmentTree<T>(low, mid);
+            right = new SegmentTree<T>(mid+1, high);
+        }
+        for(int i = 0; i < (int) v.size(); ++i) {
+            this->modify(i, v[i]);
         }
     }
+ 
     Node<T> unite(const Node<T> &a, const Node<T> &b) {
         Node<T> res;
         res.sum = a.sum + b.sum;
@@ -52,6 +52,7 @@ public:
         res.idx_mn = (res.mn==a.mn)?a.idx_mn:b.idx_mn;
         return res;
     }
+ 
     void modify(int index, T value) {
         if(low == high) {
             data.apply(low, value);
@@ -61,9 +62,18 @@ public:
             data = unite(left->data, right->data);
         }
     }
+ 
     Node<T> query(int a, int b) {
         if(a > high || b < low) return Node<T>{};
         if(a <= low && high <= b) return data;
         return unite(left->query(a, b), right->query(a, b));
     }
 };
+
+template<typename T>
+using segtree = SegmentTree<T>;
+
+// Usage:
+// segtree<int64> st(v);
+// st.query(l, r).sum;
+// st.modify(idx, value);
