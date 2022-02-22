@@ -1,4 +1,4 @@
-// numeric_mint
+// numeric_mint_full
 
 template <typename T>
 struct FactorizerVarMod { static T value; };
@@ -86,7 +86,7 @@ bool miller_rabin(uint64_t number) {
 
 template<typename T>
 bool is_prime_slow(T number) {
-    if(number <= 0)
+    if(number <= 1)
         return false;
     else if(number <= 3)
         return true;
