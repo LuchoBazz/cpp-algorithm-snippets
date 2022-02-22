@@ -10,7 +10,7 @@ vector<T> bellman_ford(const undigraph<T> &G, int source, bool &cycle) {
     dist[source] = static_cast<T>(0);
     for(int i = 0; i < G.n + 1; ++i){
         for(const edge<T> &e: G.edges) {
-            if(dist[e.from] + e.cost < dist[e.to] && dist[e.from] != inf) {
+            if(dist[e.from] != inf && dist[e.from] + e.cost < dist[e.to]) {
                 dist[e.to] = dist[e.from] + e.cost;
                 if(i == G.n)
                     cycle = true; // There are negative edges
