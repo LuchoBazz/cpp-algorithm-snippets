@@ -12,7 +12,11 @@ vector <T> dijkstra(const graph<T> &g, int start) {
     dist[start] = static_cast<T>(0);
     Q.push({start, static_cast<T>(0)});
     while (!Q.empty()) {
-        int to = Q.top().to; Q.pop();
+        link<T> node = Q.top(); Q.pop();
+        int to = node.to;
+        if(node.cost > dist[to]) {
+            continue;
+        }
         for (link<T> neighbor: g.adj[to]) {
             T newCost = dist[to] + neighbor.cost;
             if (newCost < dist[neighbor.to]) {
