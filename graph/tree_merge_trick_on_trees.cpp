@@ -20,7 +20,7 @@ void dfs(int node, int parent) { // O(n*lg^2(n))
         for(auto &it: cnt[child]) {
             cnt[node].insert(it);
         }
-        cnt[child].clear(); // if time is too high don't use, use when giving MLE
+        cnt[child].clear(); // if time is too high don't use, only use when giving MLE
     }
     answer[node] = (int) cnt[node].size();
 }
