@@ -8,13 +8,22 @@
 using namespace std;
 
 #define endl '\n'
-#define finally(value) {cout << (value) << '\n'; return 0;}
+#define finally(value) {cout << (value) << '\n'; return;}
 #define forn(i, b) for(int i = 0; i < int(b); ++i)
+#define forr(i, b) for(int i = int(b)-1; i >= 0; i--)
 #define rep(i, a, b) for(int i = int(a); i <= int(b); ++i)
+#define rev(i, b, a) for(int i = int(b); i >= int(a); i--)
 #define trav(ref, ds) for(auto &ref: ds)
-#define sz(v) ((int) v.size())
-
-using int64 = int64_t;
+#define SZ(v) ((int) v.size())
+#define _ << ' ' <<
+ 
+using int64 = long long;
+ 
+#ifdef DEBUG 
+#include "debug.h"
+#else
+#define debug(...) 42
+#endif
 
 $1
 
