@@ -52,11 +52,9 @@ namespace decomposition {
         centroids.push_back(centroid);
         clean(n);
         dfs(centroid);
-        for(const auto &v: adj[centroid]) {
-            if((subtree[centroid] - subtree[v]) == n / 2) {
+        for(const auto &v: adj[centroid])
+            if((subtree[centroid] - subtree[v]) == n / 2)
                 centroids.push_back(v);
-            }
-        }
         assert(0 < (int) centroids.size() && (int) centroids.size() <= 2);
         return centroids;
     }
