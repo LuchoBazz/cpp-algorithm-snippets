@@ -1,11 +1,14 @@
 import sys
 import os
 import json
+import platform
 
 HOME = os.path.expanduser("~") 
 PATH = HOME + '/.config/Code/User/snippets/cpp.json'
-# for windows
-# PATH = HOME + '/AppData/Roaming/Code/User/snippets/cpp.json'
+
+if platform.system() in ['Windows', 'Win32']:
+    # for windows
+    PATH = HOME + '/AppData/Roaming/Code/User/snippets/cpp.json'
 
 def add_snippets_to_vscode(root_path, filename, ext):
     path = root_path + filename + '.' + ext
