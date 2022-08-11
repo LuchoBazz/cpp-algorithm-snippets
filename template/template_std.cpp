@@ -36,6 +36,5 @@ int main() {
     
     $2
     
-    cout.flush();
     return 0;
 }
