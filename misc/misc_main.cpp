@@ -9,20 +9,6 @@
 #define for2(i, a) for(int i = 0; i < int(a); ++i)
 #define for3(i, a, b) for(int i = int(a); i <= int(b); ++i)
 #define for4(i, a, b, c) for(int i = int(a); i <= int(b); i += int(c))
-#define rof1(a) for(int i = int(a)-1; i >= 0; --i)
-#define rof2(i, a) for(int i = int(a)-1; i >= 0; --i)
-#define rof3(i, a, b) for(int i = int(b); i >= int(a); --i)
-#define rof4(i, a, b, c) for(int i = int(b); i >= int(a); i -= int(c))
 #define forn(...) overload4(__VA_ARGS__, for4, for3, for2, for1)(__VA_ARGS__)
-#define rof(...)  overload4(__VA_ARGS__, rof4, rof3, rof2, rof1)(__VA_ARGS__)
-
-template <class T, class S>
-inline bool xmax(T &a, const S &b) {
-    return (a < b ? a = b, 1 : 0);
-}
-template <class T, class S>
-inline bool xmin(T &a, const S &b) {
-    return (a > b ? a = b, 1 : 0);
-}
 
 using int64 = long long;
