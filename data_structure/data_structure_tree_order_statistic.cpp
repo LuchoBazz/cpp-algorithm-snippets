@@ -15,6 +15,7 @@ using indexed_map = tree<K, V, Comp, rb_tree_tag, tree_order_statistics_node_upd
 template <typename K, typename Comp = less<K>>
 using indexed_set = indexed_map<K, null_type, Comp>;
 
+// using less_equals<K> makes lower_bound works as upper_bound and vice-versa
 template <typename K, typename V, typename Comp = less_equal<K>>
 using indexed_multimap = indexed_map<K, V, Comp>;
 
