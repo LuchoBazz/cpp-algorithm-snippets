@@ -15,6 +15,12 @@ using indexed_map = tree<K, V, Comp, rb_tree_tag, tree_order_statistics_node_upd
 template <typename K, typename Comp = less<K>>
 using indexed_set = indexed_map<K, null_type, Comp>;
 
+template <typename K, typename V, typename Comp = less_equal<K>>
+using indexed_multimap = indexed_map<K, V, Comp>;
+
+template <typename K, typename Comp = less_equal<K>>
+using indexed_multiset = indexed_map<K, null_type, Comp>;
+
 // Usage
 //    auto it = any.find_by_order(idx); (0-indexed)
 //    (*it).first, (*it).second
