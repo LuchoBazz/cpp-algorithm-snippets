@@ -34,10 +34,19 @@ using indexed_multiset = indexed_map<K, null_type, Comp>;
 // 1) Return the value of the idx index
 //    auto it = any.find_by_order(idx); (0-indexed)
 //    (*it).first, (*it).second
+//    {1, 2, 2, 2, 3, 4, 7}
+//    any.find_by_order(0); -> *it return value 1
+//    any.find_by_order(1); -> *it return value 2
+//    any.find_by_order(3); -> *it return value 2
+//    any.find_by_order(6); -> *it return value 7
+//    any.find_by_order(-1);  -> it == any.end()
+//    any.find_by_order(100); -> it == any.end()
+
 // 2) Get the index of the key value
-//    int index = any.order_of_key(key);
-//    {1: 10, 2 :20,  5: 50}
-//    any.order_of_key(2) -> return index 1
-//    any.order_of_key(3) -> return index 2
+//    int index = any.order_of_key(key); (0-indexed)
+//    {1, 2, 2, 2, 3, 4, 7}
+//    any.order_of_key(2)   -> return index 1
+//    any.order_of_key(5)   -> return index 6
+
 // 3) Correct way to use erase:
 //    any.erase(any.find_by_order(any.order_of_key(val)));
