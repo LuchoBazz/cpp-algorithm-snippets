@@ -35,6 +35,6 @@ template<typename T> T division(T a, T b, const int& mod) { return mul(a, invers
 // Notes:
 // 1) a^(b^(a)) % md
 //    is equal to:
-//    c++ code:
+//    ref problem: https://bit.ly/3RGcgnp
 //    int exponent = fastpow(b, c, md-1);
 //    int answer = fastpow(a, exponent, md);
