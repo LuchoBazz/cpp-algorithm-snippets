@@ -30,7 +30,7 @@ vector<Query> Q;
 Q.reserve(q+1);
 int from, to;
 for(int i = 0; i < q; ++i){
-    in >> from >> to; // don't forget (from--, to--) if it's 1-indexed
+    cin >> from >> to; // don't forget (from--, to--) if it's 1-indexed
     Q.push_back(Query(from, to, i));
 }
 
