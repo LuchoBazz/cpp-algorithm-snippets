@@ -4,11 +4,18 @@ import json
 import platform
 
 HOME = os.path.expanduser("~") 
-PATH = HOME + '/.config/Code/User/snippets/cpp.json'
 
-if platform.system() in ['Windows', 'Win32']:
-    # for windows
+OS = platform.system()
+
+if OS in ['Windows', 'Win32']: # for windows
     PATH = HOME + '/AppData/Roaming/Code/User/snippets/cpp.json'
+elif OS == 'Linux': # for linux
+    PATH = HOME + '/.config/Code/User/snippets/cpp.json'
+elif OS == 'Darwin': # for mac os
+    PATH = HOME + '/Library/Application Support/Code/User/snippets/cpp.json'
+else:
+    print(OS)
+    sys.exit('unsupported operating system')
 
 def add_snippets_to_vscode(root_path, filename, ext):
     path = root_path + filename + '.' + ext
