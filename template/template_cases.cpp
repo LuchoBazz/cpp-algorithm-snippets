@@ -48,8 +48,9 @@ inline bool xmin(T &a, const S &b) {
 }
 
 template<typename T>
-ostream& operator<<(ostream& os, const vector<T> &v){
-    for(auto const &i: v) os << i << " "; os << '\n';
+ostream& operator<<(ostream& os, const vector<T> &v) {
+    for(auto const &i: v) os << i << " ";
+    os << '\n';
     return os;
 }
 
