@@ -1,3 +1,4 @@
+// Reference: https://cp-algorithms.com/sequences/mex.html
 template <typename T> class Mex {
 private:
     map<T, int> frequency;
