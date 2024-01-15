@@ -104,9 +104,10 @@ auto erase_max(Container &c) -> typename Container::value_type {
 #define merge_set(big, small) big.insert(small.begin(), small.end());
 #define has_key(it, key) (it.find(key) != it.end())
 
-#define MAX(v) (*max_element(std::begin(v), std::end(v)))
-#define MIN(v) (*min_element(std::begin(v), std::end(v)))
+#define MAX(v) (*std::max_element(std::begin(v), std::end(v)))
+#define MIN(v) (*std::min_element(std::begin(v), std::end(v)))
 #define SUM(v) (std::accumulate(std::begin(v), std::end(v), 0LL))
+#define COUNT(v, item) (std::count(std::begin(v), std::end(v), item))
 
 using int64 = long long;
 using i16 = short;
