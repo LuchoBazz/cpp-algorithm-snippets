@@ -26,10 +26,10 @@ public:
     T query(int x1, int y1, int x2, int y2) {
         assert(0<=x1&&x1<n && 0<=y1&&y1<m);
         assert(0<=x2&&x2<n && 0<=y2&&y2<m);
-        int SA = dp[x2+1][y2+1];
-        int SB = dp[x1][y2+1];
-        int SC = dp[x2+1][y1];
-        int SD = dp[x1][y1];
+        T SA = dp[x2+1][y2+1];
+        T SB = dp[x1][y2+1];
+        T SC = dp[x2+1][y1];
+        T SD = dp[x1][y1];
         return SA-SB-SC+SD;
     }
 };
