@@ -22,6 +22,7 @@ T distance(T n, T k) {
     return n % k;
 }
 
+// Tested in: https://atcoder.jp/contests/abc048/tasks/abc048_b
 // Among the integers between 0 and num, inclusive
 // how many are divisible by div?
 template<typename T> T divs_cnt(T num, T div) {
