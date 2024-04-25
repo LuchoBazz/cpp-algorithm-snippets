@@ -33,4 +33,3 @@ template<typename T> T divs_cnt(T num, T div) {
 template<typename T> T divs_cnt_range(T a, T b, T div) {
   return divs_cnt(b, div) - divs_cnt(a - 1, div);
 }
-
