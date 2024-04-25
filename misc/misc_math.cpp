@@ -21,3 +21,16 @@ T distance(T n, T k) {
     assert(0 < k); if(n < k) return k - n % k;
     return n % k;
 }
+
+// Among the integers between 0 and num, inclusive
+// how many are divisible by div?
+template<typename T> T divs_cnt(T num, T div) {
+  return num < 0 ? 0 : num / div + 1;
+}
+
+// Among the integers between a and b, inclusive
+// how many are divisible by div?
+template<typename T> T divs_cnt_range(T a, T b, T div) {
+  return divs_cnt(b, div) - divs_cnt(a - 1, div);
+}
+
