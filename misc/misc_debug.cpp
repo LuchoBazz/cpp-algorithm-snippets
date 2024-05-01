@@ -1,6 +1,12 @@
+// Taken from the tourist's library (Gennady Korotkevich)
+
 #include <bits/stdc++.h>
 
 using namespace std;
+
+string to_string(char c) {
+    return "'" + string(1, c) + "'";
+}
 
 string to_string(string s) {
     return '"' + s + '"';
@@ -72,21 +78,6 @@ string to_string(vector<bool> v) {
     return res;
 }
 
-template <typename A>
-string to_string(A v) {
-    bool first = true;
-    string res = "{";
-    for (auto &x : v) {
-        if (!first) {
-            res += ", ";
-        }
-        first = false;
-        res += to_string(x);
-    }
-    res += "}";
-    return res;
-}
-
 template <typename A, typename B>
 string to_string(const pair<A, B> p) {
     return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
@@ -111,6 +102,21 @@ string to_string(const bitset<N> v) {
     return res;
 }
 
+template <typename A>
+string to_string(A v) {
+    bool first = true;
+    string res = "{";
+    for (auto &x : v) {
+        if (!first) {
+            res += ", ";
+        }
+        first = false;
+        res += to_string(x);
+    }
+    res += "}";
+    return res;
+}
+
 #define writer_out cerr
 void debug_out() { writer_out << "\n"; }
 template <typename Head, typename... Tail>
@@ -122,12 +128,15 @@ void debug_out(Head H, Tail... T) {
  
 #ifndef ONLINE_JUDGE
 #define debug(...) writer_out << "[" << #__VA_ARGS__ << "]: [" , debug_out(__VA_ARGS__)
+#define log(...) writer_out << "[" << #__VA_ARGS__ << "]: [" , debug_out(__VA_ARGS__)
 #else
 #define debug(...) 42
+#define log(...) 42
 #endif
 
 // #ifdef DEBUG
 // #include "debug.h"
 // #else
 // #define debug(...) 42
+// #define log(...) 42
 // #endif
