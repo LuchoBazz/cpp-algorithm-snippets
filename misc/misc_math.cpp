@@ -14,6 +14,8 @@ T ceil(T numerator, T denominator) {
     return (numerator+denominator-1)/denominator;
 }
 
+// #define ceil(a, b) (((a) + (b) - 1) / (b)) 
+
 // distance_divisible:
 // How much does it need to add to n so that it is divisible by k
 template<typename T>
