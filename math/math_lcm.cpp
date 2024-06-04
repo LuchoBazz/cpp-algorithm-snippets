@@ -2,9 +2,9 @@
 // or
 // math_gcd_recursive
 
-template<class T>
-T lcm(T a, T b) {  
-    return (a*b)/gcd<T>(a, b);  
+template <class T>
+T lcm(T a, T b) {
+    return a / gcd<T>(a, b) * b;
 }
 // usage:
 //   int ans = lcm(15, 25);
