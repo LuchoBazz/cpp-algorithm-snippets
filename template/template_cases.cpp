@@ -7,8 +7,6 @@
 
 using namespace std;
 
-// template_header
-
 void solve_one() {
     ;
 }
