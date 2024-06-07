@@ -3,9 +3,7 @@ struct Event {
     int delta;
     int idx;
 
-    bool operator<(const Event &other) const {
-        return time < other.time;
-    }
+    bool operator<(const Event &other) const { return time < other.time; }
 };
 
 // Usage:
