@@ -1,8 +1,7 @@
 // string_prefix_function
 
 template <typename T> vector<int> kmp(const T &text, const T &pattern) {
-    int n = (int)text.size();
-    int m = (int)pattern.size();
+    int n = (int)text.size(), m = (int)pattern.size();
     vector<int> lcp = prefix_function(pattern), occurrences;
     int matched = 0;
     for (int idx = 0; idx < n; ++idx) {
