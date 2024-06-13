@@ -1,8 +1,7 @@
-int n = oo;
-int index = -1;
-for(int jump = n+1; jump >= 1; jump /= 2) {
-    while(jump+index<n && !ok(jump+index)) {
-        index += jump;
+int low = -1, high = oo;
+for (int delta = high + 1; delta >= 1; delta /= 2) {
+    while (delta + low < high && !works(delta + low)) {
+        low += delta;
     }
 }
-// index + 1
+// answer: low + 1
