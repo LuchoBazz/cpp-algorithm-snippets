@@ -1,30 +1,28 @@
-template<typename T>
-T get_min(set<T> &st) {
-    assert(!st.empty());
-    return *st.begin();
-}
-template<typename T>
-T get_max(set<T> &st) {
-    assert(!st.empty());
-    return *st.rbegin();
+
+template <typename Container>
+auto get_min(Container &c) -> typename Container::value_type {
+    assert(!c.empty());
+    return *c.begin();
 }
 
-template<typename T>
-T erase_min(set<T> &st) {
-    assert(!st.empty());
-    T to_return = get_min(st);
-    st.erase(st.begin());
+template <typename Container>
+auto get_max(Container &c) -> typename Container::value_type {
+    assert(!c.empty());
+    return *c.rbegin();
+}
+
+template <typename Container>
+auto erase_min(Container &c) -> typename Container::value_type {
+    assert(!c.empty());
+    auto to_return = get_min(c);
+    c.erase(c.begin());
     return to_return;
 }
 
-template<typename T>
-T erase_max(set<T> &st) {
-    assert(!st.empty());
-    T to_return = get_max(st);
-    st.erase(--st.end());
+template <typename Container>
+auto erase_max(Container &c) -> typename Container::value_type {
+    assert(!c.empty());
+    auto to_return = get_max(c);
+    c.erase(--c.end());
     return to_return;
 }
-
-#define merge_set(big, small) big.insert(small.begin(), small.end());
-
-#define has_key(it, key) (it.find(key) != it.end())
