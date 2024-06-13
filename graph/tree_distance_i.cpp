@@ -2,11 +2,9 @@
 // You are given a tree consisting of n nodes.
 // * Your task is to determine for each node the maximum distance to another node.
 
-using int64 = long long;
-
 const int N = 2e5 + 5;
 vector<int> adj[N];
-int64 first_dist[N], second_dist[N], dp[N];
+int64_t first_dist[N], second_dist[N], dp[N];
 
 // first_dist[i]: farthest distance from the node i-th
 // second_dist[i]: second farthest distance from the node i-th
@@ -27,12 +25,12 @@ void dfs_dist(int u, int p) {
 }
 
 // pd: Parent Distance
-void dfs_dp(int u, int p, int64 pd) {
+void dfs_dp(int u, int p, int64_t pd) {
     dp[u] = max(first_dist[u], pd);
     for (int v : adj[u]) {
         if (v == p) continue;
         int d = first_dist[v] + 1;
-        int64 new_pd = pd + 1;
+        int64_t new_pd = pd + 1;
         if (d == first_dist[u]) {
             new_pd = max(new_pd, second_dist[u] + 1);
         } else {

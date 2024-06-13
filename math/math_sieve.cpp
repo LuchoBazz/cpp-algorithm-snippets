@@ -1,5 +1,3 @@
-// using int64 = long long;
-
 const int M = 1e6 + 2;
 bool marked[M+1];
 vector<int> primes;
@@ -10,7 +8,7 @@ void sieve() {
     for (int i = 2; i <= M; i++) {
         if (marked[i]) continue;
         primes.push_back(i);
-        for (int64 j = 1LL * i * i; j <= M; j += i)
+        for (int64_t j = 1LL * i * i; j <= M; j += i)
             marked[j] = true;
     }
 }

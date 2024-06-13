@@ -1,5 +1,3 @@
-// using int64 = long long;
-
 const int mod = 1e9+7;
 
 struct matrix {
@@ -22,7 +20,7 @@ struct matrix {
     vector<int>& operator[] (int i) { return v[i]; }
 };
 
-matrix fastpow(matrix b, int64 e) {
+matrix fastpow(matrix b, int64_t e) {
     matrix ans(b.n, b.m, true);
     while(e > 0) {
         if(e & 1) ans = ans * b;

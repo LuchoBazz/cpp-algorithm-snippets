@@ -99,7 +99,7 @@ template <typename T> inline void make_unique(vector<T> &v) {
 #define SUM(v) (std::accumulate(std::begin(v), std::end(v), 0LL))
 #define COUNT(v, item) (std::count(std::begin(v), std::end(v), item))
 
-using ll = long long;
+using ll = int64_t;
 using ld = long double;
 using i16 = short;
 
