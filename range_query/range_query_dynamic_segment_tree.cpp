@@ -28,7 +28,7 @@ template <typename T> class SegmentTree {
         }
     }
 
-public:
+  public:
     SegmentTree(const vector<T> &v) {
         low = 0;
         high = int(v.size()) - 1;
@@ -67,9 +67,9 @@ public:
 
     inline Node<T> query(int a, int b) {
         if (a > high || b < low)
-        return Node<T>{};
+            return Node<T>{};
         if (a <= low && high <= b)
-        return data;
+            return data;
         return unite(left->query(a, b), right->query(a, b));
     }
 };
