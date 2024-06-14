@@ -1,10 +1,8 @@
-double max_value = 1e9 + 7;
-double index = 0.0;
-double jump = max_value;
-for(int iter = 0; iter < 100; ++iter) {
-    if(jump+index<max_value && !ok(jump+index)) {
-        index += jump;
+double low = 0.0, high = inf, delta = inf;
+for (int iter = 0; iter < 100; ++iter) {
+    if (delta + low < high && !works(delta + low)) {
+        low += delta;
     }
-    jump /= 2.0;
+    delta /= 2.0;
 }
-// index
+// low
