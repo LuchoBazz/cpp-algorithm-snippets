@@ -1,12 +1,9 @@
-template <typename T>
-class Fenwick {
-public:
+template <typename T> class Fenwick {
+  public:
     vector<T> fenw;
     int n;
 
-    Fenwick(int _n) : n(_n) {
-        fenw.resize(n);
-    }
+    Fenwick(int _n) : n(_n) { fenw.resize(n); }
     void modify(int x, T v) {
         while (x < n) {
             fenw[x] += v;
@@ -29,17 +26,11 @@ public:
     // }
 };
 
-template<typename T>
-using fenwick = Fenwick<T>;
+template <typename T> using fenwick = Fenwick<T>;
 
 struct node {
     // don't forget to set default value
     int a = ...;
-    inline void operator+=(const node &other) {
-        ...
-    }
-    inline node operator-(const node &other) {
-        ...
-        return *this;
-    }
+    inline void operator+=(const node &other) { ... }
+    inline node operator-(const node &other) { ... return *this; }
 };
