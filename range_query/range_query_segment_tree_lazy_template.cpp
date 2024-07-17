@@ -1,26 +1,22 @@
-template<typename T>
-class SegmentTree {
-public:
+template <typename T> class SegmentTree {
+  public:
     static const T neutral = ...;
     struct Node {
         // don't forget to set default value (used for leaves)
         // not necessarily neutral element!
-        
+
         ... a = ...;
         T lazy = neutral;
         bool changed = false;
 
-        void apply(int left, int right, ... v) {
-            ...
-            changed = true; 
-        }
+        void apply(int left, int right, ... v) { ... changed = true; }
     };
 
     Node unite(const Node &a, const Node &b) const {
         Node res;
         ...
-        // res.sum = a.any operator b.any;
-        return res;
+            // res.sum = a.any operator b.any;
+            return res;
     }
 
     inline void push(int x, int left, int right) {
@@ -35,16 +31,15 @@ public:
             tree[x].lazy = neutral;
         }*/
     }
-    
-    inline void pull(int x, int z) {
-        tree[x] = unite(tree[x + 1], tree[z]);
-    }
+
+    inline void pull(int x, int z) { tree[x] = unite(tree[x + 1], tree[z]); }
 
     int n;
     vector<Node> tree;
 
     void build(int x, int left, int right) {
-        if (left == right) return;
+        if (left == right)
+            return;
         int y = (left + right) >> 1;
         int z = x + ((y - left + 1) << 1);
         build(x + 1, left, y);
@@ -66,7 +61,8 @@ public:
     }
 
     Node query(int x, int from, int to, int left, int right) {
-        if (left <= from && to <= right) return tree[x];
+        if (left <= from && to <= right)
+            return tree[x];
         int y = (from + to) >> 1;
         int z = x + ((y - from + 1) << 1);
         push(x, from, to);
@@ -77,7 +73,8 @@ public:
             if (left > y) {
                 res = query(z, y + 1, to, left, right);
             } else {
-                res = unite(query(x + 1, from, y, left, right), query(z, y + 1, to, left, right));
+                res = unite(query(x + 1, from, y, left, right),
+                            query(z, y + 1, to, left, right));
             }
         }
         pull(x, z);
@@ -85,7 +82,7 @@ public:
     }
 
     template <typename... M>
-    void modify(int x, int from, int to, int left, int right, const M&... v) {
+    void modify(int x, int from, int to, int left, int right, const M &...v) {
         if (left <= from && to <= right) {
             tree[x].apply(from, to, v...);
             return;
@@ -102,8 +99,10 @@ public:
         pull(x, z);
     }
 
-    int find_first_knowingly(int x, int left, int right, const function<bool(const Node&)> &f) {
-        if (left == right) return left;
+    int find_first_knowingly(int x, int left, int right,
+                             const function<bool(const Node &)> &f) {
+        if (left == right)
+            return left;
         push(x, left, right);
         int y = (left + right) >> 1;
         int z = x + ((y - left + 1) << 1);
@@ -117,9 +116,11 @@ public:
         return res;
     }
 
-    int find_first(int x, int from, int to, int left, int right, const function<bool(const Node&)> &func) {
+    int find_first(int x, int from, int to, int left, int right,
+                   const function<bool(const Node &)> &func) {
         if (left <= from && to <= right) {
-            if (!func(tree[x])) return -1;
+            if (!func(tree[x]))
+                return -1;
             return find_first_knowingly(x, from, to, func);
         }
         push(x, from, to);
@@ -136,8 +137,10 @@ public:
         return res;
     }
 
-    int find_last_knowingly(int x, int from, int to, const function<bool(const Node&)> &func) {
-        if (from == to) return from;
+    int find_last_knowingly(int x, int from, int to,
+                            const function<bool(const Node &)> &func) {
+        if (from == to)
+            return from;
         push(x, from, to);
         int y = (from + to) >> 1;
         int z = x + ((y - from + 1) << 1);
@@ -151,9 +154,11 @@ public:
         return res;
     }
 
-    int find_last(int x, int from, int to, int left, int right, const function<bool(const Node&)> &func) {
+    int find_last(int x, int from, int to, int left, int right,
+                  const function<bool(const Node &)> &func) {
         if (left <= from && to <= right) {
-            if (!func(tree[x])) return -1;
+            if (!func(tree[x]))
+                return -1;
             return find_last_knowingly(x, from, to, func);
         }
         push(x, from, to);
@@ -193,26 +198,25 @@ public:
         return query(0, 0, n - 1, idx, idx);
     }
 
-    template <typename... M>
-    void modify(int left, int right, const M&... v) {
+    template <typename... M> void modify(int left, int right, const M &...v) {
         assert(0 <= left && left <= right && right <= n - 1);
         modify(0, 0, n - 1, left, right, v...);
     }
 
     // find_first and find_last call all FALSE elements
     // to the left (right) of the sought position exactly once
-    int find_first(int left, int right, const function<bool(const Node&)> &func) {
+    int find_first(int left, int right,
+                   const function<bool(const Node &)> &func) {
         assert(0 <= left && left <= right && right <= n - 1);
         return find_first(0, 0, n - 1, left, right, func);
     }
 
-    int find_last(int left, int right, const function<bool(const Node&)> &f) {
+    int find_last(int left, int right, const function<bool(const Node &)> &f) {
         assert(0 <= left && left <= right && right <= n - 1);
         return find_last(0, 0, n - 1, left, right, f);
     }
 };
-template<typename T>
-using segtree = SegmentTree<T>; 
+template <typename T> using segtree = SegmentTree<T>;
 
 // Usage:
 // segtree<int> st(n);
