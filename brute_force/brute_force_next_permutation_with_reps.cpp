@@ -1,7 +1,7 @@
 // N = len of v
 // O(N^(r - l + 1) * N)
 bool next_permutations_with_reps(vector<int> &v, int l, int r) {
-    assert(l < r && !v.empty());
+    assert(l <= r && !v.empty());
     if (all_of(v.begin(), v.end(), [&](int x) { return x == r; }))
         return false;
 
