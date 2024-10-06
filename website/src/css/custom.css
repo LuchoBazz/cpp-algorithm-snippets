@@ -1,0 +1,33 @@
+@import 'katex/dist/katex.min.css';
+
+:root {
+  --ifm-color-primary: #FF4F00; /* Fluorescent Orange - Darker */
+  --ifm-color-primary-dark: #CC3E00; /* Darker Fluorescent Orange */
+  --ifm-color-primary-darker: #B33000; /* Even Darker */
+  --ifm-color-primary-darkest: #992600; /* Darkest */
+  --ifm-color-primary-light: #FF6A00; /* Lighter Fluorescent Orange */
+  --ifm-color-primary-lighter: #FF7F00; /* Even Lighter */
+  --ifm-color-primary-lightest: #FF9900; /* Lightest */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1); /* Light background for highlighted lines */
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #FF4F00; /* Fluorescent Orange - Darker */
+  --ifm-color-primary-dark: #CC3E00; /* Darker Fluorescent Orange */
+  --ifm-color-primary-darker: #B33000; /* Even Darker */
+  --ifm-color-primary-darkest: #992600; /* Darkest */
+  --ifm-color-primary-light: #FF6A00; /* Lighter Fluorescent Orange */
+  --ifm-color-primary-lighter: #FF7F00; /* Even Lighter */
+  --ifm-color-primary-lightest: #FF9900; /* Lightest */
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.3); /* Light background for highlighted lines */
+}
+
+:root {
+  --search-local-modal-width: 480px;
+  --search-local-highlight-color: #FF9900; /* Highlight Color */
+}
+
+html[data-theme="dark"] {
+  --search-local-highlight-color: #FF6A00; /* Highlight Color in Dark Mode */
+}
