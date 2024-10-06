@@ -39,8 +39,9 @@ sidebar_position: 1
   It also follows from this property that if $\gcd(a,b) = g$, then 
 
   $$
-  \frac{a}{g} \text{ and } \frac{b}{g} \text{ should be coprime.}
+  \frac{a}{g} \text{ and } \frac{b}{g}
   $$
+  should be coprime.
 
 - **Translation Property:** If $m$ is any integer,
 
@@ -95,7 +96,6 @@ sidebar_position: 1
   can be used to denote the GCD of multiple arguments.
 
 - **Relation with LCM:** $\gcd(a, b)$ is closely related to the least common multiple $\operatorname{lcm}(a, b)$: we have
-
 
   $$
   \gcd(a, b) \cdot \operatorname{lcm}(a, b) = |a \cdot b|
