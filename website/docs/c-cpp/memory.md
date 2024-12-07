@@ -51,4 +51,3 @@ The following table provides a reference for memory limits in both megabytes (MB
 | 8 GB         | 8,388,608 KB |
 | 16 GB        | 16,777,216 KB|
 | 32 GB        | 33,554,432 KB|
-```
