@@ -33,7 +33,7 @@ auto inverse = [&](int64_t num) -> int64_t {
   return fastpow(num, md - 2);
 };
 ```  
-Computes the modular inverse of a number $\( \text{num} \mod \text{md} \)$ using Fermat's Little Theorem. This method is efficient and operates in $\( O(\log \text{md}) \)$.  
+Computes the modular inverse of a number $( \text{num} \mod \text{md} )$ using Fermat's Little Theorem. This method is efficient and operates in $( O(\log \text{md}) )$.  
 
 ### 3. Precomputations
 #### Factorial Table Construction
