@@ -2,6 +2,39 @@
 
 This repository contains templates of useful algorithms and data structures coded in C++ for use in competitive programming.
 
+## Quick Start
+
+### Automatic Snippet Generation
+
+This repository includes scripts to automatically generate code snippets for your editor:
+
+#### For VS Code
+```bash
+python3 generate_vscode_snippets.py
+```
+
+This script automatically:
+- Scans all `.cpp` files in the subdirectories
+- Generates VS Code snippets in `cpp.json`
+- Places them in your VS Code user snippets directory:
+  - **Windows**: `%APPDATA%\Code\User\snippets\cpp.json`
+  - **Linux**: `~/.config/Code/User/snippets/cpp.json`
+  - **macOS**: `~/Library/Application Support/Code/User/snippets/cpp.json`
+- Replaces Vim date placeholders with VS Code variables for template files
+
+#### For Vim/Neovim (UltiSnips)
+```bash
+bash generate_snippets.sh
+```
+
+This script:
+- Searches for all `.cpp` files recursively
+- Generates UltiSnips format snippets
+- Outputs to `~/.vim/UltiSnips/cpp/cpp_generate.snippets`
+- Each snippet is prefixed with the filename (without extension)
+
+After running the appropriate script, you can use any algorithm by typing its prefix (e.g., `graph_dijkstra_std`) and triggering your editor's autocomplete.
+
 ## Contents
 
 `Command` - Description
@@ -28,12 +61,17 @@ This repository contains templates of useful algorithms and data structures code
         * `misc_unique` - Remove duplicate values from a vector.
         * `misc_y_combinator` - Allows you to define a recursive Lambda function.
 
-* **Geometry**
-    * `2d_geometry_point` - Class Point.
-    * `2d_geometry_polygon` - Class Polygon.
-    * `2d_geometry_area` - Algorithm that calculates the area of a polygon.
-    * `2d_geometry_perimeter` - Algorithm that calculates the perimeter of a polygon.
-    * `2d_geometry_convex_hull_mc` - Convex Hull (Monotone Chain) algorithm.
+## Geometry
+
+A collection of 2D computational geometry algorithms and data structures for geometric calculations and operations.
+
+### Components
+
+- **`2d_geometry_point`** - Point representation in 2D space with basic operations
+- **`2d_geometry_polygon`** - Polygon data structure for managing collections of points
+- **`2d_geometry_area`** - Computes the area of a polygon using the shoelace formula
+- **`2d_geometry_perimeter`** - Calculates the total perimeter length of a polygon
+- **`2d_geometry_convex_hull_mc`** - Finds the convex hull using the Monotone Chain algorithm (Andrew's algorithm)
 
 * **Math**
     * `math_check_prime` - Primality test of a number.
