@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: Measuring Execution Time in C++
-sidebar_label: Measuring Execution Time in C++
+sidebar_label: Measuring Execution Time
 ---
 
 ## Measuring Execution Time in C++
