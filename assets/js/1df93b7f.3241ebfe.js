@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcpp_algorithm_snippets=self.webpackChunkcpp_algorithm_snippets||[]).push([[583],{6866:(p,s,t)=>{t.r(s),t.d(s,{default:()=>r});var e=t(6540),n=t(6347),c=t(4848);function r(){const p=(0,n.W6)();return(0,e.useEffect)((()=>{p.push("/cpp-algorithm-snippets/docs/intro")}),[p]),(0,c.jsx)(c.Fragment,{})}}}]);
